@@ -1,11 +1,18 @@
+import React from 'react';
 import logo from './logo.svg';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.css';
 
-function App() {
+//Pages
+import MainPage from './page/MainPage';
+
+const App = (props) => {
   return (
-    <div className="App">
-      안뇽
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MainPage/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
