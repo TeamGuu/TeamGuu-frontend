@@ -1,0 +1,55 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    font-family: "맑은 고딕";
+    color: #333333;
+}
+
+a{
+    text-decoration: none;
+    display: block;
+}
+
+.top{
+    float: left;
+    height: 150px;
+    width: 100%;
+    border-bottom: 1px solid grey;
+}
+
+.logo{
+    float: left;
+    height: 150px;
+    width: 350px;
+}
+
+.menu{
+    float: left;
+    height: 150px;
+    width: 800px;
+}
+
+.loginout{
+    float: right;
+    height: 150px;
+    width: 200px;
+}
+
+.contents{
+    float: left;
+    height: 700px;
+    width: 100%;
+}
+
+.matchList{
+    float: left;
+    height: 700px;
+    width: 675px;
+}
+
+.stadiumList{
+    float: right;
+    height: 700px;
+    width: 675px;
+}
