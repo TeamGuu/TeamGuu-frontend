@@ -8,7 +8,7 @@ const MainPage = (props) => {
         <>
             <div className="top">
                 <div className="logo">
-                    로고자리                        
+                    <img src="logo.png" alt="로고"/>                      
                 </div>
                 <nav className="menu">
                     메뉴자리
