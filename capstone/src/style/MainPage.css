@@ -24,6 +24,13 @@ a{
     width: 350px;
 }
 
+.logo img{
+    height: 120px;
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
 .menu{
     float: left;
     height: 150px;
