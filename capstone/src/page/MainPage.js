@@ -15,9 +15,9 @@ const MainPage = (props) => {
                 </nav>
                 <div className="loginout">
                     <Link to="/page/Login">
-                        <h4>로그인</h4>
+                        <div className="loginBtn">로그인</div>
                     </Link>
-                    <h4>로그아웃</h4>
+                    <div className="logoutBtn">로그아웃</div>
                 </div>
             </div>
             <div className="contents">
