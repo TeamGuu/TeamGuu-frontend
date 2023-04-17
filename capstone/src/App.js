@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.css';
+import bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
 
 //Pages
 import MainPage from './page/MainPage';
