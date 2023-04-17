@@ -28,32 +28,88 @@ a{
     height: 120px;
     width: 300px;
     margin-top: 10px;
-    margin-left: 8px;
+    margin-left: 20px;
 }
 
 .menu{
     float: left;
     height: 150px;
-    width: 800px;
+    width: 750px;
+    z-index: 1;
+}
+
+.navi{
+    float: left;
+    margin-top: 50px;
+    margin-left: 130px;
+}
+
+.navi>li{
+    float: left;
+    width: 190px;
+    height: 65px;
+    line-height: 65px;
+    font-size: 19px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(194, 194, 194, 0.2);
+    border: 1px solid grey;
+    cursor: pointer;
+}
+
+.navi>li:not(:last-of-type){
+    border-right: none;
+}
+
+.navi>li:hover{
+    background-color: #ddf1d8; 
+}
+
+.submenu{
+    position: absolute;
+    width: 190px;
+    height: 195px;
+    z-index: 3;
+}
+
+.submenu>li{
+    width: 190px;
+    height: 65px;
+    line-height: 65px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid grey;
+    margin-left: -1px;
+    cursor: pointer;
+}
+
+.submenu>li:not(:last-of-type){
+    border-bottom: none;
+}
+
+.submenu>li:hover{
+    color: #2a7015;
 }
 
 .loginout{
     float: right;
     height: 150px;
-    width: 200px;
+    width: 250px;
 }
 
 .loginBtn{
     float: left;
-    margin-top: 20px;
-    color: rgba(100, 100, 100, 90);
+    margin-top: 30px;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .logoutBtn{
     float: left;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left: 10px;
-    color: rgba(100, 100, 100, 90);
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .contents{
