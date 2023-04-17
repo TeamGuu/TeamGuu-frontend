@@ -3,8 +3,8 @@ import logo from './logo.svg';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.css';
 import JoinPage from './page/JoinPage';
-import Login from './page/Login';
-import FindIDPW from './page/FindIDPW';
+import Login from './page/LoginPage';
+import FindIDPW from './page/FindIDPWPage';
 //Pages
 import MainPage from './page/MainPage';
 
