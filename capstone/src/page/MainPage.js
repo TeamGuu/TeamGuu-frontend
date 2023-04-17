@@ -13,7 +13,22 @@ const MainPage = (props) => {
                     </Link>                
                 </div>
                 <nav className="menu">
-                    메뉴자리
+                    <ul className="navi">
+                        <li>경기 매칭 신청
+                            <ul className="submenu">
+                                <li>매칭 신청</li>
+                                <li>매칭 목록</li>
+                            </ul>
+                        </li>
+                        <li>경기장 정보</li>
+                        <li>마이페이지
+                            <ul className="submenu">
+                                <li>내 정보</li>
+                                <li>팀 정보</li>
+                                <li>팀 생성</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </nav>
                 <div className="loginout">
                     <Link to="/page/LoginPage">
