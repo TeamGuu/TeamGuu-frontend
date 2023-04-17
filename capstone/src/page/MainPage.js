@@ -14,7 +14,10 @@ const MainPage = (props) => {
                     메뉴자리
                 </nav>
                 <div className="loginout">
-                    로그인/로그아웃자리
+                    <Link to="/page/Login">
+                        <h4>로그인</h4>
+                    </Link>
+                    <h4>로그아웃</h4>
                 </div>
             </div>
             <div className="contents">
