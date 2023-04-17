@@ -1,9 +1,9 @@
 import React from "react";
 
-const FindIDPW=()=>{
+const FindIDPWPage=()=>{
     return(
         <div>idpw찾기입니다.</div>
     );
 }
 
-export default FindIDPW;
+export default FindIDPWPage;
