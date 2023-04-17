@@ -43,6 +43,19 @@ a{
     width: 200px;
 }
 
+.loginBtn{
+    float: left;
+    margin-top: 20px;
+    color: rgba(100, 100, 100, 90);
+}
+
+.logoutBtn{
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+    color: rgba(100, 100, 100, 90);
+}
+
 .contents{
     float: left;
     height: 700px;

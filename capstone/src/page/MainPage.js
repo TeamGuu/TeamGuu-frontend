@@ -8,16 +8,18 @@ const MainPage = (props) => {
         <>
             <div className="top">
                 <div className="logo">
-                    <img src="logo.png" alt="로고"/>                      
+                    <Link to="/">
+                        <img src="logo.png" alt="로고"/>  
+                    </Link>                
                 </div>
                 <nav className="menu">
                     메뉴자리
                 </nav>
                 <div className="loginout">
-                    <Link to="/page/Login">
-                        <h4>로그인</h4>
+                    <Link to="/page/LoginPage">
+                        <div className="loginBtn">로그인</div>
                     </Link>
-                    <h4>로그아웃</h4>
+                    <div className="logoutBtn">로그아웃</div>
                 </div>
             </div>
             <div className="contents">
