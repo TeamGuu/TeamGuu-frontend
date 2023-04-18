@@ -5,7 +5,13 @@ const Navigation = () => {
     return(
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
-                <Navbar.Brand href="/">팀구</Navbar.Brand>
+                <nav className="navbar navbar-light bg-light">
+                    <div className="container">
+                        <a className="navbar-brand" href="#">
+                        <img src="logo.png" alt="" width="300px" height="120px" />
+                        </a>
+                    </div>
+                </nav>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
@@ -24,8 +30,8 @@ const Navigation = () => {
                     </NavDropdown>
                 </Nav>
                 <Nav>
-                    <Nav.Link href="#deets">로그인</Nav.Link>
-                    <Nav.Link href="#memes">회원가입</Nav.Link>
+                    <Nav.Link href="LoginPage">로그인</Nav.Link>
+                    <Nav.Link href="JoinPage">회원가입</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
