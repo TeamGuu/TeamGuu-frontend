@@ -1,13 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import "../style/MainPage.css";
-import { NavDropdown, Container, Nav, Navbar } from 'react-bootstrap';
 
 const MainPage = (props) => {
 
     return(
         <>
-            <div className="top">
+            {/* <div className="top">
                 <div className="logo">
                     <Link to="/">
                         <img src="logo.png" alt="로고"/>  
@@ -19,7 +18,7 @@ const MainPage = (props) => {
                     </Link>
                     <div className="JoinBtn">회원가입</div>
                 </div>
-            </div>
+            </div> */}
             <div className="contents">
                 <div className="matchList">
                     매칭신청목록자리
