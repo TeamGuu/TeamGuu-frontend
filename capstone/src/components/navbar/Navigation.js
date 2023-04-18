@@ -3,24 +3,24 @@ import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 
 const Navigation = () => {
     return(
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="/">팀구</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
-                    <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                        Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                    </NavDropdown.Item>
+                    <NavDropdown title="경기 매칭 신청" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="Match/CreateMatchPage">매칭 공고 제작</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="Match/MatchListPage">매칭 목록</NavDropdown.Item>
+                    </NavDropdown>
+                    <Nav.Link href="StadiumListPage">경기장 정보</Nav.Link>
+                    <NavDropdown title="마이페이지" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="MyPage/MyInfoPage">내 정보</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="MyPage/TeamInfoPage">팀 정보</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="MyPage/CreateTeamPage">팀 생성</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Nav>

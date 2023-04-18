@@ -13,8 +13,6 @@ const MainPage = (props) => {
                         <img src="logo.png" alt="로고"/>  
                     </Link>                
                 </div>
-                
-                    
                 <div className="loginout">
                     <Link to="/page/LoginPage">
                         <div className="loginBtn">로그인</div>
