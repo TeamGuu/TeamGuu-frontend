@@ -13,11 +13,11 @@ const MainPage = (props) => {
                         <img src="logo.png" alt="로고"/>  
                     </Link>                
                 </div>
-                <div className="loginout">
+                <div className="loginJoin">
                     <Link to="/page/LoginPage">
                         <div className="loginBtn">로그인</div>
                     </Link>
-                    <div className="logoutBtn">로그아웃</div>
+                    <div className="JoinBtn">회원가입</div>
                 </div>
             </div>
             <div className="contents">
