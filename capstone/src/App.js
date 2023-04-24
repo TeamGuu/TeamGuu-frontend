@@ -7,7 +7,7 @@ import Navigation from './components/navbar/Navigation';
 
 //Pages
 import MainPage from './page/MainPage';
-import JoinPage from './page/JoinPage';
+import JoinPage from './page/SignUpPage';
 import LoginPage from './page/LoginPage';
 import FindIDPWPage from './page/FindIDPWPage';
 import CreateMatchPage from './page/CreateMatchPage';

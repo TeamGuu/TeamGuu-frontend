@@ -4,7 +4,8 @@ import {Link} from "react-router-dom";
 import { useState } from "react";
 //import "../style/JoinPage.css";
 
-const JoinPage=(props)=>{
+//이거그냥 갖다쓰는게 나을수도.. 직접 해보긴했는데 코드가 안먹음
+const JoinPage=(props)=>{ 
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
@@ -12,10 +13,23 @@ const JoinPage=(props)=>{
     const [name,setName] = useState('');
     const [phoneNumber,setPhoneNumber] = useState('');
 
+    const [userInput, setUserInput] = useState({
+        email: '',
+        password: '',
+        eachPassword: '',
+        name: '',
+        phoneNumber: '',
+        year: '',
+        month: '',
+        day: '',
+    });
 
+    
     const [emailnValid,setEmailValid] = useState(false);
     const [pwValid,setPwValid] = useState(false);
     const [eachValid,setEachValid] = useState(false);
+    const [phoneNumberValid,setphoneNumberValid] = useState(false);
+
 
     //셀렉트 박스
     // 상수 데이터
@@ -81,11 +95,70 @@ const JoinPage=(props)=>{
         setName(e.target.value);
     }
 
+    const onChangePhone=(getNumber)=>{
+        const currentPhone = getNumber;
+        setPhoneNumber(currentPhone);
+        
+        const regex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+
+        if (!regex.test(currentPhone)) {
+            //setPhoneMessage("올바른 형식이 아닙니다!");
+            setphoneNumberValid(false);
+        } else {
+            //setPhoneMessage("사용 가능한 번호입니다:-)");
+            setphoneNumberValid(true);
+        }
+    }
     const handlePhoneNumber =(e)=>{
-        setPhoneNumber(e.target.value);
-        console.log(phoneNumber);
+        const currentNumber = e.target.value;
+        setPhoneNumber(currentNumber);
+        if (currentNumber.length == 3 || currentNumber.length == 8) {
+            setPhoneNumber(currentNumber + "-");
+            onChangePhone(currentNumber + "-");
+        } else {
+            onChangePhone(currentNumber);
+        }
     }
 
+    const isAllValid =
+    emailnValid &&
+    pwValid &&
+    eachValid &&
+    phoneNumberValid;
+
+    const activeBtn = isAllValid ? 'undefined' : 'disabled';
+
+    const checkSignUp = e => {
+        e.preventDefault();
+        fetch('https://8075-211-106-114-186.jp.ngrok.io/users/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+            name: name,
+            birthday: `${YEAR}-${MONTH}-${DAY}`,
+            phone_number: phoneNumber,
+          }),
+        })
+          .then(response => {
+            if (response.ok === true) {
+              return response.json();
+            }
+            throw new Error('에러 발생!');
+          })
+          .catch(error => alert(error))
+          .then(data => {
+            if (data.ok === '회원가입 성공') {
+              alert('회원가입 성공');
+              <Link to="/login" />;
+            } else {
+              alert('회원가입 실패');
+            }
+          });
+      };
     return(
         <div className="Page">
  
@@ -128,7 +201,7 @@ const JoinPage=(props)=>{
                     value={eachPassword}
                     onChange={handleEachPassword}
                 />
-                 <div className="errorMessageWrap">
+                <div className="errorMessageWrap">
                     {
                         !eachValid && eachPassword.length > 0 &&(//기존 비밀번호가 비밀번호 확인하고 일치하지 않았을 때 사용
                             <div>비밀번호가 틀립니다.</div>
@@ -149,6 +222,13 @@ const JoinPage=(props)=>{
                     value={phoneNumber}
                     onChange={handlePhoneNumber}
                 />
+                <div className="errorMessageWrap">
+                    {
+                        !phoneNumberValid && phoneNumber.length > 0 &&(//휴대폰 번호가 제대로 입력되지 않았을 때 사용
+                            <div>올바른 형식이 아닙니다.</div>
+                        )
+                    }   
+                </div>
                 <div>생년월일</div>
                 <select className="select" name="year" >
                     {YEAR.map(y => {
@@ -166,6 +246,10 @@ const JoinPage=(props)=>{
                     })}
                 </select>
             </div>
+            <div className={`signupBtn ${activeBtn}`} onClick={checkSignUp}>
+                가입하기
+            </div>
+
         </div>
     );
 }
