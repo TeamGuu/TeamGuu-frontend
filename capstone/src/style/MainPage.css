@@ -11,6 +11,9 @@ a{
     display: block;
 }
 
+
+/* Navigation */
+
 .navbar{
     height: 150px;
     border-bottom: 1px solid grey;
@@ -77,20 +80,60 @@ a{
     color: rgba(0, 0, 0, 0.7);
 }
 
+
+/* NewMatchListTable */
+
 .contents{
     float: left;
     height: 700px;
     width: 100%;
 }
 
-.matchList{
+.newMatchList{
     float: left;
-    height: 700px;
-    width: 675px;
+    width: 600px;
+    height: 500px;
+    margin-left: 50px;
+    margin-top: 70px;
 }
+
+table{
+   border: 1px solid grey; 
+}
+
+thead tr{
+    background-color: #d5f2c7;
+    height: 55px;
+    font-size: 18px;
+    text-indent: 20px;
+    font-weight: 900px;
+    border-bottom: 1px solid grey;
+}
+
+tbody tr td:first-child{
+    width: 120px;
+    height: 110px;
+}
+
+tbody tr td{
+    padding: 14px;
+    border: 1px solid grey;
+}
+
+tbody tr:hover{
+    background-color: rgb(240, 246, 236);
+    cursor: pointer;
+}
+
+b{
+    font-size: 16px;
+}
+
 
 .stadiumList{
     float: right;
+    width: 600px;
     height: 700px;
-    width: 675px;
+    
 }
+
