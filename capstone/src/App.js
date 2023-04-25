@@ -16,7 +16,7 @@ import StadiumListPage from './page/StadiumListPage';
 import MyInfoPage from './page/MyInfoPage';
 import TeamInfoPage from './page/TeamInfoPage';
 import CreateTeamPage from './page/CreateTeamPage';
-
+import TeamInfoFixPage from './page/TeamInfoFixPage';
 const App = (props) => {
   return (
     <BrowserRouter>
