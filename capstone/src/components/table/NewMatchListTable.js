@@ -1,5 +1,4 @@
 import React from "react";
-import Table from 'react-bootstrap/Table';
 
 const NewMatchListTable = () => {
     return (
@@ -8,6 +7,7 @@ const NewMatchListTable = () => {
               <tr>
                 <th colSpan={3}>
                     최근 매칭 신청
+                    <button className="plusBtn">+ 더보기</button>
                 </th>
               </tr>
             </thead>

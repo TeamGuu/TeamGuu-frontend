@@ -110,6 +110,10 @@ thead tr{
     border-bottom: 1px solid grey;
 }
 
+.plusBtn{
+    float: right;
+}
+
 tbody tr td:first-child{
     width: 120px;
     height: 110px;
