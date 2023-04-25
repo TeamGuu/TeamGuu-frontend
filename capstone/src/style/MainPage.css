@@ -64,7 +64,7 @@ a{
 .loginBtn{
     float: left;
     margin-top: 30px;
-    margin-left: 120px;
+    margin-left: 70px;
     font-size: 18px;
     color: rgba(0, 0, 0, 0.7);
 }
@@ -72,7 +72,7 @@ a{
 .JoinBtn{
     float: left;
     margin-top: 30px;
-    margin-left: 20px;
+    margin-left: 15px;
     font-size: 18px;
     color: rgba(0, 0, 0, 0.7);
 }
