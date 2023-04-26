@@ -104,14 +104,23 @@ table{
 thead tr{
     background-color: #d5f2c7;
     height: 55px;
-    font-size: 18px;
-    text-indent: 20px;
-    font-weight: 900px;
     border-bottom: 1px solid grey;
+}
+
+.tableTxt{
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 20px;
+    line-height: 55px;
+    font-weight: 900px;
 }
 
 .plusBtn{
     float: right;
+    margin-right: 20px;
+    margin-top: 13px;
+    width: 70px;
+    height: 30px;
 }
 
 tbody tr td:first-child{

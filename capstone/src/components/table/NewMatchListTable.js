@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const NewMatchListTable = () => {
     return (
@@ -6,8 +7,12 @@ const NewMatchListTable = () => {
             <thead>
               <tr>
                 <th colSpan={3}>
-                    최근 매칭 신청
-                    <button className="plusBtn">+ 더보기</button>
+                    <div className="tableTxt">최근 매칭 신청</div>
+                    <button className="plusBtn">
+                        <Link to="/page/MatchListPage" style={{textDecoration: "none", color:"black"}}>
+                            + 더보기
+                        </Link>
+                    </button>
                 </th>
               </tr>
             </thead>
