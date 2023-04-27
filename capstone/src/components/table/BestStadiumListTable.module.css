@@ -11,9 +11,9 @@ a{
     display: block;
 }
 
-/* NewMatchListTable */
+/* BestStadiumListTable */
 
-.newMatchList{
+.bestStadiumList{
    border: 1px solid grey; 
 }
 
@@ -40,8 +40,8 @@ a{
 }
 
 .tableBody img{
-    width: 120px;
-    height: 110px; 
+    width: 150px;
+    height: 120px; 
 }
 
 .teamImg{
@@ -50,7 +50,7 @@ a{
 }
 
 .tableBody tr td{
-    padding: 13px;
+    padding: 14px;
     border: 1px solid grey;
 }
 
@@ -59,7 +59,7 @@ a{
     cursor: pointer;
 }
 
-b{
-    font-size: 16px;
+strong{
+    font-size: 18px;
 }
 
