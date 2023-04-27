@@ -1,0 +1,67 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    font-family: "맑은 고딕";
+    color: #333333;
+}
+
+a{
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Navigation */
+
+.container img{
+    margin-left: -90px;
+    margin-bottom: 10px;
+}
+
+.menubar{
+    margin-left: 130px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#dropdownNav{
+    margin-right: 30px;
+    margin-left: 30px;
+    color: #333333;
+}
+
+#dropdownNav:hover{
+    color: #4d7a59;
+}
+
+#subMenuTxt{
+    text-align: center;
+    font-size: 17px;
+}
+
+#fixNav:hover{
+    color: #4d7a59;
+}
+
+.loginJoin{
+    float: right;
+    height: 150px;
+    width: 250px;
+}
+
+.loginBtn{
+    float: left;
+    margin-top: 30px;
+    margin-left: 120px;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.JoinBtn{
+    float: left;
+    margin-top: 30px;
+    margin-left: 20px;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
+}
