@@ -62,7 +62,7 @@ export default function LoginPage(){
 
     return(
         <div className={styles.page}>
-            <div className={styles.titleWrap}>
+            <div className={styles.loginlogo}>
                 이메일과 비밀번호를
                 <br/>
                 입력해주세요

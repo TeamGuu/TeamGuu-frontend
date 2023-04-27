@@ -1,6 +1,6 @@
 
 .page{
-    position: absolute;
+    /* position: absolute;
     top: auto;
     bottom: auto;
     width: 100%;
@@ -15,7 +15,10 @@
     background-color: #f7f7f7;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; */
+    width: 700px;
+    background-color: #f5f5f5;
+    margin-top: 80px;
   }
   .titleWrap{
     margin-top: 87px;
