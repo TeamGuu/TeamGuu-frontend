@@ -5,6 +5,7 @@ import styles from "./MainPage.module.css";
 
 //components
 import NewMatchListTable from "../components/table/NewMatchListTable";
+import BestStadiumListTable from "../components/table/BestStadiumListTable";
 
 const MainPage = (props) => {
     return(
@@ -13,7 +14,7 @@ const MainPage = (props) => {
                 <NewMatchListTable />
             </div>
             <div className={styles.stadiumList}>
-                경기장목록자리
+                <BestStadiumListTable />
             </div>
         </div>    
     );

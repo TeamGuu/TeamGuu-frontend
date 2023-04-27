@@ -21,13 +21,14 @@ a{
     float: left;
     width: 600px;
     height: 500px;
-    margin-left: 50px;
-    margin-top: 70px;
+    margin-left: 80px;
+    margin-top: 80px;
 }
 
 .stadiumList{
     float: right;
     width: 600px;
     height: 700px;
-    
+    margin-right: 80px;
+    margin-top: 80px;
 }
