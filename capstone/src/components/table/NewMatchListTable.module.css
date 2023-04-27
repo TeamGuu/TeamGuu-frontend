@@ -1,0 +1,65 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    font-family: "맑은 고딕";
+    color: #333333;
+}
+
+a{
+    text-decoration: none;
+    display: block;
+}
+
+/* NewMatchListTable */
+
+.newMatchList{
+   border: 1px solid grey; 
+}
+
+.tableHead{
+    background-color: #d5f2c7;
+    height: 55px;
+    border-bottom: 1px solid grey;
+}
+
+.tableTxt{
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 20px;
+    line-height: 55px;
+    font-weight: 900px;
+}
+
+.plusBtn{
+    float: right;
+    margin-right: 20px;
+    margin-top: 13px;
+    width: 70px;
+    height: 30px;
+}
+
+.tableBody img{
+    width: 120px;
+    height: 110px; 
+}
+
+.teamImg{
+    width: 120px;
+    height: 110px;
+}
+
+.tableBody tr td{
+    padding: 14px;
+    border: 1px solid grey;
+}
+
+.tableBody tr:hover{
+    background-color: rgb(240, 246, 236);
+    cursor: pointer;
+}
+
+b{
+    font-size: 16px;
+}
+
