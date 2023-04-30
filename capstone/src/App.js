@@ -7,7 +7,7 @@ import Navigation from './components/navbar/Navigation';
 
 //Pages
 import MainPage from './page/MainPage';
-import JoinPage from './page/SignUpPage';
+import JoinPage from './page/JoinPage';
 import LoginPage from './page/LoginPage';
 import FindIDPWPage from './page/FindIDPWPage';
 import CreateMatchPage from './page/CreateMatchPage';
@@ -31,6 +31,7 @@ const App = (props) => {
         <Route path='/page/StadiumListPage' element={<StadiumListPage/>}/>
         <Route path='/page/MyInfoPage' element={<MyInfoPage/>}/>
         <Route path='/page/TeamInfoPage' element={<TeamInfoPage/>}/>
+        <Route path='/page/TeamInfoFixPage' element={<TeamInfoFixPage/>}/>
         <Route path='/page/CreateTeamPage' element={<CreateTeamPage/>}/>
       </Routes>
     </BrowserRouter>
