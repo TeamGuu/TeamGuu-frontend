@@ -1,51 +1,45 @@
 
 .page{
-    /* position: absolute;
-    top: auto;
-    bottom: auto;
-    width: 100%;
-    max-width: 500px;
-    padding: 0 20px;
-  
-    text-align: left; 
-  
-    left: 50%;
-    transform: translate(-50%, 0);
-  
-    background-color: #f7f7f7;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column; */
     width: 700px;
     background-color: #f5f5f5;
-    margin-top: 80px;
+    margin-top: 100px;
+  }
+
+  .titleWrap b{
+    font-size: 40px;
   }
   .titleWrap{
-    margin-top: 87px;
-    font-size: 26px;
-    font-weight: 700;
-    color:#262626;
+    padding: 30px;
+    font-size: 30px;
+    color:#717171;
   }
+
   .contentWrap{
-    margin-top: 26px;
-    flex: 1;
+    margin-top: 25px;
+    height: 200px;
+    /* flex: 1; */
   }
+
   .inputTitle{
-    font-size: 12px;
-    font-weight: 600;
+    display: inline-block;
+    margin-left: 30px;
+    font-size: 27px;
     color:#262626;
   }
+
   .inputWrap{
-    display: flex;
+    display: inline-block;
+    float: right;
+    width: 500px;
     border-radius: 8px;
-    padding: 16px;
-    margin-top: 8px;
+    padding: 8px;
+    font-size: 25px;
     background-color: white;
     border: 1px solid #e2e0e0;
   }
   
   .inputWrap:focus-within{
-    border: 1px solid #9e30f4;
+    border: 1px solid #2a8229;
   }
   .input{
     width: 100%;

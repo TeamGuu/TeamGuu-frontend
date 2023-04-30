@@ -62,22 +62,20 @@ export default function LoginPage(){
 
     return(
         <div className={styles.page}>
-            <div className={styles.loginlogo}>
-                이메일과 비밀번호를
-                <br/>
-                입력해주세요
+            <div className={styles.titleWrap}>
+                <b>로그인</b> | Login
             </div>
             <div className={styles.contentWrap}>
-                <div className={styles.inputTitle}>이메일 주소</div>
-                <div className={styles.inputWrap}>
-                    <input 
-                        type='text'
-                        className={styles.input}
-                        placeholder="test@gmail.com"
-                        value={email}
-                        onChange={handleEmail}
-                    />
-                </div>
+                <div className={styles.inputTitle}>ID</div>
+                    <div className={styles.inputWrap}>
+                        <input 
+                            type='text'
+                            className={styles.input}
+                            placeholder="아이디를 입력하세요"
+                            value={email}
+                            onChange={handleEmail}
+                        />
+                    </div>
                 <div className={styles.errorMessageWrap}>
                     {
                         !emailnValid && email.length > 0 &&(//이메일이 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
@@ -86,16 +84,16 @@ export default function LoginPage(){
                     }
                 </div>
 
-                <div style={{marginTop:"26px"}} className={styles.inputTitle}>비밀번호</div>
-                <div className={styles.inputWrap}>
-                    <input 
-                        type='password'
-                        className={styles.input}
-                        placeholder="영문, 숫자, 특수문자 포함 8자 이상"
-                        value={password}
-                        onChange={handlePassword}
-                    />
-                </div>
+                <div style={{marginTop:"26px"}} className={styles.inputTitle}>Password</div>
+                    <div className={styles.inputWrap}>
+                        <input 
+                            type='password'
+                            className={styles.input}
+                            placeholder="비밀번호를 입력하세요"
+                            value={password}
+                            onChange={handlePassword}
+                        />
+                    </div>
                 <div className={styles.errorMessageWrap}>
                     {
                         !pwValid && password.length > 0 &&(//비밀번호가 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
@@ -105,8 +103,8 @@ export default function LoginPage(){
                 </div>
             </div>
 
-            <div>
-                <button onClick={onClickConfirmButton} disabled={notAllow} className={styles.bottomButton}>확인</button>
+            <div className={styles.ConfirmBtn}>
+                <button onClick={onClickConfirmButton} disabled={notAllow} className={styles.bottomButton}>로그인</button>
             </div>
             <div>
                 <Link to="/page/FindIDPW">
