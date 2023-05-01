@@ -84,16 +84,16 @@ export default function LoginPage(){
                     }
                 </div>
 
-                <div style={{marginTop:"26px"}} className={styles.inputTitle}>Password</div>
-                    <div className={styles.inputWrap}>
-                        <input 
-                            type='password'
-                            className={styles.input}
-                            placeholder="비밀번호를 입력하세요"
-                            value={password}
-                            onChange={handlePassword}
-                        />
-                    </div>
+                <div style={{marginTop:"40px"}} className={styles.inputTitle}>Password</div>
+                <div className={styles.inputWrap}>
+                    <input 
+                        type='password'
+                        className={styles.input}
+                        placeholder="비밀번호를 입력하세요"
+                        value={password}
+                        onChange={handlePassword}
+                    />
+                </div>
                 <div className={styles.errorMessageWrap}>
                     {
                         !pwValid && password.length > 0 &&(//비밀번호가 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
@@ -103,17 +103,22 @@ export default function LoginPage(){
                 </div>
             </div>
 
-            <div className={styles.ConfirmBtn}>
-                <button onClick={onClickConfirmButton} disabled={notAllow} className={styles.bottomButton}>로그인</button>
+            <div>
+                <button onClick={onClickConfirmButton} disabled={notAllow} className={styles.confirmButton}>로그인</button>
             </div>
             <div>
-                <Link to="/page/FindIDPW">
-                    <button >ID/PW찾기</button>
+            <div className={styles.bottomBtn}>
+            <div className={styles.findIDPWTxt}> 
+                <Link to="/page/FindIDPW" style={{ textDecoration: "none", color: "black"}}>
+                    ID/PW찾기
                 </Link>
-                
-                <Link to="/page/JoinPage">
-                        <button>회원가입</button>
+            </div>
+            <div className={styles.JoinTxt}>    
+                <Link to="/page/JoinPage" style={{ textDecoration: "none", color: "black"}}>
+                    회원가입
                 </Link>
+            </div>
+            </div>                
             </div>
         </div>
     );
