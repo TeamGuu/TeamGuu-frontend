@@ -16,21 +16,20 @@
 
   .contentWrap{
     margin-top: 25px;
-    margin-bottom: 25px;
     height: 200px;
     /* flex: 1; */
   }
 
   .inputTitle{
     display: inline-block;
-    margin-left: 30px;
+    margin-left: 40px;
     font-size: 27px;
     color:#262626;
   }
 
   .inputWrap{
     float: right;
-    margin-right: 30px;
+    margin-right: 40px;
     width: 450px;
     height: 50px;
     border-radius: 8px;
@@ -65,7 +64,8 @@
     width: 70%;
     height: 48px;
     border: none;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: bold;
     border-radius: 64px;
     color:white;
     margin-left: 100px;

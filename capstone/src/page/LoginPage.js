@@ -67,15 +67,15 @@ export default function LoginPage(){
             </div>
             <div className={styles.contentWrap}>
                 <div className={styles.inputTitle}>ID</div>
-                    <div className={styles.inputWrap}>
-                        <input 
-                            type='text'
-                            className={styles.input}
-                            placeholder="아이디를 입력하세요"
-                            value={email}
-                            onChange={handleEmail}
-                        />
-                    </div>
+                <div className={styles.inputWrap}>
+                    <input 
+                        type='text'
+                        className={styles.input}
+                        placeholder="아이디를 입력하세요"
+                        value={email}
+                        onChange={handleEmail}
+                    />
+                </div>
                 <div className={styles.errorMessageWrap}>
                     {
                         !emailnValid && email.length > 0 &&(//이메일이 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
@@ -84,8 +84,8 @@ export default function LoginPage(){
                     }
                 </div>
 
-                <div style={{marginTop:"40px"}} className={styles.inputTitle}>Password</div>
-                <div className={styles.inputWrap}>
+                <div style={{ marginTop:"40px" }} className={styles.inputTitle}>Password</div>
+                <div style={{ marginTop:"-45px" }} className={styles.inputWrap}>
                     <input 
                         type='password'
                         className={styles.input}
