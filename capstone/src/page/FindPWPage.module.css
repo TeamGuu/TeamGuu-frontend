@@ -1,0 +1,98 @@
+.topBtn{
+    margin-top: 50px;
+    height: 130px;
+}
+
+.findIDBtn{
+    border: 2px solid rgb(173, 173, 173);
+    width: 360px;
+    height: 70px;
+    text-align: center;
+    font-size: 20px;
+    background-color: #e8e8e8;
+}
+
+.findPWBtn{
+    border: 2px solid rgb(173, 173, 173);
+    width: 360px;
+    height: 70px;
+    text-align: center;
+    font-size: 20px;
+    background-color: #e8e8e8;
+}
+
+.findPWWrap{
+    background-color: #e8e8e8;
+    width: 920px;
+    height: 380px;
+    border: 2px solid rgb(173, 173, 173);
+}
+
+.id{
+    display: inline-block;
+    width: 120px;
+    margin-left: 80px;
+    margin-top: 80px;
+    font-size: 25px;
+    color: #3c3c3c;
+}
+
+.email{
+    display: inline-block;
+    width: 120px;
+    margin-left: 80px;
+    margin-top: 80px;
+    font-size: 25px;
+    color: #3c3c3c;
+}
+
+.verifyCode{
+    display: inline-block;
+    width: 120px;
+    margin-left: 80px;
+    margin-top: 40px;
+    font-size: 25px;
+    color: #3c3c3c;
+}
+
+.inputWrap{
+    display: inline-block;
+}
+
+.input{
+    width: 450px;
+    height: 50px;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.verifyCodeBtn{
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    margin-left: 50px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 50px;
+    background-color: rgb(247, 255, 238);
+    font-size: 17px;
+    color: #626262;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.confirmPWBtn{
+    width: 300px;
+    height: 70px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    line-height: 70px;
+    background-color: #206f2f;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid grey;
+    border-radius: 40px;
+}
