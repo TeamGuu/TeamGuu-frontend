@@ -109,7 +109,7 @@ export default function LoginPage(){
 
             <div className={styles.bottomBtn}>
                 <div className={styles.findIDPWTxt}> 
-                    <Link to="/page/FindID" style={{ textDecoration: "none", color: "black"}}>
+                    <Link to="/page/FindIDPage" style={{ textDecoration: "none", color: "black"}}>
                         ID/PW찾기
                     </Link>
                 </div>
