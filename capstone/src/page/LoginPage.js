@@ -106,20 +106,19 @@ export default function LoginPage(){
             <div>
                 <button onClick={onClickConfirmButton} disabled={notAllow} className={styles.confirmButton}>로그인</button>
             </div>
-            <div>
+
             <div className={styles.bottomBtn}>
-            <div className={styles.findIDPWTxt}> 
-                <Link to="/page/FindIDPW" style={{ textDecoration: "none", color: "black"}}>
-                    ID/PW찾기
-                </Link>
-            </div>
-            <div className={styles.JoinTxt}>    
-                <Link to="/page/JoinPage" style={{ textDecoration: "none", color: "black"}}>
-                    회원가입
-                </Link>
-            </div>
+                <div className={styles.findIDPWTxt}> 
+                    <Link to="/page/FindID" style={{ textDecoration: "none", color: "black"}}>
+                        ID/PW찾기
+                    </Link>
+                </div>
+                <div className={styles.JoinTxt}>    
+                    <Link to="/page/JoinPage" style={{ textDecoration: "none", color: "black"}}>
+                        회원가입
+                    </Link>
+                </div>
             </div>                
-            </div>
         </div>
     );
 }

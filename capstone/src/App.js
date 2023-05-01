@@ -9,7 +9,8 @@ import Navigation from './components/navbar/Navigation';
 import MainPage from './page/MainPage';
 import JoinPage from './page/JoinPage';
 import LoginPage from './page/LoginPage';
-import FindIDPWPage from './page/FindIDPWPage';
+import FindIDPage from './page/FindIDPage';
+import FindPWPage from './page/FindPWPage';
 import CreateMatchPage from './page/CreateMatchPage';
 import MatchListPage from './page/MatchListPage';
 import StadiumListPage from './page/StadiumListPage';
@@ -25,7 +26,8 @@ const App = (props) => {
         <Route path='/' element={<MainPage/>} />
         <Route path='/page/LoginPage' element={<LoginPage/>}/>
         <Route path='/page/JoinPage' element={<JoinPage/>}/>
-        <Route path='/page/FindIDPWPage' element={<FindIDPWPage/>}/>
+        <Route path='/page/FindIDPage' element={<FindIDPage/>}/>
+        <Route path='/page/FindPWPage' element={<FindPWPage/>}/>
         <Route path='/page/CreateMatchPage' element={<CreateMatchPage/>}/>
         <Route path='/page/MatchListPage' element={<MatchListPage/>}/>
         <Route path='/page/StadiumListPage' element={<StadiumListPage/>}/>
