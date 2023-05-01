@@ -34,9 +34,11 @@ a{
 .plusBtn{
     float: right;
     margin-right: 20px;
-    margin-top: 13px;
+    margin-top: 11px;
     width: 70px;
-    height: 30px;
+    height: 33px;
+    border: 1px solid grey;
+    border-radius: 3px;
 }
 
 .tableBody img{
