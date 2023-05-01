@@ -68,7 +68,7 @@ export default function FindIDPage(){
                                 </Link>
                             </td>
                             <td className={styles.findPWBtn}>
-                                <Link to="/page/FindIDPage" style={{ textDecoration : "none", color: "black" }}>
+                                <Link to="/page/FindPWPage" style={{ textDecoration : "none", color: "black" }}>
                                     PW 찾기
                                 </Link>
                             </td>
@@ -104,7 +104,7 @@ export default function FindIDPage(){
                     <input 
                         type='verifyCode'
                         className={styles.input}
-                        placeholder="인증번호를 입력하세요"
+                        placeholder="6자리 숫자를 입력하세요"
                         value={verifyCode}
                         onChange={handleVerifyCode}
                     />
