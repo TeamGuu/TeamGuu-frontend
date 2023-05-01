@@ -5,6 +5,9 @@ import {Link} from "react-router-dom";
 //style
 import styles from "./Navigation.module.css";
 
+//image
+import teamguuLogo from "./teamguuLogo.png";
+
 const Navigation = () => {
     return(
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -12,7 +15,7 @@ const Navigation = () => {
                 <nav className="navbar navbar-light bg-light">
                     <div className={styles.container}>
                         <a className="navbar-brand">
-                        <Link to="/"><img src="teamguuLogo.png" alt="로고" width="300px" height="110px" /></Link>
+                        <Link to="/"><img src={teamguuLogo} alt="로고" width="300px" height="110px" /></Link>
                         </a>
                     </div>
                 </nav>
