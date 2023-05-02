@@ -4,18 +4,25 @@
 }
 
 .findIDBtn{
+    float: left;
+    margin-left: -360px;
     border: 2px solid rgb(173, 173, 173);
+    border-right: none;
     width: 360px;
     height: 70px;
+    line-height: 70px;
     text-align: center;
     font-size: 20px;
     background-color: #e8e8e8;
 }
 
 .findPWBtn{
+    float: right;
+    margin-right: -360px;
     border: 2px solid rgb(173, 173, 173);
     width: 360px;
     height: 70px;
+    line-height: 70px;
     text-align: center;
     font-size: 20px;
     background-color: #e8e8e8;
