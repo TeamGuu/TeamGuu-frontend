@@ -62,16 +62,16 @@ export default function FindIDPage(){
                 <table className={styles.iDPWBtn}>
                     <tbody>
                         <tr>
-                            <td className={styles.findIDBtn}>
-                                <Link to="/page/FindIDPage" style={{ textDecoration : "none", color: "black" }}>
+                            <Link to="/page/FindIDPage" style={{ textDecoration : "none", color: "black" }}>
+                                <td className={styles.findIDBtn}>
                                     ID 찾기
-                                </Link>
-                            </td>
-                            <td className={styles.findPWBtn}>
-                                <Link to="/page/FindPWPage" style={{ textDecoration : "none", color: "black" }}>
+                                </td>
+                            </Link>                            
+                            <Link to="/page/FindPWPage" style={{ textDecoration : "none", color: "black" }}>
+                                <td className={styles.findPWBtn}>                                
                                     PW 찾기
-                                </Link>
-                            </td>
+                                </td>
+                            </Link>
                         </tr>
                     </tbody>
                 </table>
