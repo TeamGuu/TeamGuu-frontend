@@ -1,0 +1,36 @@
+.topWrap{
+    height: 80px;
+    margin-top: 70px;
+}
+
+.title{
+    float: left;
+    width: 250px;
+    margin-left: 140px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.registerBtn{
+    float: right;
+    width: 100px;
+    height: 40px;
+    margin-right: 140px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid rgb(84, 84, 84);
+    background-color: rgb(84, 84, 84);
+    color: white;
+    cursor: pointer;
+}
+
+.bottomWrap{
+    margin-bottom: 70px;
+    background-color: rgb(245, 245, 245);
+    width: 1200px;
+    height: 500px;
+    border: 1px solid grey;
+}
+
