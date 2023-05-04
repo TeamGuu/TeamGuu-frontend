@@ -3,7 +3,7 @@
     margin-top: 70px;
 }
 
-.title{
+.pageTitle{
     float: left;
     width: 250px;
     margin-left: 140px;
@@ -30,7 +30,54 @@
     margin-bottom: 70px;
     background-color: rgb(245, 245, 245);
     width: 1200px;
-    height: 500px;
+    height: 600px;
     border: 1px solid grey;
 }
+
+.selectTitle{
+    display: inline-block;
+    width: 100px;
+    margin-top: 30px;
+    margin-left: 50px;
+    font-size: 22px;
+}
+
+.inputWrap{
+    display: inline-block;
+    font-size: 17px;
+}
+
+.title input{
+    width: 950px;
+    height: 40px;
+}
+
+.content{
+    height: 500px;
+}
+
+.content .selectTitle{
+    float: left;
+}
+
+
+select{
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+input{
+    width: 170px;
+    height: 40px;
+    padding-left: 13px;
+}
+
+textarea{
+    width: 950px;
+    height: 300px;
+    padding: 13px;
+}
+
 
