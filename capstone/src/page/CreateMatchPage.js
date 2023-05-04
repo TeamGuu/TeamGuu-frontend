@@ -40,6 +40,7 @@ const CreateMatchPage = (props) => {
                     </div>
                     <div className={styles.inputWrap}>
                         <DatePicker
+                            className={styles.datePicker}
                             dateFormat="yyyy년 MM월 dd일" 
                             selected={startDate} 
                             onChange={(date) => setStartDate(date)} 

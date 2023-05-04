@@ -61,15 +61,15 @@
 }
 
 
-select{
+.place select{
     width: 100px;
     height: 40px;
     font-size: 18px;
     padding-left: 10px;
 }
 
-input{
-    width: 170px;
+.title input{
+    width: 950px;
     height: 40px;
     padding-left: 13px;
 }
@@ -78,6 +78,12 @@ textarea{
     width: 950px;
     height: 300px;
     padding: 13px;
+}
+
+.datePicker{
+    width: 170px;
+    height: 40px;
+    padding-left: 17px;
 }
 
 
