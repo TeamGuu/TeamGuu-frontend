@@ -2,6 +2,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import { useState } from "react";
+import axios from 'axios';
 //import "../style/JoinPage.css";
 
 //이거그냥 갖다쓰는게 나을수도.. 직접 해보긴했는데 코드가 안먹음
@@ -12,17 +13,19 @@ const JoinPage=(props)=>{
     const [eachPassword,setEachPassword] = useState('');
     const [name,setName] = useState('');
     const [phoneNumber,setPhoneNumber] = useState('');
+    //const [birthday,setBirthday] = useState('');
 
-    const [userInput, setUserInput] = useState({
-        email: '',
-        password: '',
-        eachPassword: '',
-        name: '',
-        phoneNumber: '',
-        year: '',
-        month: '',
-        day: '',
-    });
+    
+
+
+    // const [userInput, setUserInput] = useState({
+    //     email: '',
+    //     password: '',
+    //     eachPassword: '',
+    //     name: '',
+    //     phoneNumber: '',
+    //     birthday: '',
+    // });
 
     
     const [emailnValid,setEmailValid] = useState(false);
@@ -37,7 +40,7 @@ const JoinPage=(props)=>{
     const YEAR = [];
 
     const nowYear = new Date().getFullYear();
-    for (let i = 1980; i <= nowYear; i++) {
+    for (let i = 1990; i <= nowYear; i++) {
     YEAR.push(i);
     }
 
@@ -58,10 +61,13 @@ const JoinPage=(props)=>{
 
     const handleEmail=(e)=>{ //올바른 이메일 주소 형식으로 텍스트 입력할경우 경고문이 사라짐
         setEmail(e.target.value);
+
         const regex =
         /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/;
         if(regex.test(email)){
             setEmailValid(true);
+            
+           // handleChange(e.target);
         }else{
             setEmailValid(false);
         }
@@ -73,6 +79,7 @@ const JoinPage=(props)=>{
         /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\- _=+]).{8,20}$/;
         if(regex.test(password)){
             setPwValid(true);
+          //  handleChange(e.target);
         }else{
             setPwValid(false);
         }
@@ -93,6 +100,7 @@ const JoinPage=(props)=>{
 
     const handleName =(e)=>{
         setName(e.target.value);
+      //  handleChange(e.target);
     }
 
     const onChangePhone=(getNumber)=>{
@@ -107,6 +115,7 @@ const JoinPage=(props)=>{
         } else {
             //setPhoneMessage("사용 가능한 번호입니다:-)");
             setphoneNumberValid(true);
+          //  handleChange(e.target);
         }
     }
     const handlePhoneNumber =(e)=>{
@@ -120,40 +129,65 @@ const JoinPage=(props)=>{
         }
     }
 
-    const isAllValid =
-    emailnValid &&
-    pwValid &&
-    eachValid &&
-    phoneNumberValid;
+    // const handleChange = (event) => {
+    //     const { name, value } = event.target;
+    //     setFormData((prevFormData) => ({
+    //       ...prevFormData,
+    //       [name]: value
+    //     }));
+    //   };
+
+
+
+    const isAllValid = ()=>{
+        // const {
+        //     email,
+        //     password,
+        //     eachPassword,
+        //     name,
+        //     phoneNumber,
+        //     birthday           
+        //   } = userInput;
+          return(
+            email &&
+            password &&
+            eachPassword &&
+            name &&
+            phoneNumber &&
+            //birthday && 
+            emailnValid &&
+            pwValid &&
+            eachValid &&
+            phoneNumberValid
+          );
+    };
+    
 
     const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
-    const checkSignUp = e => {
+    const checkSignUp = (e) => {
         e.preventDefault();
-        fetch('https://8075-211-106-114-186.jp.ngrok.io/users/signup', {
+        axios({
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-          },
-          body: JSON.stringify({
+          url:'노션 url 참고',
+          data:{
             email: email,
             password: password,
             name: name,
             birthday: `${YEAR}-${MONTH}-${DAY}`,
-            phone_number: phoneNumber,
-          }),
-        })
-          .then(response => {
-            if (response.ok === true) {
-              return response.json();
-            }
-            throw new Error('에러 발생!');
-          })
-          .catch(error => alert(error))
-          .then(data => {
+            phoneNumber: phoneNumber,
+          }
+        }).then((response) => {
+             if (response.ok === true) {
+               return response.json();
+             }
+             throw new Error('에러 발생!');
+            console.log(response);
+          }).catch(error => alert(error))
+          .then((data) => {
             if (data.ok === '회원가입 성공') {
               alert('회원가입 성공');
-              <Link to="/login" />;
+              <Link to="./page/LoginPage" />;
             } else {
               alert('회원가입 실패');
             }
@@ -171,6 +205,7 @@ const JoinPage=(props)=>{
                      placeholder="test@gmail.com"
                      value={email}
                      onChange={handleEmail}
+                     
                 />
                 <div className="errorMessageWrap">
                     {
