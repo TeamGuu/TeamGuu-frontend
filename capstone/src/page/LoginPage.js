@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
-
+import {Link, Navigate} from "react-router-dom";
+import axios from 'axios';
 //style
 import styles from "./LoginPage.module.css";
 
@@ -11,6 +11,8 @@ const User={
 
 
 export default function LoginPage(){
+
+    
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
@@ -52,12 +54,32 @@ export default function LoginPage(){
     }, [emailnValid,pwValid]);
 
 
-    const onClickConfirmButton = () => {
+    const onClickConfirmButton = (e) => {
+        e.preventDefault();
         if(email === User.eamil && password === User.password){
             alert('로그인에 성공했습니다.');
         }else{
             alert('등록되지않은 회원입니다.');
         }
+        //e.preventDefault();
+        
+        // axios({
+        //     method:"POST",
+        //     url: '노션에서 코드 url 가져오면됨',
+        //     data:{
+        //         "email": email,
+        //         "password": password,
+        //     }
+        // }).then((res)=>{ //성공하면 res에 토큰을 받을 수 있다. 토큰을 받으면 로그인에 성공했다는 뜻 -> 토큰을 전역변수로 저장하고 서버에 요청할 때마다 헤더에 넣어서 준다.
+        //    localStorage.setItem('accesstoken',res.data.token); //.token이 기본이지만 api명세서에 accesstoken라고 나와있으므로 이름 바꿔주었음
+        //     alert('로그인 성공');
+        //     Navigate('./page/MainPage');
+        //    console.log(res);
+        // }).catch(error=>{
+        //     alert('로그인 실패');
+        //     console.log(error);
+        //     throw new Error(error);
+        // });
     }
 
     return(
@@ -104,7 +126,7 @@ export default function LoginPage(){
             </div>
 
             <div>
-                <button onClick={onClickConfirmButton} disabled={notAllow} className={styles.confirmButton}>로그인</button>
+                <button type="submit" onClick={onClickConfirmButton} disabled={notAllow} className={styles.confirmButton}>로그인</button>
             </div>
 
             <div className={styles.bottomBtn}>
