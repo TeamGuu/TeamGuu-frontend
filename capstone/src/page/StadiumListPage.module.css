@@ -1,0 +1,47 @@
+.topNav{
+    float: left;
+    margin-top: 30px;
+    margin-left: 80px;
+    
+}
+
+.placeNav{
+    float: left;
+    height: 65px;
+    width: 1000px;
+    line-height: 65px;
+    margin-top: 20px;
+    margin-right: 20px;
+    background-color: rgb(246, 255, 245);
+    border: 1px solid rgb(173, 173, 173);
+}
+
+.placeNav li{
+    float: left;
+    width: 103px;
+    text-align: center;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.placeNav li:hover{
+    color: gray;
+}
+
+.searchBar{
+    float: right;
+    width: 270px;
+    margin-top: 35px;
+    margin-right: 20px;
+}
+
+.searchInput{
+    width: 230px;
+    height: 35px;
+    text-indent: 5px;
+}
+
+.searchSubmit{
+    width: 40px;
+    height: 35px;
+}
