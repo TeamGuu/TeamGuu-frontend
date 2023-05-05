@@ -1,0 +1,76 @@
+.joinWrap{
+    margin-top: 50px;
+}
+
+.joinTitleTxt{
+    width: 250px;
+    /* margin-left: 500px; */
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.elementWrap{
+    width: 800px;
+    margin-top: 30px;
+    margin-left: 23%;
+    padding-bottom: 30px;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid grey;
+}
+
+.elementTxt{
+    display: inline-block;
+    width: 170px;
+    font-size: 23px;
+    margin-left: 150px;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+
+.elementInput{
+    font-size: 16px;
+    width: 300px;
+    height: 35px;
+    text-indent: 10px;
+}
+
+.yearSelect{
+    font-size: 16px;
+    width: 80px;
+    height: 35px;
+    text-align: center;
+}
+
+.monthSelect{
+    font-size: 16px;
+    width: 65px;
+    height: 35px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.daySelect{
+    font-size: 16px;
+    width: 65px;
+    height: 35px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.signupBtn{
+    width: 30%;
+    height: 48px;
+    line-height: 48px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 64px;
+    color:white;
+    background-color: rgb(128, 128, 128);
+    margin-left: 530px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    cursor: pointer;
+}
