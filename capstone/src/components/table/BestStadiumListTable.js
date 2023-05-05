@@ -4,6 +4,9 @@ import {Link} from "react-router-dom";
 //style
 import styles from "./BestStadiumListTable.module.css";
 
+//image
+import stadium from "./stadium.png";
+
 const BestStadiumListTable = () => {
     return(
         <table className={styles.bestStadiumList}>
@@ -21,19 +24,19 @@ const BestStadiumListTable = () => {
             </thead>
             <tbody className={styles.tableBody}>
                 <tr>
-                    <td><img src="stadium.png" /></td>
+                    <td><img src={stadium} alt="경기장사진" /></td>
                     <td><strong>캄프누</strong><br/><br/>위치 : 스페인 카탈리냐주 바르셀로나<br/>전화번호 : 02-337-8699</td>
                 </tr>
                 <tr>
-                    <td><img src="stadium.png" /></td>
+                    <td><img src={stadium} alt="경기장사진" /></td>
                     <td><strong>올드 트래포드</strong><br/><br/>위치 : 영국 그레이터맨체스터 트래포드<br/>전화번호 : 02-933-2727</td>
                 </tr>
                 <tr>
-                    <td><img src="stadium.png" /></td>
+                    <td><img src={stadium} alt="경기장사진" /></td>
                     <td><strong>안필드</strong><br/><br/>위치 : 영국 리버풀<br/>전화번호 : 02-123-4567</td>
                 </tr>
                 <tr>
-                    <td><img src="stadium.png" /></td>
+                    <td><img src={stadium} alt="경기장사진" /></td>
                     <td><strong>진영오빠집</strong><br/><br/>위치 : 힐하우스 a동<br/>전화번호 : 010-1234-5678</td>
                 </tr>
             </tbody>
