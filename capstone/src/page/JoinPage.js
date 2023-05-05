@@ -3,7 +3,9 @@ import React from "react";
 import {Link} from "react-router-dom";
 import { useState } from "react";
 import axios from 'axios';
-//import "../style/JoinPage.css";
+
+//styles
+import styles from "./JoinPage.module.css";
 
 //이거그냥 갖다쓰는게 나을수도.. 직접 해보긴했는데 코드가 안먹음
 const JoinPage=(props)=>{ 
@@ -194,96 +196,111 @@ const JoinPage=(props)=>{
           });
       };
     return(
-        <div className="Page">
- 
-            <div className="titleWrap">
-                <div>회원가입</div>
-                <div>아이디</div>
-                <input
-                     type='text'
-                    // className="input"
-                     placeholder="test@gmail.com"
-                     value={email}
-                     onChange={handleEmail}
-                     
-                />
-                <div className="errorMessageWrap">
-                    {
-                        !emailnValid && email.length > 0 &&(//이메일이 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
-                            <div>올바른 이메일 형식이 아닙니다.</div>
+        <div>
+            <div className={styles.joinWrap}>
+                <div className={styles.joinTitleTxt}>회원가입</div>
+                <div className={styles.elementWrap}>
+                
+                    <div className={styles.elementTxt}>아이디</div>
+                    <input
+                        type='text'
+                        className={styles.elementInput}
+                        placeholder="test@gmail.com"
+                        value={email}
+                        onChange={handleEmail}
+                        
+                    />
+                    <div className="errorMessageWrap">
+                        {
+                            !emailnValid && email.length > 0 &&(//이메일이 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
+                                <div>올바른 이메일 형식이 아닙니다.</div>
+                            )
+                        }
+                    </div>
+
+                    <div className={styles.elementTxt}>비밀번호</div>
+                    <input 
+                        type='text'
+                    className={styles.elementInput}
+                        placeholder="영문, 숫자, 특수문자 포함 8자 이상"
+                        value={password}
+                        onChange={handlePassword}
+                    />
+                    <div className="errorMessageWrap">
+                        {
+                            !pwValid && password.length > 0 &&(//비밀번호가 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
+                            <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
                         )
-                    }
-                </div>
-                <div>비밀번호</div>
-                <input 
-                    type='text'
-                   // className="input"
-                    placeholder="영문, 숫자, 특수문자 포함 8자 이상"
-                    value={password}
-                    onChange={handlePassword}
-                />
-                 <div className="errorMessageWrap">
-                    {
-                        !pwValid && password.length > 0 &&(//비밀번호가 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
-                        <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
-                    )
-                    }   
-                </div>
-                <div>비밀번호 확인</div>
-                <input 
-                    type='text'
-                    //className="input"
-                    value={eachPassword}
-                    onChange={handleEachPassword}
-                />
-                <div className="errorMessageWrap">
-                    {
-                        !eachValid && eachPassword.length > 0 &&(//기존 비밀번호가 비밀번호 확인하고 일치하지 않았을 때 사용
-                            <div>비밀번호가 틀립니다.</div>
-                        )
-                    }   
-                </div>
-                <div>이름</div>
-                <input 
-                    type='text'
-                    //className="input"
-                    value={name}
-                    onChange={handleName}
-                />
-                <div>휴대폰 번호</div>
-                <input
-                    type='text'
-                    //className="input"
-                    value={phoneNumber}
-                    onChange={handlePhoneNumber}
-                />
-                <div className="errorMessageWrap">
-                    {
-                        !phoneNumberValid && phoneNumber.length > 0 &&(//휴대폰 번호가 제대로 입력되지 않았을 때 사용
-                            <div>올바른 형식이 아닙니다.</div>
-                        )
-                    }   
-                </div>
-                <div>생년월일</div>
-                <select className="select" name="year" >
-                    {YEAR.map(y => {
-                        return <option key={y}>{y}</option>;
-                    })}
-                </select>
-                <select className="select" name="month" >
-                    {MONTH.map(m => {
-                        return <option key={m}>{m}</option>;
-                    })}
-                </select>
-                <select className="select" name="day" >
-                    {DAY.map(d => {
-                        return <option key={d}>{d}</option>;
-                    })}
-                </select>
+                        }   
+                    </div>
+
+                    <div className={styles.elementTxt}>비밀번호 확인</div>
+                    <input 
+                        type='text'
+                        className={styles.elementInput}
+                        value={eachPassword}
+                        onChange={handleEachPassword}
+                    />
+                    <div className="errorMessageWrap">
+                        {
+                            !eachValid && eachPassword.length > 0 &&(//기존 비밀번호가 비밀번호 확인하고 일치하지 않았을 때 사용
+                                <div>비밀번호가 틀립니다.</div>
+                            )
+                        }   
+                    </div>
+
+                    <div className={styles.elementTxt}>이름</div>
+                    <input 
+                        type='text'
+                        className={styles.elementInput}
+                        value={name}
+                        onChange={handleName}
+                    />
+                    <div className="errorMessageWrap">
+                        {/* {
+                            !nameValid && name.length > 0 &&(//기존 비밀번호가 비밀번호 확인하고 일치하지 않았을 때 사용
+                                <div>한글만 입력해주세요.</div>
+                            )
+                        }    */}
+                    </div>
+
+                    <div className={styles.elementTxt}>휴대폰 번호</div>
+                    <input
+                        type='text'
+                        className={styles.elementInput}
+                        value={phoneNumber}
+                        onChange={handlePhoneNumber}
+                    />
+                    <div className="errorMessageWrap">
+                        {
+                            !phoneNumberValid && phoneNumber.length > 0 &&(//휴대폰 번호가 제대로 입력되지 않았을 때 사용
+                                <div>올바른 형식이 아닙니다.</div>
+                            )
+                        }   
+                    </div>
+
+                    <div className={styles.elementTxt}>생년월일</div>
+                    <select className={styles.yearSelect} name="year" >
+                        {YEAR.map(y => {
+                            return <option key={y}>{y}</option>;
+                        })}
+                    </select>
+                    <select className={styles.monthSelect} name="month" >
+                        {MONTH.map(m => {
+                            return <option key={m}>{m}</option>;
+                        })}
+                    </select>
+                    <select className={styles.daySelect} name="day" >
+                        {DAY.map(d => {
+                            return <option key={d}>{d}</option>;
+                        })}
+                    </select>
+                </div>    
             </div>
-            <div className={`signupBtn ${activeBtn}`} onClick={checkSignUp}>
+            {/* <div className={`signupBtn ${activeBtn}`} onClick={checkSignUp}>
                 가입하기
-            </div>
+            </div> */}
+            <div className={styles.signupBtn}>가입하기</div>
 
         </div>
     );
