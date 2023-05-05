@@ -1,8 +1,25 @@
-.topNav{
+.topWrap{
     float: left;
     margin-top: 30px;
     margin-left: 80px;
     
+}
+
+.searchBar{
+    float: right;
+    width: 270px;
+    margin-right: 240px;
+}
+
+.searchInput{
+    width: 230px;
+    height: 35px;
+    text-indent: 5px;
+}
+
+.searchSubmit{
+    width: 40px;
+    height: 35px;
 }
 
 .placeNav{
@@ -10,8 +27,8 @@
     height: 65px;
     width: 1000px;
     line-height: 65px;
-    margin-top: 20px;
-    margin-right: 20px;
+    margin-top: 30px;
+    margin-left: 154px;
     background-color: rgb(246, 255, 245);
     border: 1px solid rgb(173, 173, 173);
 }
@@ -28,20 +45,8 @@
     color: gray;
 }
 
-.searchBar{
-    float: right;
-    width: 270px;
-    margin-top: 35px;
-    margin-right: 20px;
-}
-
-.searchInput{
-    width: 230px;
-    height: 35px;
-    text-indent: 5px;
-}
-
-.searchSubmit{
-    width: 40px;
-    height: 35px;
+.bottomWrap{
+    width: 100%;
+    height: 600px;
+    margin-top: 150px;
 }
