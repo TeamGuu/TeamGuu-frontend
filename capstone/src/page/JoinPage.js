@@ -198,7 +198,7 @@ const JoinPage=(props)=>{
  
             <div className="titleWrap">
                 <div>회원가입</div>
-                <div>이메일</div>
+                <div>아이디</div>
                 <input
                      type='text'
                     // className="input"
@@ -210,7 +210,7 @@ const JoinPage=(props)=>{
                 <div className="errorMessageWrap">
                     {
                         !emailnValid && email.length > 0 &&(//이메일이 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
-                            <div>올바른 이메일을 입력해주세요.</div>
+                            <div>올바른 이메일 형식이 아닙니다.</div>
                         )
                     }
                 </div>
