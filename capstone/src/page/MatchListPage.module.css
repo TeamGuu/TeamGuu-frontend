@@ -1,0 +1,68 @@
+.searchBar{
+    margin-top: 20px;
+    height: 70px;
+}
+
+.hopelocal{
+    float: left;
+    width: 200px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 180px;
+    padding: 10px;
+}
+
+.hopelocalTxt{
+    float: left;
+    width: 80px;
+    font-size: 22px;
+}
+
+.hopelocalSelect select{
+    width: 80px;
+    height: 35px;
+    margin-left: 15px;
+    font-size: 18px;
+    text-indent: 10px;
+}
+
+.hopetime{
+    float: left;
+    width: 300px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 150px;
+    padding: 10px;
+}
+
+.hopetimeTxt{
+    float: left;
+    width: 130px;
+    font-size: 22px;
+}
+
+.hopetimeSelect select{
+    width: 130px;
+    height: 35px;
+    margin-left: 15px;
+    font-size: 18px;
+    text-indent: 10px;
+}
+
+.search{
+    float: right;
+    margin-right: 150px;
+    margin-top: 17px;
+    width: 300px;
+}
+
+.searchInput{
+    width: 230px;
+    height: 35px;
+    text-indent: 5px;
+}
+
+.searchSubmit{
+    width: 40px;
+    height: 35px;
+}
