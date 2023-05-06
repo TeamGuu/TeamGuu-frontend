@@ -9,6 +9,7 @@ import styles from "./TeamInfoPage.module.css";
 import team from "./team.png";
 
 
+
 const TeamInfoPage = (props) => {
 
      //서버에서 받아온 데이터 저장
@@ -32,13 +33,21 @@ const TeamInfoPage = (props) => {
 
 
     useEffect(() => {
+
+        //const accessToken = localStorage.getItem('accessToken');
         axios
-          .get("http://43.201.242.0:8080/api/teams")
+          .get("http://43.201.242.0:8080/api/teams/simple",{
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          })
           .then((response) => {
+            console.log('조회성공');
             setTeamInfo(response.data);
           })
           .catch((error) => {
             console.log(error);
+            console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
           });
       }, []);
     
