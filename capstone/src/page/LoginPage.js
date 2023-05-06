@@ -4,10 +4,10 @@ import axios from 'axios';
 //style
 import styles from "./LoginPage.module.css";
 
-const User={
-    eamil: 'test@example.com',
-    password: 'test2323@@@',
-}
+// const User={
+//     eamil: 'test@example.com',
+//     password: 'test2323@@@',
+// }
 
 
 export default function LoginPage(){
@@ -55,12 +55,7 @@ export default function LoginPage(){
 
 
     const onClickConfirmButton = (e) => {
-        // e.preventDefault();
-        // if(email === User.eamil && password === User.password){
-        //     alert('로그인에 성공했습니다.');
-        // }else{
-        //     alert('등록되지않은 회원입니다.');
-        // }
+
         e.preventDefault();
         
         const userData ={
@@ -70,12 +65,13 @@ export default function LoginPage(){
 
         axios.post('http://43.201.242.0:8080/api/auth/sign-in', userData)
         .then((res)=>{ //성공하면 res에 토큰을 받을 수 있다. 토큰을 받으면 로그인에 성공했다는 뜻 -> 토큰을 전역변수로 저장하고 서버에 요청할 때마다 헤더에 넣어서 준다.
-           localStorage.setItem('accesstoken',res.data.token); //.token이 기본이지만 api명세서에 accesstoken라고 나와있으므로 이름 바꿔주었음
+           localStorage.setItem('accessToken',res.data.result.accessToken); //.token이 기본이지만 api명세서에 accesstoken라고 나와있으므로 이름 바꿔주었음
             alert('로그인 성공');
-            Navigate('./page/MainPage');
+           // Navigate('./page/MainPage');
            console.log(res);
+           console.log(res.data.result.accessToken);
         }).catch(error=>{
-            alert('로그인 실패');
+           // alert('로그인 실패');
             console.log(error);
             throw new Error(error);
         });

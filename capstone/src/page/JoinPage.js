@@ -15,51 +15,35 @@ const JoinPage=(props)=>{
     const [eachPassword,setEachPassword] = useState('');
     const [name,setName] = useState('');
     const [phoneNumber,setPhoneNumber] = useState('');
-    //const [birthday,setBirthday] = useState('');
+    const [year, setYear] = useState("");
+    const [month, setMonth] = useState("");
+    const [day, setDay] = useState("");
 
-    
-
-
-    // const [userInput, setUserInput] = useState({
-    //     email: '',
-    //     password: '',
-    //     eachPassword: '',
-    //     name: '',
-    //     phoneNumber: '',
-    //     birthday: '',
-    // });
-
+    const birth = `${year}-${month}-${day}`;
     
     const [emailnValid,setEmailValid] = useState(false);
     const [pwValid,setPwValid] = useState(false);
     const [eachValid,setEachValid] = useState(false);
     const [phoneNumberValid,setphoneNumberValid] = useState(false);
 
-
-    //셀렉트 박스
-    // 상수 데이터
-    // 년
-    const YEAR = [];
-
-    const nowYear = new Date().getFullYear();
-    for (let i = 1990; i <= nowYear; i++) {
-    YEAR.push(i);
+    // 1900년부터 2023년까지의 년도를 생성
+    const yearOptions = [];
+    for (let i = 1990; i <= 2023; i++) {
+    yearOptions.push(<option value={i}>{i}</option>);
     }
 
-    // 월
-    const MONTH = [];
-
+    // 1월부터 12월까지의 월을 생성
+    const monthOptions = [];
     for (let i = 1; i <= 12; i++) {
-    let m = String(i).padStart(2, '0');
-    MONTH.push(m);
+        monthOptions.push(<option value={i}>{i}</option>);
     }
 
-    // 일
-    const DAY = [];
+    // 1일부터 31일까지의 일을 생성
+    const dayOptions = [];
     for (let i = 1; i <= 31; i++) {
-    let d = String(i).padStart(2, '0');
-    DAY.push(d);
+        dayOptions.push(<option value={i}>{i}</option>);
     }
+    
 
     const handleEmail=(e)=>{ //올바른 이메일 주소 형식으로 텍스트 입력할경우 경고문이 사라짐
         setEmail(e.target.value);
@@ -131,13 +115,7 @@ const JoinPage=(props)=>{
         }
     }
 
-    // const handleChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setFormData((prevFormData) => ({
-    //       ...prevFormData,
-    //       [name]: value
-    //     }));
-    //   };
+  
 
 
 
@@ -179,10 +157,10 @@ const JoinPage=(props)=>{
             password: password,
             name: name,
             phone: phoneNumber,
-            birth: `${YEAR}-${MONTH}-${DAY}`
+            birth: birth
           };
 
-        axios.post('http://43.201.242.0:8080/api/auth/sign-up', requestBody,{withCredentials: true})
+        axios.post('http://43.201.242.0:8080/api/auth/sign-up', requestBody)
         .then((response) => {
             console.log(response);
             alert('회원가입이 완료되었습니다.');
@@ -190,6 +168,7 @@ const JoinPage=(props)=>{
           .catch((error) => {
             console.error(error);
             alert('회원가입에 실패했습니다.');
+            
           });  
       };
 
@@ -279,21 +258,18 @@ const JoinPage=(props)=>{
                     </div>
 
                     <div className={styles.elementTxt}>생년월일</div>
-                    <select className={styles.yearSelect} name="year" >
-                        {YEAR.map(y => {
-                            return <option key={y}>{y}</option>;
-                        })}
-                    </select>
-                    <select className={styles.monthSelect} name="month" >
-                        {MONTH.map(m => {
-                            return <option key={m}>{m}</option>;
-                        })}
-                    </select>
-                    <select className={styles.daySelect} name="day" >
-                        {DAY.map(d => {
-                            return <option key={d}>{d}</option>;
-                        })}
-                    </select>
+                    <select value={year} onChange={(e) => setYear(e.target.value)}>
+                        <option value="">--년도--</option>
+                            {yearOptions}
+                        </select>
+                        <select value={month} onChange={(e) => setMonth(e.target.value)}>
+                            <option value="">--월--</option>
+                            {monthOptions}
+                        </select>
+                        <select value={day} onChange={(e) => setDay(e.target.value)}>
+                            <option value="">--일--</option>
+                            {dayOptions}
+                        </select>
                 </div>    
             </div>
             {/* <div className={`signupBtn ${activeBtn}`} onClick={checkSignUp}>
