@@ -167,34 +167,33 @@ const JoinPage=(props)=>{
 
     const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
+
+    
+
+
     const checkSignUp = (e) => {
         e.preventDefault();
-        axios({
-          method: 'POST',
-          url:'노션 url 참고',
-          data:{
-            email: email,
+
+        const requestBody = {
+            username: email,
             password: password,
             name: name,
-            birthday: `${YEAR}-${MONTH}-${DAY}`,
-            phoneNumber: phoneNumber,
-          }
-        }).then((response) => {
-             if (response.ok === true) {
-               return response.json();
-             }
-             throw new Error('에러 발생!');
+            phone: phoneNumber,
+            birth: `${YEAR}-${MONTH}-${DAY}`
+          };
+
+        axios.post('http://43.201.242.0:8080/api/auth/sign-up', requestBody,{withCredentials: true})
+        .then((response) => {
             console.log(response);
-          }).catch(error => alert(error))
-          .then((data) => {
-            if (data.ok === '회원가입 성공') {
-              alert('회원가입 성공');
-              <Link to="./page/LoginPage" />;
-            } else {
-              alert('회원가입 실패');
-            }
-          });
+            alert('회원가입이 완료되었습니다.');
+          })
+          .catch((error) => {
+            console.error(error);
+            alert('회원가입에 실패했습니다.');
+          });  
       };
+
+
     return(
         <div>
             <div className={styles.joinWrap}>
@@ -300,7 +299,7 @@ const JoinPage=(props)=>{
             {/* <div className={`signupBtn ${activeBtn}`} onClick={checkSignUp}>
                 가입하기
             </div> */}
-            <div className={styles.signupBtn}>가입하기</div>
+            <div className={styles.signupBtn} onClick={checkSignUp}>가입하기</div>
 
         </div>
     );

@@ -1,14 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../style/TeamInfoPage.css";
 import {Link} from "react-router-dom";
-
+import axios from "axios";
 //style
 import styles from "./TeamInfoPage.module.css";
 
 //image
 import team from "./team.png";
 
+
 const TeamInfoPage = (props) => {
+
+     //서버에서 받아온 데이터 저장
+    const [teamInfo, setTeamInfo] = useState({});
+
+
+    const name = teamInfo.name;// 팀 이름
+    const intro = teamInfo.intro;//팀 한줄 소개
+    const captain = teamInfo.captain;//팀 주장 이름
+    const sports = teamInfo.sports;//팀 종목
+    const victory = teamInfo.victory;// 팀 승리 전적
+    const draw = teamInfo.draw;//팀 무승부 전적
+    const defeat = teamInfo.defeat;// 팀 패배 전적
+    const history = teamInfo.history;// 팀 약력
+    // const playerInfo = teamInfo.playerInfo;// 팀원 정보 아직 안했습니다.
+    // const players = playerInfo.split(",");
+    // const playerList = players.map((player) => {
+    //     const [name, position] = player.split("("); // 괄호 안의 문자열을 추출하여 이름과 포지션을 나눕니다.
+    //     return <li>{name} ({position})</li>; // 이름과 포지션을 리스트 형태로 렌더링합니다.
+    //   });
+
+
+    useEffect(() => {
+        axios
+          .get("http://43.201.242.0:8080/api/teams")
+          .then((response) => {
+            setTeamInfo(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }, []);
+    
+
+
     return(
         <div className={styles.contents}>
             <div className={styles.teamWrap}>
@@ -16,13 +51,13 @@ const TeamInfoPage = (props) => {
                     <img src={team} alt="팀사진" />
                 </div>
                 <div className={styles.teamInfo}>
-                    <li>명지FC</li>
-                    <li>꿈과 희망이 있는 명지FC입니다.</li>
+                    <li>{name}</li>
+                    <li>{intro}</li>
                     <br/>
-                    <li>주장: 김띵지</li>
-                    <li>종목: 축구</li>
-                    <li>전적: 35전 20승 15패</li>
-                    <li>약력: OO시대회 준우승</li>                        
+                    <li>주장: {captain}</li>
+                    <li>종목: {sports}</li>
+                    <li>전적: {victory}승 {draw}무 {defeat}패</li>
+                    <li>약력: {history}</li>                        
                 </div>
                 
             </div>
@@ -47,6 +82,7 @@ const TeamInfoPage = (props) => {
                             <li>남도일(RCB)</li>
                             <li>장미(RB)</li>
                             <li>김띵지(GK)</li>
+                            {/* {playerList} */}
                         </ul>
                     </div>
                 </div>
