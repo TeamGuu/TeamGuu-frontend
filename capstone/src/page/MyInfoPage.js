@@ -94,10 +94,17 @@ const MyInfoPage = (props) => {
                 <div className={styles.list}>
                     <div className={styles.listTxt}>지역</div>
                     <div className={styles.myPlace}>
-                    <input 
-                            placeholder="서울"
-                            style={{textIndent:"10px"}}
-                        />
+                        <select>
+                            <option>--</option>
+                            <option>서울</option>
+                            <option>인천</option>
+                            <option>경기</option>
+                            <option>강원</option>
+                            <option>충청</option>
+                            <option>경상</option>
+                            <option>전라</option>
+                            <option>제주</option>
+                        </select>
                     </div>
                 </div>
             </div>
