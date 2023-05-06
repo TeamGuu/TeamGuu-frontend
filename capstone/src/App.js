@@ -14,10 +14,12 @@ import FindPWPage from './page/FindPWPage';
 import CreateMatchPage from './page/CreateMatchPage';
 import MatchListPage from './page/MatchListPage';
 import StadiumListPage from './page/StadiumListPage';
+import StadiumInfoPage from './page/StadiumInfoPage';
 import MyInfoPage from './page/MyInfoPage';
 import TeamInfoPage from './page/TeamInfoPage';
 import CreateTeamPage from './page/CreateTeamPage';
 import TeamInfoFixPage from './page/TeamInfoFixPage';
+
 const App = (props) => {
   return (
     <BrowserRouter>
@@ -31,6 +33,7 @@ const App = (props) => {
         <Route path='/page/CreateMatchPage' element={<CreateMatchPage/>}/>
         <Route path='/page/MatchListPage' element={<MatchListPage/>}/>
         <Route path='/page/StadiumListPage' element={<StadiumListPage/>}/>
+        <Route path='/page/StadiumInfoPage' element={<StadiumInfoPage/>}/>
         <Route path='/page/MyInfoPage' element={<MyInfoPage/>}/>
         <Route path='/page/TeamInfoPage' element={<TeamInfoPage/>}/>
         <Route path='/page/TeamInfoFixPage' element={<TeamInfoFixPage/>}/>
