@@ -101,7 +101,7 @@ export default function LoginPage(){
                 <div className={styles.errorMessageWrap}>
                     {
                         !emailnValid && email.length > 0 &&(//이메일이 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
-                            <div>올바른 이메일을 입력해주세요.</div>
+                            <div style={{color:"#cf0000"}}>올바른 이메일을 입력해주세요.</div>
                         )
                     }
                 </div>
@@ -119,13 +119,13 @@ export default function LoginPage(){
                 <div className={styles.errorMessageWrap}>
                     {
                         !pwValid && password.length > 0 &&(//비밀번호가 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
-                            <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
+                            <div style={{color:"#cf0000"}}>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
                         )
                     }   
                 </div>
             </div>
 
-            <div>
+            <div className={styles.confirmWrap}>
                 <button type="submit" onClick={onClickConfirmButton} disabled={notAllow} className={styles.confirmButton}>로그인</button>
             </div>
 

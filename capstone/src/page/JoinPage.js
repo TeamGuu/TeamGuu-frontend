@@ -210,10 +210,10 @@ const JoinPage=(props)=>{
                         onChange={handleEmail}
                         
                     />
-                    <div className="errorMessageWrap">
+                    <div className={styles.errorMessageWrap}>
                         {
                             !emailnValid && email.length > 0 &&(//이메일이 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
-                                <div>올바른 이메일 형식이 아닙니다.</div>
+                                <div style={{color:"#cf0000"}}>올바른 이메일 형식이 아닙니다.</div>
                             )
                         }
                     </div>
@@ -226,10 +226,10 @@ const JoinPage=(props)=>{
                         value={password}
                         onChange={handlePassword}
                     />
-                    <div className="errorMessageWrap">
+                    <div className={styles.errorMessageWrap}>
                         {
                             !pwValid && password.length > 0 &&(//비밀번호가 valid하지 않았을 때와 아무것도 입력하지 않았을 때 사용
-                            <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
+                            <div style={{color:"#cf0000"}}>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
                         )
                         }   
                     </div>
@@ -241,10 +241,10 @@ const JoinPage=(props)=>{
                         value={eachPassword}
                         onChange={handleEachPassword}
                     />
-                    <div className="errorMessageWrap">
+                    <div className={styles.errorMessageWrap}>
                         {
                             !eachValid && eachPassword.length > 0 &&(//기존 비밀번호가 비밀번호 확인하고 일치하지 않았을 때 사용
-                                <div>비밀번호가 틀립니다.</div>
+                                <div style={{color:"#cf0000"}}>비밀번호가 다릅니다.</div>
                             )
                         }   
                     </div>
@@ -256,7 +256,7 @@ const JoinPage=(props)=>{
                         value={name}
                         onChange={handleName}
                     />
-                    <div className="errorMessageWrap">
+                    <div className={styles.errorMessageWrap}>
                         {/* {
                             !nameValid && name.length > 0 &&(//기존 비밀번호가 비밀번호 확인하고 일치하지 않았을 때 사용
                                 <div>한글만 입력해주세요.</div>
@@ -271,10 +271,10 @@ const JoinPage=(props)=>{
                         value={phoneNumber}
                         onChange={handlePhoneNumber}
                     />
-                    <div className="errorMessageWrap">
+                    <div className={styles.errorMessageWrap}>
                         {
                             !phoneNumberValid && phoneNumber.length > 0 &&(//휴대폰 번호가 제대로 입력되지 않았을 때 사용
-                                <div>올바른 형식이 아닙니다.</div>
+                                <div style={{color:"#cf0000"}}>올바른 형식이 아닙니다.</div>
                             )
                         }   
                     </div>

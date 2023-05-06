@@ -74,3 +74,7 @@
     text-align: center;
     cursor: pointer;
 }
+
+.errorMessageWrap{
+    margin-left: 330px;
+}

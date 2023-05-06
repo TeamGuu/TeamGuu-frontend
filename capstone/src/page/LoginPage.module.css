@@ -17,19 +17,20 @@
   .contentWrap{
     margin-top: 25px;
     height: 200px;
-    /* flex: 1; */
+    flex: 1;
   }
 
   .inputTitle{
     display: inline-block;
+    width: 100px;
     margin-left: 40px;
     font-size: 27px;
     color:#262626;
   }
 
   .inputWrap{
-    float: right;
-    margin-right: 40px;
+    display: inline-block;
+    margin-left: 40px;
     width: 450px;
     height: 50px;
     border-radius: 8px;
@@ -55,11 +56,15 @@
   }
   
   .errorMessageWrap{
-    margin: 8px;
-    color: #cf0000;
+    padding: 5px;
+    margin-left: 180px;
     font-size:12px;
   }
   
+.confirmWrap{
+  margin-top: 30px;
+}
+
   .confirmButton{
     width: 70%;
     height: 48px;
