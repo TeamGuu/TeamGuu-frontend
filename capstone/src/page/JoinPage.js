@@ -258,15 +258,18 @@ const JoinPage=(props)=>{
                     </div>
 
                     <div className={styles.elementTxt}>생년월일</div>
-                    <select value={year} onChange={(e) => setYear(e.target.value)}>
+                        <select style={{fontSize:"16px", width:"90px", height:"35px", textAlign:"center"}} 
+                            value={year} onChange={(e) => setYear(e.target.value)}>
                         <option value="">--년도--</option>
                             {yearOptions}
                         </select>
-                        <select value={month} onChange={(e) => setMonth(e.target.value)}>
+                        <select style={{fontSize:"16px", width:"90px", height:"35px", textAlign:"center", marginLeft:"10px"}}
+                            value={month} onChange={(e) => setMonth(e.target.value)}>
                             <option value="">--월--</option>
                             {monthOptions}
                         </select>
-                        <select value={day} onChange={(e) => setDay(e.target.value)}>
+                        <select style={{fontSize:"16px", width:"90px", height:"35px", textAlign:"center", marginLeft:"10px"}}
+                            value={day} onChange={(e) => setDay(e.target.value)}>
                             <option value="">--일--</option>
                             {dayOptions}
                         </select>

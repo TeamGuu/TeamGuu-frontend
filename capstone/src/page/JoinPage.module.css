@@ -35,29 +35,6 @@
     text-indent: 10px;
 }
 
-.yearSelect{
-    font-size: 16px;
-    width: 80px;
-    height: 35px;
-    text-align: center;
-}
-
-.monthSelect{
-    font-size: 16px;
-    width: 65px;
-    height: 35px;
-    text-align: center;
-    margin-left: 5px;
-}
-
-.daySelect{
-    font-size: 16px;
-    width: 65px;
-    height: 35px;
-    text-align: center;
-    margin-left: 5px;
-}
-
 .signupBtn{
     width: 30%;
     height: 48px;
