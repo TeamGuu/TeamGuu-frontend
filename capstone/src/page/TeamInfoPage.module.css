@@ -42,14 +42,27 @@
 }
 
 .fixBtn{
-    float: right;
+    float: left;
     margin-top: 20px;
-    margin-right: 130px;
+    margin-left: 230px;
     width: 120px;
     height: 40px;
     font-size: 18px;
     border: 1px solid grey;
     border-radius: 5px;
+}
+
+.deleteBtn{
+    float: right;
+    margin-top: 20px;
+    margin-right: 130px;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: rgb(224, 27, 27);
+    color: white;
 }
 
 .teammateInfo{

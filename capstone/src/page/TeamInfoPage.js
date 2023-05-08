@@ -71,9 +71,12 @@ const TeamInfoPage = (props) => {
                 
             </div>
             <div className={styles.teammateWrap}>
-                <div className={styles.fixBtnArea}>
+                <div className={styles.BtnArea}>
                     <Link to="/page/TeamInfoFixPage">
                         <button className={styles.fixBtn}>팀 정보 수정</button>
+                    </Link>
+                    <Link to="/page/TeamInfoFixPage">
+                        <button className={styles.deleteBtn}>팀 삭제</button>
                     </Link>
                 </div>
                 <div className={styles.teammateInfo}>
