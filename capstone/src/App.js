@@ -13,6 +13,7 @@ import FindIDPage from './page/FindIDPage';
 import FindPWPage from './page/FindPWPage';
 import CreateMatchPage from './page/CreateMatchPage';
 import MatchListPage from './page/MatchListPage';
+import MatchInfoPage from './page/MatchInfoPage';
 import StadiumListPage from './page/StadiumListPage';
 import StadiumInfoPage from './page/StadiumInfoPage';
 import MyInfoPage from './page/MyInfoPage';
@@ -32,6 +33,7 @@ const App = (props) => {
         <Route path='/page/FindPWPage' element={<FindPWPage/>}/>
         <Route path='/page/CreateMatchPage' element={<CreateMatchPage/>}/>
         <Route path='/page/MatchListPage' element={<MatchListPage/>}/>
+        <Route path='/page/MatchInfoPage' element={<MatchInfoPage/>}/>
         <Route path='/page/StadiumListPage' element={<StadiumListPage/>}/>
         <Route path='/page/StadiumInfoPage' element={<StadiumInfoPage/>}/>
         <Route path='/page/MyInfoPage' element={<MyInfoPage/>}/>

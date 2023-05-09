@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CommonTable from "./CommonTable";
 import CommonTableColumn from "./CommonTableColumn";
 import CommonTableRow from "./CommonTableRow";
@@ -72,14 +73,18 @@ const MatchListPage = props => {
           </div>
           <hr/>
           <CommonTable headersName={['팀이름', '프로필', '팀전적', '희망지역','희망시간','공고제목']}>
+            
             <CommonTableRow>
+              <Link to="/page/MatchInfoPage" style={{textDecoration: "none"}}>
               <CommonTableColumn>명지FC</CommonTableColumn>
+              </Link>
               <CommonTableColumn>이미지</CommonTableColumn>
               <CommonTableColumn>35전20승15패</CommonTableColumn>
               <CommonTableColumn>서울</CommonTableColumn>
               <CommonTableColumn>18pm~21pm</CommonTableColumn>
               <CommonTableColumn>명지FC와 겨룰팀을 구합니다.</CommonTableColumn>
             </CommonTableRow>
+            
             <CommonTableRow>
               <CommonTableColumn>서울FC</CommonTableColumn>
               <CommonTableColumn>이미지</CommonTableColumn>
