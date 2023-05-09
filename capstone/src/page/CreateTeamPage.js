@@ -1,10 +1,18 @@
 import React from "react";
 
+//style
+import styles from "./CreateTeamPage.module.css";
+
 const CreateTeamPage = (props) => {
     return(
-        <div>
-            <h2>팀 생성 화면</h2>
-        </div>
+        <>
+            <div className={styles.topWrap}>
+                <div className={styles.saveBtn}>저장</div>
+            </div>
+            <div className={styles.bottomWrap}>
+                
+            </div>
+        </>
     );
 }
 
