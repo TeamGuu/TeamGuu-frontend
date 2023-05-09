@@ -3,6 +3,9 @@ import React from "react";
 //style
 import styles from "./CreateTeamPage.module.css";
 
+//image
+import team from "./team.png";
+
 const CreateTeamPage = (props) => {
     return(
         <>
@@ -16,7 +19,12 @@ const CreateTeamPage = (props) => {
                         <tr>
                             <td>팀 대표 이미지</td>                       
                             <td className={styles.teamImg}>
-                                <input type="file" accept="image/*"></input>
+                                <img src={team} alt="팀사진" />
+                                <input 
+                                    type="file" 
+                                    accept="image/*" 
+                                    style={{float:"right", marginRight:"370px", marginTop:"170px"}}
+                                />
                             </td>
                         </tr>
                         <tr>

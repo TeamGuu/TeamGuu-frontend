@@ -8,15 +8,15 @@
     font-size: 28px;
     width: 250px;
     margin-left: 170px;
-    margin-top: 50px;
+    margin-top: 55px;
     font-weight: bold;
 
 }
 
 .saveBtn{
     display: inline-block;
-    float: right;
-    margin-right: 160px;
+    /* float: right; */
+    margin-left: 790px;
     margin-top: 40px;
     width: 90px;
     height: 40px;
@@ -32,6 +32,7 @@
 
 
 .bottomWrap{
+    margin-top: 25px;
     margin-bottom: 30px;
 }
 
@@ -53,6 +54,12 @@
 
 .teamImg{
     height: 240px;
+}
+
+.teamImg img{
+    width: 200px;
+    border: 1px solid grey;
+    margin-left: 15px;
 }
 
 .teamName{
