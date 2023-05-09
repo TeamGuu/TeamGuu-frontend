@@ -1,0 +1,18 @@
+.topWrap{
+    height: 100px;
+}
+
+.saveBtn{
+    float: right;
+    margin-right: 150px;
+    margin-top: 40px;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid grey;
+    font-size: 18px;
+    background-color: rgb(16, 92, 18);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
