@@ -17,17 +17,6 @@ const CreateTeamPage = (props) => {
                 <table className={styles.myInfo}>
                     <tbody className={styles.tableBody}>
                         <tr>
-                            <td>팀 대표 이미지</td>                       
-                            <td className={styles.teamImg}>
-                                <img src={team} alt="팀사진" />
-                                <input 
-                                    type="file" 
-                                    accept="image/*" 
-                                    style={{float:"right", marginRight:"370px", marginTop:"170px"}}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
                             <td>팀명</td>
                             <td className={styles.teamName}>
                                 <input
