@@ -1,10 +1,22 @@
 .topWrap{
     height: 100px;
+    margin-bottom: 20px;
+}
+
+.titleTxt{
+    display: inline-block;
+    font-size: 28px;
+    width: 250px;
+    margin-left: 170px;
+    margin-top: 50px;
+    font-weight: bold;
+
 }
 
 .saveBtn{
+    display: inline-block;
     float: right;
-    margin-right: 150px;
+    margin-right: 160px;
     margin-top: 40px;
     width: 90px;
     height: 40px;
@@ -15,4 +27,93 @@
     color: white;
     font-weight: bold;
     text-align: center;
+    cursor: pointer;
+}
+
+
+.bottomWrap{
+    margin-bottom: 30px;
+}
+
+.myInfo{
+    width: 1200px;
+    background-color: rgb(246, 246, 246);
+}
+
+.myInfo td{
+    border: 1px solid grey;
+}
+
+.myInfo td:first-child{
+    width: 250px;
+    font-size: 20px;
+    padding-left: 45px;
+    font-weight: bold;
+}
+
+.teamImg{
+    height: 240px;
+}
+
+.teamName{
+    height: 70px;
+}
+
+.teamNameInput{
+    height: 35px;
+    width: 500px;
+    margin-left: 15px;
+    font-size: 18px;
+    text-indent: 10px;
+}
+
+.teamSports{
+    height: 70px;
+}
+
+.teamSportsInput select{
+    height: 35px;
+    width: 90px;
+    margin-left: 15px;
+    font-size: 18px;
+    text-indent: 10px;
+}
+
+.teamProfile{
+    height: 110px;
+}
+
+.teamProfileInput textarea{
+    height: 80px;
+    width: 920px;
+    margin-left: 15px;
+    margin-top: 4px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.teamIntro{
+    height: 110px;
+}
+
+.teamIntroInput textarea{
+    height: 80px;
+    width: 920px;
+    margin-left: 15px;
+    margin-top: 4px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.teammateInfo{
+    height: 110px;
+}
+
+.teammateInfoInput textarea{
+    height: 80px;
+    width: 920px;
+    margin-left: 15px;
+    margin-top: 4px;
+    font-size: 18px;
+    padding: 10px;
 }
