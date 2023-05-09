@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import {Link} from "react-router-dom";
-
+import axios from "axios";
 //style
 import styles from "./Navigation.module.css";
 
@@ -9,6 +9,44 @@ import styles from "./Navigation.module.css";
 import teamguuLogo from "./teamguuLogo.png";
 
 const Navigation = () => {
+
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    const logout = () => {
+        axios.post("http://43.201.242.0:8080/api/auth/logout")
+          .then((response) => {
+            console.log(response);
+            localStorage.removeItem('accessToken');
+            setIsAuthenticated(false); // 로그아웃 상태로 변경
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+
+
+    useEffect(() => {
+
+        //const accessToken = localStorage.getItem('accessToken');
+        axios
+          .get("http://www.teamguu.p-e.kr/api",{
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          })
+          .then((response) => {
+            console.log('조회성공');
+            setIsAuthenticated(true); //주석 풀어줘야한다.
+            console.log({response});
+            //console.log(`${localStorage.getItem("accessToken")}`);
+          })
+          .catch((error) => {
+            console.log(error);
+            console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
+            console.log('실패');
+          });
+      }, []);
+
     return(
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -67,12 +105,19 @@ const Navigation = () => {
                     </NavDropdown>
                 </Nav>
                 <div className={styles.loginJoin}>
+                        {isAuthenticated ? (
+                            <div onClick={logout} className={styles.logoutBtn}>로그아웃</div>
+                        ) : (
+                            <div className={styles.loginJoin}>
                     <Link to="/page/LoginPage" style={{ textDecoration: "none", color:"black" }}>
                         <div className={styles.loginBtn}>로그인</div>
                     </Link>
                     <Link to="/page/JoinPage" style={{ textDecoration: "none", color:"black" }}>
                         <div className={styles.JoinBtn}>회원가입</div>
                     </Link>
+                </div>
+                        )}
+                        
                 </div>
                 </Navbar.Collapse>
             </Container>
