@@ -14,7 +14,7 @@ const MyInfoPage = (props) => {
     for (let i = 1990; i <= nowYear; i++) {
     YEAR.push(i);
     }
-
+g
     // 월
     const MONTH = [];
 
