@@ -113,8 +113,8 @@ const CreateTeamPage = (props) => {
                                 />
                                 </div>
                             </td>
-                            </tr>
-                            <tr>
+                        </tr>
+                        <tr>
                             <td>팀원 정보</td>
                             <td className={styles.teammateInfo}>
                                 <div className={styles.teammateInfoInput}>
@@ -125,7 +125,7 @@ const CreateTeamPage = (props) => {
                                 />
                                 </div>
                             </td>
-                            </tr>
+                        </tr>
                     </tbody>
                 </table>
             </div>
