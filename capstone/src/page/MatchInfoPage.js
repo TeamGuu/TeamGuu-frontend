@@ -33,7 +33,7 @@ const MatchInfoPage = (props) => {
                     <div className={styles.matchTitle}>제목</div>
                     <div className={styles.matchContent}>내용</div>
                 </div>
-                
+                <div className={styles.please}>제발</div>
             </div>
         </>
     );
