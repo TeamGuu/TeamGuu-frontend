@@ -14,7 +14,7 @@ const MatchInfoPage = (props) => {
                 <div className={styles.topWrap}> 
                     <div className={styles.teamImg}>
                         <img src={team} alt="팀사진" />
-                    </div>
+                    </div> 
                     <div className={styles.teamMainInfo}>    
                         <div className={styles.teamName}>명지FC</div>
                         <div className={styles.teamIntro}>한줄 소개</div>

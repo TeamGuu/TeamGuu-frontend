@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Link, Navigate} from "react-router-dom";
+import {Link,  useNavigate} from "react-router-dom";
 import axios from 'axios';
 //style
 import styles from "./LoginPage.module.css";
@@ -10,9 +10,9 @@ import styles from "./LoginPage.module.css";
 // }
 
 
-export default function LoginPage(){
+function LoginPage(props){
 
-    
+    const navigate = useNavigate();
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
@@ -63,13 +63,13 @@ export default function LoginPage(){
             password: password
         }
 
-        axios.post('http://43.201.242.0:8080/api/auth/sign-in', userData)
+        axios.post('http://www.teamguu.p-e.kr/api/auth/sign-in', userData)
         .then((res)=>{ //성공하면 res에 토큰을 받을 수 있다. 토큰을 받으면 로그인에 성공했다는 뜻 -> 토큰을 전역변수로 저장하고 서버에 요청할 때마다 헤더에 넣어서 준다.
            localStorage.setItem('accessToken',res.data.result.accessToken); //.token이 기본이지만 api명세서에 accesstoken라고 나와있으므로 이름 바꿔주었음
             alert('로그인 성공');
-           // Navigate('./page/MainPage');
            console.log(res);
            console.log(res.data.result.accessToken);
+           navigate('/');
         }).catch(error=>{
            // alert('로그인 실패');
             console.log(error);
@@ -139,3 +139,5 @@ export default function LoginPage(){
         </div>
     );
 }
+
+export default LoginPage;

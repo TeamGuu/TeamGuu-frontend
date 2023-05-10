@@ -1,6 +1,7 @@
 //회원가입 페이지
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+
 import { useState } from "react";
 import axios from 'axios';
 
@@ -145,12 +146,13 @@ const JoinPage=(props)=>{
 
     const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
-
-    
-
+    //회원가입 완료 후 페이지 이동 5/9 미구현
+    const navigate = useNavigate();
 
     const checkSignUp = (e) => {
         e.preventDefault();
+
+        
 
         const requestBody = {
             username: email,
@@ -164,6 +166,7 @@ const JoinPage=(props)=>{
         .then((response) => {
             console.log(response);
             alert('회원가입이 완료되었습니다.');
+            navigate("./Page/LoginPage");
           })
           .catch((error) => {
             console.error(error);
@@ -260,7 +263,7 @@ const JoinPage=(props)=>{
                     <div className={styles.elementTxt}>생년월일</div>
                         <select style={{fontSize:"16px", width:"90px", height:"35px", textAlign:"center"}} 
                             value={year} onChange={(e) => setYear(e.target.value)}>
-                        <option value="">--년도--</option>
+                             <option value="">--년도--</option>
                             {yearOptions}
                         </select>
                         <select style={{fontSize:"16px", width:"90px", height:"35px", textAlign:"center", marginLeft:"10px"}}

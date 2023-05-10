@@ -13,9 +13,19 @@ import team from "./team.png";
 const TeamInfoPage = (props) => {
 
      //서버에서 받아온 데이터 저장
-    const [teamInfo, setTeamInfo] = useState({});
+    const [teamInfo, setTeamInfo] = useState([]);
 
-
+    // teamInfo.map((team) => {
+    //     const name = team.name;// 팀 이름
+    //     const intro = team.intro;//팀 한줄 소개
+    //     const captain = team.captain;//팀 주장 이름
+    //     const sports = team.sports;//팀 종목
+    //     const victory = team.victory;// 팀 승리 전적
+    //     const draw = team.draw;//팀 무승부 전적
+    //     const defeat = team.defeat;// 팀 패배 전적
+    //     const history = team.history;// 팀 약력
+    //     const playerInfo = team.playerInfo;// 선수 정보
+    // });
     const name = teamInfo.name;// 팀 이름
     const intro = teamInfo.intro;//팀 한줄 소개
     const captain = teamInfo.captain;//팀 주장 이름
@@ -24,26 +34,24 @@ const TeamInfoPage = (props) => {
     const draw = teamInfo.draw;//팀 무승부 전적
     const defeat = teamInfo.defeat;// 팀 패배 전적
     const history = teamInfo.history;// 팀 약력
-    // const playerInfo = teamInfo.playerInfo;// 팀원 정보 아직 안했습니다.
-    // const players = playerInfo.split(",");
-    // const playerList = players.map((player) => {
-    //     const [name, position] = player.split("("); // 괄호 안의 문자열을 추출하여 이름과 포지션을 나눕니다.
-    //     return <li>{name} ({position})</li>; // 이름과 포지션을 리스트 형태로 렌더링합니다.
-    //   });
-
+    const playerInfo = teamInfo.playerInfo;
+    
+    
+ 
+ 
+    
 
     useEffect(() => {
-
-        //const accessToken = localStorage.getItem('accessToken');
         axios
-          .get("http://43.201.242.0:8080/api/teams/simple",{
+          .get("http://www.teamguu.p-e.kr/api/teams/simple", {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
           })
           .then((response) => {
             console.log('조회성공');
-            setTeamInfo(response.data);
+            setTeamInfo(response.data.result);
+            console.log(response.data.result);
           })
           .catch((error) => {
             console.log(error);
@@ -51,6 +59,9 @@ const TeamInfoPage = (props) => {
           });
       }, []);
     
+    
+     
+   
 
 
     return(
@@ -60,6 +71,7 @@ const TeamInfoPage = (props) => {
                     <img src={team} alt="팀사진" />
                 </div>
                 <div className={styles.teamInfo}>
+                    
                     <li>{name}</li>
                     <li>{intro}</li>
                     <br/>
@@ -94,7 +106,7 @@ const TeamInfoPage = (props) => {
                             <li>남도일(RCB)</li>
                             <li>장미(RB)</li>
                             <li>김띵지(GK)</li>
-                            {/* {playerList} */}
+                            <li>{playerInfo}</li>
                         </ul>
                     </div>
                 </div>
