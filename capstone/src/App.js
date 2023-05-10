@@ -26,8 +26,8 @@ const App = (props) => {
     <BrowserRouter>
       <Navigation />
       <Routes>
-        <Route path='/' element={<MainPage/>} />
-        <Route path='/page/LoginPage' element={<LoginPage/>}/>
+        <Route exact path='/' element={<MainPage/>} />
+        <Route exact path='/page/LoginPage' element={<LoginPage/>}/>
         <Route path='/page/JoinPage' element={<JoinPage/>}/>
         <Route path='/page/FindIDPage' element={<FindIDPage/>}/>
         <Route path='/page/FindPWPage' element={<FindPWPage/>}/>
