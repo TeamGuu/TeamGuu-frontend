@@ -9,6 +9,7 @@ import team from "./team.png";
 const MatchInfoPage = (props) => {
     return(
         <>
+            <div className={styles.challengeBtn}>매칭신청하기</div>
             <div className={styles.matchWrap}>               
                 <div className={styles.topWrap}>
                     <div className={styles.teamMainInfo}>
