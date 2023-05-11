@@ -1,41 +1,111 @@
 .matchWrap{
     background-color: rgb(239, 239, 239);
     width: 1200px;
-    height: auto;
+    height: 800px;
     margin-top: 40px;
 }
 
-.teamImg img{
-    background-color: rgb(164, 255, 255);
-    float: left;
-    width: 300px;
-    height: 300px;
-    margin-left: 60px;
-    margin-top: 30px;
-    border: 1px solid gray;
+.topWrap{
+    width: 1200px;
+    height: 400px;
 }
 
 .teamMainInfo{
-    background-color: aquamarine;
+    float: left;
     width: 400px;
-    height: 300px;
-    font-size: 23px;
+    height: 400px;
+}
+
+.teamImg img{
+    width: 250px;
+    height: 250px;
+    margin-left: 75px;
     margin-top: 30px;
+    border: 1px solid gray;
 }
 
 .teamName{
     font-size: 35px;
     font-weight: bold;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.teamSports{
+    font-size: 25px;
+    text-align: center;
+}
+
+.teamInfo{
+    float: left;
+    width: 790px;
+    height: 300px;
+    font-size: 23px;
+    margin-top: 60px;
+    padding-right: 40px;
+    margin-bottom: 42px;
 }
 
 .teamIntro{
-    
+    font-size: 20px;
 }
 
-.teamSubInfo{
-    background-color: rgb(240, 255, 127);
-    width: 300px;
-    height: 300px;
+.teamBoss{
+    font-size: 18px;
+    margin-top: 20px; 
+}
+
+.teamScore{
+    font-size: 18px; 
+}
+
+.teamHistory{
+    font-size: 18px; 
+}
+
+.teammateInfo{
+    font-size: 18px; 
+}
+
+.bottomWrap{
+    background-color: white;
+    width: 1100px;
+    height: 350px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+}
+
+.date{
     font-size: 23px;
-    margin-top: 30px;
+    padding-top: 20px;
+    margin-left: 40px;
+}
+
+.time{
+    font-size: 23px;
+    padding-top: 10px;
+    margin-left: 40px;
+}
+
+.place{
+    font-size: 23px;
+    padding-top: 10px;
+    margin-left: 40px;
+}
+
+.matchNotice{
+    border: 1px solid gray;
+}
+
+.matchTitle{
+    font-size: 29px;
+    padding-top: 23px;
+    margin-left: 40px;
+    font-weight: bold;
+}
+
+.matchContent{
+    font-size: 26px;
+    padding-top: 10px;
+    margin-left: 40px;
 }
