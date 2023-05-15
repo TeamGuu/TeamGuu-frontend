@@ -38,11 +38,11 @@ const App = (props) => {
         <Route path='/page/StadiumInfoPage' element={<StadiumInfoPage/>}/>
         <Route path='/page/MyInfoPage' element={<MyInfoPage/>}/>
         
-        <Route path='/page/TeamInfoFixPage' element={<TeamInfoFixPage/>}/>
+        
         <Route path='/page/CreateTeamPage' element={<CreateTeamPage/>}/>
         <Route exact path="/page/TeamListPage" element={<TeamListPage />} />
         <Route path="/teams/:teamId" element={<TeamInfoPage />} />
-        
+        <Route path="/teams/:teamId/edit" element={<TeamInfoFixPage />} />
         
       </Routes>
     </BrowserRouter>
