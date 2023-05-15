@@ -8,8 +8,8 @@ import myImg from "./myImg.png";
 
 const MyInfoPage = (props) => {
 
-    const [memberInfo, setMemberInfo] = useState({}); // 멤버 정보를 저장할 상태 변수
-    const [newusername, setnewUsername] = useState(""); //수정시 아이디
+    const [memberInfo, setMemberInfo] = useState({ name: "", birth: "" ,username:""}); // 멤버 정보를 저장할 상태 변수
+    const [newname, setnewname] = useState(""); //수정시 이름
     const [newphone, setnewPhone] = useState("");//수정시 핸드폰번호
     
     useEffect(() => {
@@ -34,6 +34,12 @@ const MyInfoPage = (props) => {
 
 
       const { name, phone, username } = memberInfo;
+
+      //수정시
+      useEffect(() => {
+        setnewname(name);
+        setnewPhone(phone);
+      }, [name, phone]);
 
     const [birthYear, setBirthYear] = useState("");
     const [birthMonth, setBirthMonth] = useState("");
@@ -74,7 +80,7 @@ const MyInfoPage = (props) => {
         const updatedInfo = {
           ...memberInfo,
           birth: `${birthYear}-${birthMonth}-${birthDay}`,
-          username: newusername,
+          name: newname,
           phone: newphone,
         };
     
@@ -122,8 +128,8 @@ const MyInfoPage = (props) => {
                     <div className={styles.myId}>
                         <input 
                              placeholder={username}
-                             value={newusername}
-                             onChange={(e) => setnewUsername(e.target.value)}
+                            //  value={username}
+                            //  onChange={(e) => setnewUsername(e.target.value)}
                              style={{ textIndent: "10px" }}
                         />
                     </div>
@@ -143,47 +149,57 @@ const MyInfoPage = (props) => {
                         <input 
                             placeholder={phone}
                             style={{textIndent:"10px"}}
-                            value={newphone}
+                           // value={newphone}
                             onChange={(e) => setnewPhone(e.target.value)}
                         />
                     </div>
                 </div>
                 <div className={styles.list}>
-                <div className={styles.listTxt}>생일</div>
-                <div className={styles.myBirth}>
-                    <select
-                    className={styles.yearSelect}
-                    name="year"
-                    value={birthYear}
-                    onChange={(e) => setBirthYear(e.target.value)}
-                    >
-                    {YEAR.map((y) => (
-                        <option key={y}>{y}</option>
-                    ))}
-                    </select>
-                    <select
-                    className={styles.monthSelect}
-                    name="month"
-                    value={birthMonth}
-                    onChange={(e) => setBirthMonth(e.target.value)}
-                    >
-                    {MONTH.map((m) => (
-                        <option key={m}>{m}</option>
-                    ))}
-                    </select>
-                    <select
-                    className={styles.daySelect}
-                    name="day"
-                    value={birthDay}
-                    onChange={(e) => setBirthDay(e.target.value)}
-                    >
-                    {DAY.map((d) => (
-                        <option key={d}>{d}</option>
-                    ))}
-                    </select>
+                    <div className={styles.listTxt}>생일</div>
+                    <div className={styles.myBirth}>
+                        <select
+                            className={styles.yearSelect}
+                            name="year"
+                            value={birthYear}
+                            onChange={(e) => setBirthYear(e.target.value)}
+                            >
+                            {YEAR.map((y) => (
+                                <option key={y}>{y}</option>
+                            ))}
+                            </select>
+                            <select
+                            className={styles.monthSelect}
+                            name="month"
+                            value={birthMonth}
+                            onChange={(e) => setBirthMonth(e.target.value)}
+                            >
+                            {MONTH.map((m) => (
+                                <option key={m}>{m}</option>
+                            ))}
+                            </select>
+                            <select
+                            className={styles.daySelect}
+                            name="day"
+                            value={birthDay}
+                            onChange={(e) => setBirthDay(e.target.value)}
+                            >
+                            {DAY.map((d) => (
+                                <option key={d}>{d}</option>
+                            ))}
+                        </select>
+                    </div>
                 </div>
+                <div className={styles.list}>
+                    <div className={styles.listTxt}>새로운이름</div>
+                    <div className={styles.myPw}>
+                        <input 
+                            placeholder={name}
+                            //value={newname}
+                            onChange={(e) => setnewname(e.target.value)}
+                            style={{ textIndent: "10px" }}
+                        />
+                    </div>
                 </div>
-        
 
             </div>
 
