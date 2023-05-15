@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter,Route, Routes} from 'react-router-dom';
 import './App.css';
 
 //components
@@ -20,7 +20,7 @@ import MyInfoPage from './page/MyInfoPage';
 import TeamInfoPage from './page/TeamInfoPage';
 import CreateTeamPage from './page/CreateTeamPage';
 import TeamInfoFixPage from './page/TeamInfoFixPage';
-
+import TeamListPage from './page/TeamListPage';
 const App = (props) => {
   return (
     <BrowserRouter>
@@ -37,9 +37,13 @@ const App = (props) => {
         <Route path='/page/StadiumListPage' element={<StadiumListPage/>}/>
         <Route path='/page/StadiumInfoPage' element={<StadiumInfoPage/>}/>
         <Route path='/page/MyInfoPage' element={<MyInfoPage/>}/>
-        <Route path='/page/TeamInfoPage' element={<TeamInfoPage/>}/>
+        
         <Route path='/page/TeamInfoFixPage' element={<TeamInfoFixPage/>}/>
         <Route path='/page/CreateTeamPage' element={<CreateTeamPage/>}/>
+        <Route exact path="/page/TeamListPage" element={<TeamListPage />} />
+        <Route path="/teams/:teamId" element={<TeamInfoPage />} />
+        
+        
       </Routes>
     </BrowserRouter>
   );

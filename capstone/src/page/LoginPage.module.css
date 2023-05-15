@@ -1,104 +1,106 @@
 
 .page{
-    width: 700px;
-    background-color: #f5f5f5;
-    margin-top: 80px;
-  }
-
-  .titleWrap b{
-    font-size: 40px;
-  }
-  .titleWrap{
-    padding: 30px;
-    font-size: 30px;
-    color:#717171;
-  }
-
-  .contentWrap{
-    margin-top: 25px;
-    height: 200px;
-    flex: 1;
-  }
-
-  .inputTitle{
-    display: inline-block;
-    width: 100px;
-    margin-left: 40px;
-    font-size: 27px;
-    color:#262626;
-  }
-
-  .inputWrap{
-    display: inline-block;
-    margin-left: 40px;
-    width: 450px;
-    height: 50px;
-    border-radius: 8px;
-    padding: 15px;
-    background-color: white;
-    border: 1px solid #e2e0e0;
-  }
-  
-  .inputWrap:focus-within{
-    border: 1px solid #2a8229;
-  }
-  .input{
-    width: 100%;
-    outline: none;
-    border: none;
-    height: 17px;
-    font-size: 18px;
-    font-weight: 400;
-  }
-  
-  .input::placeholder{
-    color:#dadada;
-  }
-  
-  .errorMessageWrap{
-    padding: 5px;
-    margin-left: 180px;
-    font-size:12px;
-  }
-  
-.confirmWrap{
-  margin-top: 30px;
+  width: 700px;
+  background-color: #f5f5f5;
+  margin-top: 80px;
 }
 
-  .confirmButton{
-    width: 70%;
-    height: 48px;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 64px;
-    color:white;
-    margin-left: 100px;
-    margin-bottom: 15px;
-    cursor: pointer;
-  }
-  
-  .confirmButton:disabled{ /*버튼이 활성화 되지 않았을 때의 상태를 지정*/
-    background-color: #909090;
-  }
+.titleWrap b{
+  font-size: 40px;
+}
+.titleWrap{
+  padding: 30px;
+  font-size: 30px;
+  color:#717171;
+}
 
-  .bottomBtn{
-    margin-top: 40px;
-    padding-bottom: 30px;
-  }
+.contentWrap{
+  margin-top: 25px;
+  height: 200px;
+  flex: 1;
+}
 
-  .findIDPWTxt{
-    display: inline-block;
-    margin-left: 230px;
-    margin-right: 50px;
-    width: 100px;
-    height: 40px;
-    font-size: 17px;
-  }
-  
-  .JoinTxt{
-    display: inline-block;
-    width: 100px;
-    height: 40px;   
-    font-size: 17px;
-  }
+.inputTitle{
+  display: inline-block;
+  width: 100px;
+  margin-left: 40px;
+  font-size: 27px;
+  color:#262626;
+}
+
+.inputWrap{
+  display: inline-block;
+  margin-left: 40px;
+  width: 450px;
+  height: 50px;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #e2e0e0;
+}
+
+.inputWrap:focus-within{
+  border: 1px solid #2a8229;
+}
+.input{
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 17px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.input::placeholder{
+  color:#dadada;
+}
+
+.errorMessageWrap{
+  padding: 5px;
+  margin-left: 180px;
+  font-size:12px;
+}
+
+.confirmWrap{
+margin-top: 30px;
+}
+
+.confirmButton{
+  width: 70%;
+  height: 48px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 64px;
+  color:white;
+  margin-left: 100px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+
+.confirmButton:enabled{ /*버튼이 활성화 되지 않았을 때의 상태를 지정*/
+  background-color: #909090;
+}
+
+
+.bottomBtn{
+  margin-top: 40px;
+  padding-bottom: 30px;
+}
+
+.findIDPWTxt{
+  display: inline-block;
+  margin-left: 230px;
+  margin-right: 50px;
+  width: 100px;
+  height: 40px;
+  font-size: 17px;
+}
+
+.JoinTxt{
+  display: inline-block;
+  width: 100px;
+  height: 40px;   
+  font-size: 17px;
+}

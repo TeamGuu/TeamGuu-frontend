@@ -1,5 +1,5 @@
-import React from "react";
-
+import React,{useState, useEffect} from "react";
+import axios from "axios";
 //style
 import styles from "./MatchInfoPage.module.css";
 
@@ -7,6 +7,33 @@ import styles from "./MatchInfoPage.module.css";
 import team from "./team.png";
 
 const MatchInfoPage = (props) => {
+
+    const [matchInfo, setMatchInfo] = useState({});
+    const [teamInfo, setTeamInfo] = useState({});
+
+    useEffect(() => {
+        axios
+          .get("http://www.teamguu.p-e.kr/api/matches?matchingInfoId=1", {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          })
+          .then((response) => {
+            console.log('조회성공');
+            setMatchInfo(response.data.result);
+            setTeamInfo(response.data.result.teamInfo);
+            console.log(response.data.result);
+            console.log(response.data.result.teamInfo);
+          })
+          .catch((error) => {
+            console.log(error);
+            console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
+          });
+    }, []);
+
+    const { date, place, title, content } = matchInfo;
+    const { name, sports, captain, history, defeat, draw, intro, playerInfo, victory,logoImageUrl} = teamInfo;
+
     return(
         <>
             <div className={styles.challengeBtn}>매칭신청하기</div>
@@ -16,13 +43,13 @@ const MatchInfoPage = (props) => {
                         <div className={styles.teamImg}>
                             <img src={team} alt="팀사진" />
                         </div>
-                        <div className={styles.teamName}>명지FC</div>
+                        <div className={styles.teamName}>{name}</div>
                         <div className={styles.teamSports}>축구</div>
                     </div> 
                     <div className={styles.teamInfo}>    
                         <div className={styles.teamIntro}>안녕하세요. 우리는 명지FC입니다. 
                             저희는 명지대 재학생, 졸업생으로 이뤄져 있고 2013년부터 이어져 온 근본있는 축구팀입니다.
-                            새로운 인재는 언제든 환영이고요. 캡스톤 너무 힘드네요.
+                            새로운 인재는 언제든 환영이고요. 캡스톤 너무 힘들지만 해보겠습니다.
                         </div>
                         <div className={styles.teamBoss}>주장 : 김띵지</div>    
                         <div className={styles.teamScore}>전적 : 35전 15승 20패</div>

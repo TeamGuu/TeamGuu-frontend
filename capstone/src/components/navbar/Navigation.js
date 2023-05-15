@@ -92,7 +92,7 @@ const Navigation = () => {
                         </NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item>
-                            <Link to="/page/TeamInfoPage"
+                            <Link to="/page/TeamListPage"
                                 style={{ textDecoration: "none", color:"black" }}>
                                     <div id={styles.subMenuTxt}>팀 정보</div>
                             </Link>
