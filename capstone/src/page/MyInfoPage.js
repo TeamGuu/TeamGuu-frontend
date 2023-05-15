@@ -5,6 +5,7 @@ import styles from "./MyInfoPage.module.css";
 
 //image
 import myImg from "./myImg.png";
+import ImageUpload from "../components/ImageUpload";
 
 const MyInfoPage = (props) => {
 
@@ -77,36 +78,33 @@ const MyInfoPage = (props) => {
 
     //정보 수정할 때 
     const handleSave = () => {
-        const updatedInfo = {
-          ...memberInfo,
-          birth: `${birthYear}-${birthMonth}-${birthDay}`,
-          name: newname,
-          phone: newphone,
-        };
-    
-        axios
-          .patch(`http://www.teamguu.p-e.kr/api/members`, updatedInfo, {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-          })
-          .then((response) => {
-            console.log("수정 성공");
-            console.log(response.data);
-            // 필요에 따라 추가 동작 수행 또는 UI 업데이트
-            alert('프로필 정보를 업데이트했습니다!');
-            // 페이지 새로고침
-            window.location.reload();
-          })
-          .catch((error) => {
-            console.log("수정 실패");
-            console.log(error);
-            alert('정보 수정 실패!');
-          });
+      const updatedInfo = {
+        ...memberInfo,
+        birth: `${birthYear}-${birthMonth}-${birthDay}`,
+        name: newname,
+        phone: newphone,
       };
-
-
-
+    
+      axios
+        .patch(`http://www.teamguu.p-e.kr/api/members`, updatedInfo, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        })
+        .then((response) => {
+          console.log("수정 성공");
+          console.log(response.data);
+          // 필요에 따라 추가 동작 수행 또는 UI 업데이트
+          alert('프로필 정보를 업데이트했습니다!');
+          // 페이지 새로고침
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.log("수정 실패");
+          console.log(error);
+          alert('정보 수정 실패!');
+        });
+    };
 
 
     return(
@@ -115,6 +113,7 @@ const MyInfoPage = (props) => {
                 <div className={styles.titleTxt}>회원 정보</div>
                 <div className={styles.myImg}>
                     <img src={myImg} alt="회원사진" />
+                    <ImageUpload />
                 </div>
                 <div className={styles.myProfile}>
                     <div className={styles.myName}>{name}</div>
