@@ -20,7 +20,7 @@ function LoginPage(props){
     const [emailnValid,setEmailValid] = useState(false);
     const [pwValid,setPwValid] = useState(false);
 
-    const [notAllow,setNotAllow] = useState(true);
+   // const [notAllow,setNotAllow] = useState(false);
 
     const handleEmail=(e)=>{ //올바른 이메일 주소 형식으로 텍스트 입력할경우 경고문이 사라짐
         setEmail(e.target.value);
@@ -44,14 +44,14 @@ function LoginPage(props){
         }
 
     }
-    //버튼 활성화 여부, 이메일과 비밀번호가 형식에 맞게 입력된다면 버튼이 활성화된다.
-    useEffect(()=>{
-        if(emailnValid && pwValid){
-            setNotAllow(false);
-            return;
-        }
-        setNotAllow(true);
-    }, [emailnValid,pwValid]);
+    // //버튼 활성화 여부, 이메일과 비밀번호가 형식에 맞게 입력된다면 버튼이 활성화된다.
+    // useEffect(()=>{
+    //     if(emailnValid && pwValid){
+    //         setNotAllow(false);
+    //         return;
+    //     }
+    //     setNotAllow(true);
+    // }, [emailnValid,pwValid]);
 
 
     const onClickConfirmButton = (e) => {
@@ -119,9 +119,9 @@ function LoginPage(props){
                     }   
                 </div>
             </div>
-
+{/* disabled={notAllow} */}
             <div className={styles.confirmWrap}>
-                <button type="submit" onClick={onClickConfirmButton} disabled={notAllow} className={styles.confirmButton}>로그인</button>
+                <button type="submit" onClick={onClickConfirmButton}  className={styles.confirmButton}>로그인</button> 
             </div>
 
             <div className={styles.bottomBtn}>

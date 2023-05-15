@@ -19,16 +19,18 @@ const CreateMatchPage = (props) => {
 
     const handleDateChange = (date) => {
         setStartDate(date);
-        console.log(date); // 선택한 날짜 출력
+        console.log(startDate.toISOString().split("T")[0]); // 선택한 날짜 출력
       };
 
     const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
+       setTitle(e.target.value);
+      console.log(title);
+   };
 
-  const handleContentChange = (e) => {
-    setContent(e.target.value);
-  };
+    const handleContentChange = (e) => {
+      setContent(e.target.value);
+      console.log(content);
+    };
 
   const handleSubmit = (e) => {
  
@@ -39,12 +41,12 @@ const CreateMatchPage = (props) => {
 
     const requestBody = {
         place: selectedOption,
-        date: startDate,
+        date: startDate.toISOString().split("T")[0],
         title: title,
         content: content
       };
 
-    axios.post('http://www.teamguu.p-e.kr/api/matches', requestBody, {
+    axios.post('http://www.teamguu.p-e.kr/api/matches?teamId=1', requestBody, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
