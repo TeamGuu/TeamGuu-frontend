@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {data} from "./MatchListData.js"
-import {TextField} from "@mui/material/TextField";
+import TextField from "@mui/material/TextField";
 
 //styles
 import styles from "./MatchListPage.module.css";
