@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../style/TeamInfoPage.css";
-import {Link, useParams} from "react-router-dom";
+import {Link, useParams, useNavigate} from "react-router-dom";
 import axios from "axios";
 //style
 import styles from "./TeamInfoPage.module.css";
@@ -14,6 +14,7 @@ const TeamInfoPage = (props) => {
 
      //서버에서 받아온 데이터 저장
      const { teamId } = useParams();
+     const navigate = useNavigate();
      const [teamInfo, setTeamInfo] = useState({});
    
      useEffect(() => {
@@ -34,10 +35,17 @@ const TeamInfoPage = (props) => {
          });
      }, [teamId]);
     
-    const { name, intro, captain, sports, victory, draw, defeat, history, playerInfo } = teamInfo;
+    const { id, name, intro, captain, sports, victory, draw, defeat, history, playerInfo } = teamInfo;
 
+    const handleClick = (e, myid) => {
+        e.preventDefault();
+        console.log(`팀 ${myid} 클릭됨`);
+        // TeamInfoFixPage로 이동
+        navigate(`/teams/${myid}/edit`);
+      };
     
-    
+   
+
     return (
         <div className={styles.contents}>
             <div className={styles.teamWrap}>
@@ -55,13 +63,21 @@ const TeamInfoPage = (props) => {
                 </div>
             </div>
             <div className={styles.teammateWrap}>
-                <div className={styles.BtnArea}>
-                    <Link to="/page/TeamInfoFixPage">
-                        <button className={styles.fixBtn}>팀 정보 수정</button>
-                    </Link>
-                    <Link to="/page/TeamInfoFixPage">
-                        <button className={styles.deleteBtn}>팀 삭제</button>
-                    </Link>
+                 <div className={styles.BtnArea}>
+                    <div key = {id}>
+                        <Link
+                            to={`/teams/${id}`} className={styles.fixBtn}
+                            onClick={(e) => handleClick(e, id)}
+                        >
+                            팀 정보 수정
+                        </Link>
+                        
+
+                    </div>
+                    
+                    
+                    <button className={styles.deleteBtn}>팀 삭제</button>
+                    
                 </div>
                 <div className={styles.teammateInfo}>
                     <div className={styles.teammateTxt}>구성 팀원</div>

@@ -58,6 +58,7 @@ const CreateTeamPage = (props) => {
                 console.log("저장 성공");
                 console.log(response);
                 // 성공 처리 로직 작성
+                
             })
             .catch((error) => {
                 console.log(error);
