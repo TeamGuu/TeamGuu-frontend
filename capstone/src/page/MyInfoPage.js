@@ -1,5 +1,5 @@
-import React from "react";
-
+import React,{useState, useEffect} from "react";
+import axios from "axios";
 //style
 import styles from "./MyInfoPage.module.css";
 
@@ -7,6 +7,45 @@ import styles from "./MyInfoPage.module.css";
 import myImg from "./myImg.png";
 
 const MyInfoPage = (props) => {
+
+    const [memberInfo, setMemberInfo] = useState({}); // 멤버 정보를 저장할 상태 변수
+    const [newusername, setnewUsername] = useState(""); //수정시 아이디
+    const [newphone, setnewPhone] = useState("");//수정시 핸드폰번호
+    
+    useEffect(() => {
+        axios
+          .get(`http://www.teamguu.p-e.kr/api/members`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          })
+          .then((response) => {
+            console.log("조회성공");
+            setMemberInfo(response.data.result);
+            console.log(response.data.result);
+            
+          })
+          .catch((error) => {
+            console.log(error);
+            console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
+          });
+      }, []);
+
+
+
+      const { name, phone, username } = memberInfo;
+
+    const [birthYear, setBirthYear] = useState("");
+    const [birthMonth, setBirthMonth] = useState("");
+    const [birthDay, setBirthDay] = useState("");
+
+      useEffect(() => {
+        const birthDate = new Date(memberInfo.birth);
+        setBirthYear(birthDate.getFullYear().toString());
+        setBirthMonth((birthDate.getMonth() + 1).toString().padStart(2, "0"));
+        setBirthDay(birthDate.getDate().toString().padStart(2, "0"));
+      }, [memberInfo.birth]);
+
     // 년
     const YEAR = [];
 
@@ -30,6 +69,40 @@ const MyInfoPage = (props) => {
     DAY.push(d);
     }
 
+    //정보 수정할 때 
+    const handleSave = () => {
+        const updatedInfo = {
+          ...memberInfo,
+          birth: `${birthYear}-${birthMonth}-${birthDay}`,
+          username: newusername,
+          phone: newphone,
+        };
+    
+        axios
+          .patch(`http://www.teamguu.p-e.kr/api/members`, updatedInfo, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          })
+          .then((response) => {
+            console.log("수정 성공");
+            console.log(response.data);
+            // 필요에 따라 추가 동작 수행 또는 UI 업데이트
+            alert('프로필 정보를 업데이트했습니다!');
+            // 페이지 새로고침
+            window.location.reload();
+          })
+          .catch((error) => {
+            console.log("수정 실패");
+            console.log(error);
+            alert('정보 수정 실패!');
+          });
+      };
+
+
+
+
+
     return(
         <div className={styles.myInfoWrap}>
             <div className={styles.leftWrap}>
@@ -38,18 +111,20 @@ const MyInfoPage = (props) => {
                     <img src={myImg} alt="회원사진" />
                 </div>
                 <div className={styles.myProfile}>
-                    <div className={styles.myName}>김띵지</div>
-                    <div className={styles.myTeamName}>명지FC</div>
+                    <div className={styles.myName}>{name}</div>
+                    {/* <div className={styles.myTeamName}>명지FC</div> */}
                 </div>
             </div>
             <div className={styles.rightWrap}>
-                <div className={styles.saveBtn}>저장</div>
+                <div className={styles.saveBtn} onClick={handleSave}>저장</div>
                 <div className={styles.list} style={{marginTop:"100px"}}>
                     <div className={styles.listTxt}>아이디</div>
                     <div className={styles.myId}>
                         <input 
-                            placeholder="test@naver.com"
-                            style={{textIndent:"10px"}}
+                             placeholder={username}
+                             value={newusername}
+                             onChange={(e) => setnewUsername(e.target.value)}
+                             style={{ textIndent: "10px" }}
                         />
                     </div>
                 </div>
@@ -66,47 +141,50 @@ const MyInfoPage = (props) => {
                     <div className={styles.listTxt}>휴대폰번호</div>
                     <div className={styles.myPhoneNum}>
                         <input 
-                            placeholder="010-1234-5678"
+                            placeholder={phone}
                             style={{textIndent:"10px"}}
+                            value={newphone}
+                            onChange={(e) => setnewPhone(e.target.value)}
                         />
                     </div>
                 </div>
                 <div className={styles.list}>
-                    <div className={styles.listTxt}>생일</div>
-                    <div className={styles.myBirth}>
-                        <select className={styles.yearSelect} name="year" >
-                            {YEAR.map(y => {
-                                return <option key={y}>{y}</option>;
-                            })}
-                        </select>
-                        <select className={styles.monthSelect} name="month" >
-                            {MONTH.map(m => {
-                                return <option key={m}>{m}</option>;
-                            })}
-                        </select>
-                        <select className={styles.daySelect} name="day" >
-                            {DAY.map(d => {
-                                return <option key={d}>{d}</option>;
-                            })}
-                        </select>
-                    </div>
+                <div className={styles.listTxt}>생일</div>
+                <div className={styles.myBirth}>
+                    <select
+                    className={styles.yearSelect}
+                    name="year"
+                    value={birthYear}
+                    onChange={(e) => setBirthYear(e.target.value)}
+                    >
+                    {YEAR.map((y) => (
+                        <option key={y}>{y}</option>
+                    ))}
+                    </select>
+                    <select
+                    className={styles.monthSelect}
+                    name="month"
+                    value={birthMonth}
+                    onChange={(e) => setBirthMonth(e.target.value)}
+                    >
+                    {MONTH.map((m) => (
+                        <option key={m}>{m}</option>
+                    ))}
+                    </select>
+                    <select
+                    className={styles.daySelect}
+                    name="day"
+                    value={birthDay}
+                    onChange={(e) => setBirthDay(e.target.value)}
+                    >
+                    {DAY.map((d) => (
+                        <option key={d}>{d}</option>
+                    ))}
+                    </select>
                 </div>
-                <div className={styles.list}>
-                    <div className={styles.listTxt}>지역</div>
-                    <div className={styles.myPlace}>
-                        <select>
-                            <option>--</option>
-                            <option>서울</option>
-                            <option>인천</option>
-                            <option>경기</option>
-                            <option>강원</option>
-                            <option>충청</option>
-                            <option>경상</option>
-                            <option>전라</option>
-                            <option>제주</option>
-                        </select>
-                    </div>
                 </div>
+        
+
             </div>
 
         </div>
