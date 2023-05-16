@@ -1,13 +1,34 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {data} from "./MatchListData.js"
 import TextField from "@mui/material/TextField";
-
+import axios from "axios";
 //styles
 import styles from "./MatchListPage.module.css";
 
 const MatchListPage = (props) => {
 
   const [search, setSearch] = useState('');
+  const [MatchInfo, setMatchInfo] = useState({});
+  useEffect(() => {
+    axios
+      .get("http://www.teamguu.p-e.kr/api/matches/simple", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      })
+      .then((response) => {
+        console.log("매칭목록 ? 조회성공");
+        setMatchInfo(response.data.result.content);
+        //console.log(response.data.result);
+        console.log(response.data.result.content);
+        console.log(response.data.result.content.simpleTeamInfo);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
+      });
+  }, []);
+
 
   return ( 
     <>
