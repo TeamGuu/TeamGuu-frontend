@@ -123,7 +123,7 @@ const MyInfoPage = (props) => {
             </div>
             <div className={styles.rightWrap}>
                 <div className={styles.saveBtn} onClick={handleSave}>저장</div>
-                <div className={styles.list} style={{marginTop:"100px"}}>
+                <div className={styles.list} style={{marginTop:"130px"}}>
                     <div className={styles.listTxt}>아이디</div>
                     <div className={styles.myId}>
                         <input 
