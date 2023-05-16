@@ -102,7 +102,7 @@ const TeamInfoFixPage = (props) => {
     return(
         <>
             <div className={styles.topWrap}>
-                <div className={styles.titleTxt}>팀 생성</div>
+                <div className={styles.titleTxt}>팀 수정</div>
                 <div className={styles.saveBtn} onClick={handleSave}>저장</div>
             </div>
             <div className={styles.bottomWrap}>

@@ -2,6 +2,9 @@ import React, {useState, useEffect} from "react";
 import {data} from "./MatchListData.js"
 import TextField from "@mui/material/TextField";
 import axios from "axios";
+import DatePicker from "react-datepicker";
+import { ko } from 'date-fns/esm/locale';
+
 //styles
 import styles from "./MatchListPage.module.css";
 
@@ -9,7 +12,7 @@ const MatchListPage = (props) => {
 
   const [search, setSearch] = useState('');
   const [MatchInfo, setMatchInfo] = useState([]); //불러온 매칭 목록 정보를 저장할 변수
-
+  const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
     axios
@@ -56,38 +59,19 @@ const MatchListPage = (props) => {
               </select>
             </div>
         </div>
-        <div className={styles.hopetime}>
-            <div className={styles.hopetimeTxt}>
-              시작시간
+        <div className={styles.hopeDate}>
+            <div className={styles.hopeDateTxt}>
+              날짜
             </div>
-            <div className={styles.hopetimeSelect}>
-              <select>
-                <option>전체</option>
-                <option>24:00</option>
-                <option>01:00</option>
-                <option>02:00</option>
-                <option>03:00</option>
-                <option>04:00</option>
-                <option>05:00</option>
-                <option>06:00</option>
-                <option>07:00</option>
-                <option>08:00</option>
-                <option>09:00</option>
-                <option>10:00</option>
-                <option>11:00</option>
-                <option>12:00(낮 12시)</option>
-                <option>13:00</option>
-                <option>14:00</option>
-                <option>15:00</option>
-                <option>16:00</option>
-                <option>17:00</option>
-                <option>18:00</option>
-                <option>19:00</option>
-                <option>20:00</option>
-                <option>21:00</option>
-                <option>22:00</option>
-                <option>23:00</option>
-              </select>
+            <div className={styles.hopeDateSelect}>
+              <DatePicker
+                className={styles.datePicker}
+                dateFormat="yyyy년 MM월 dd일"
+                selected={startDate}
+                // onChange={handleDateChange}
+                minDate={new Date()}
+                locale={ko}
+              />
             </div>
         </div>
         <div className={styles.search}>
@@ -108,7 +92,7 @@ const MatchListPage = (props) => {
                 <th>팀명</th>
                 <th>전적</th>
                 <th>경기지역</th>
-                <th>시작시간</th>
+                <th>날짜</th>
                 <th>제목</th>
               </tr>
             </thead>
@@ -122,27 +106,27 @@ const MatchListPage = (props) => {
                     <td>{item.name}</td>
                     <td>{item.score}</td>
                     <td>{item.place}</td>
-                    <td>{item.time}</td>
+                    <td>{item.date}</td>
                     <td>{item.title}</td>
                 </tr>
               ))}
                 
             </tbody>
             <tbody className={styles.tableBody}>
-  {MatchInfo.filter((item) => {
-    return search.toLowerCase() === ""
-      ? item
-      : item.simpleTeamInfo.name.toLowerCase().includes(search);
-  }).map((item) => (
-    <tr key={item.id}>
-      <td>{item.simpleTeamInfo.name}</td>
-      <td>{item.simpleTeamInfo.victory}승{item.simpleTeamInfo.defeat}패{item.simpleTeamInfo.draw}무</td>
-      <td>{item.place}</td>
-      <td>{item.date}</td>
-      <td>{item.title}</td>
-    </tr>
-  ))}
-</tbody>
+            {MatchInfo.filter((item) => {
+              return search.toLowerCase() === ""
+                ? item
+                : item.simpleTeamInfo.name.toLowerCase().includes(search);
+            }).map((item) => (
+              <tr key={item.id}>
+                <td>{item.simpleTeamInfo.name}</td>
+                <td>{item.simpleTeamInfo.victory}승{item.simpleTeamInfo.defeat}패{item.simpleTeamInfo.draw}무</td>
+                <td>{item.place}</td>
+                <td>{item.date}</td>
+                <td>{item.title}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
       
