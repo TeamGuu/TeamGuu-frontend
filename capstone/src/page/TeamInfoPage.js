@@ -68,6 +68,7 @@ const TeamInfoPage = (props) => {
                         <Link
                             to={`/teams/${id}`} className={styles.fixBtn}
                             onClick={(e) => handleClick(e, id)}
+                            
                         >
                             팀 정보 수정
                         </Link>
@@ -81,19 +82,9 @@ const TeamInfoPage = (props) => {
                 </div>
                 <div className={styles.teammateInfo}>
                     <div className={styles.teammateTxt}>구성 팀원</div>
+                    <hr></hr>
                     <div className={styles.teammateList}>
                         <ul>
-                            {/* <li>김짱구(ST)</li> 
-                            <li>김철수(CAM)</li>
-                            <li>박유리(RM)</li>
-                            <li>나훈이(LM)</li>
-                            <li>박진구(CDM)</li>
-                            <li>박퉁퉁(CDM)</li>
-                            <li>황비실(LB)</li>
-                            <li>김이슬(LCB)</li>
-                            <li>남도일(RCB)</li>
-                            <li>장미(RB)</li>
-                            <li>김띵지(GK)</li> */}
                             <li>{playerInfo}</li>
                         </ul>
                     </div>
