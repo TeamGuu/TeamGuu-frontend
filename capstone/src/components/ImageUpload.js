@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import axios from 'axios';
 
+//style
+import styles from './ImageUpload.module.css';
+
 class ImageUpload extends Component{
     state = {
         selectedFile: null
@@ -21,9 +24,10 @@ class ImageUpload extends Component{
 
     render(){
         return(
-            <div className="imageWrap">
+            <div className={styles.imageWrap}>
                 <input type="file" 
-                    onChange={this.fileSelectedHandler}/>
+                    onChange={this.fileSelectedHandler}
+                />
                 <button onClick={this.fileUploadHandler}>업로드</button>
             </div>
         );
