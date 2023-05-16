@@ -113,16 +113,17 @@ const MyInfoPage = (props) => {
                 <div className={styles.titleTxt}>회원 정보</div>
                 <div className={styles.myImg}>
                     <img src={myImg} alt="회원사진" />
-                    <ImageUpload />
+                    <div className={styles.imgUploadBtn}>
+                      <ImageUpload />
+                    </div>
                 </div>
                 <div className={styles.myProfile}>
                     <div className={styles.myName}>{name}</div>
-                    {/* <div className={styles.myTeamName}>명지FC</div> */}
                 </div>
             </div>
             <div className={styles.rightWrap}>
                 <div className={styles.saveBtn} onClick={handleSave}>저장</div>
-                <div className={styles.list} style={{marginTop:"100px"}}>
+                <div className={styles.list} style={{marginTop:"130px"}}>
                     <div className={styles.listTxt}>아이디</div>
                     <div className={styles.myId}>
                         <input 
@@ -133,7 +134,7 @@ const MyInfoPage = (props) => {
                         />
                     </div>
                 </div>
-                <div className={styles.list}>
+                {/* <div className={styles.list}>
                     <div className={styles.listTxt}>비밀번호</div>
                     <div className={styles.myPw}>
                         <input 
@@ -141,7 +142,7 @@ const MyInfoPage = (props) => {
                             style={{textIndent:"10px"}}
                         />
                     </div>
-                </div>
+                </div> */}
                 <div className={styles.list}>
                     <div className={styles.listTxt}>휴대폰번호</div>
                     <div className={styles.myPhoneNum}>
@@ -189,8 +190,8 @@ const MyInfoPage = (props) => {
                     </div>
                 </div>
                 <div className={styles.list}>
-                    <div className={styles.listTxt}>새로운이름</div>
-                    <div className={styles.myPw}>
+                    <div className={styles.listTxt}>이름</div>
+                    <div className={styles.newName}>
                         <input 
                             placeholder={name}
                             //value={newname}

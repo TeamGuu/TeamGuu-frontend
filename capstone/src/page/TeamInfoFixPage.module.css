@@ -1,0 +1,127 @@
+.topWrap{
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.titleTxt{
+    display: inline-block;
+    font-size: 28px;
+    width: 250px;
+    margin-left: 170px;
+    margin-top: 55px;
+    font-weight: bold;
+
+}
+
+.saveBtn{
+    display: inline-block;
+    /* float: right; */
+    margin-left: 790px;
+    margin-top: 40px;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid grey;
+    font-size: 18px;
+    background-color: rgb(16, 92, 18);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.bottomWrap{
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.myInfo{
+    width: 1200px;
+    background-color: rgb(246, 246, 246);
+}
+
+.myInfo td{
+    border: 1px solid grey;
+}
+
+.myInfo td:first-child{
+    width: 250px;
+    font-size: 20px;
+    padding-left: 45px;
+    font-weight: bold;
+}
+
+.teamImg{
+    height: 240px;
+}
+
+.teamImg img{
+    width: 200px;
+    border: 1px solid grey;
+    margin-left: 15px;
+}
+
+.teamName{
+    height: 70px;
+}
+
+.teamNameInput{
+    height: 35px;
+    width: 500px;
+    margin-left: 15px;
+    font-size: 18px;
+    text-indent: 10px;
+}
+
+.teamSports{
+    height: 70px;
+}
+
+.teamSportsInput{
+    height: 35px;
+    width: 90px;
+    line-height: 35px;
+    margin-left: 15px;
+    font-size: 20px;
+    text-indent: 10px;
+}
+
+.teamProfile{
+    height: 110px;
+}
+
+.teamProfileInput textarea{
+    height: 80px;
+    width: 920px;
+    margin-left: 15px;
+    margin-top: 4px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.teamIntro{
+    height: 110px;
+}
+
+.teamIntroInput textarea{
+    height: 80px;
+    width: 920px;
+    margin-left: 15px;
+    margin-top: 4px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.teammateInfo{
+    height: 110px;
+}
+
+.teammateInfoInput textarea{
+    height: 80px;
+    width: 920px;
+    margin-left: 15px;
+    margin-top: 4px;
+    font-size: 18px;
+    padding: 10px;
+}

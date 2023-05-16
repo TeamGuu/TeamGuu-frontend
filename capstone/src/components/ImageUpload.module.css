@@ -1,0 +1,11 @@
+.imageWrap input{
+    width: 200px;
+}
+
+.imageWrap button{
+    width: 60px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    background-color: rgb(173, 223, 173);
+}
