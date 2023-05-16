@@ -7,7 +7,7 @@
     float: left;
     width: 250px;
     margin-left: 140px;
-    font-size: 25px;
+    font-size: 27px;
     font-weight: bold;
 }
 
@@ -27,10 +27,10 @@
 }
 
 .bottomWrap{
-    margin-bottom: 70px;
+    margin-bottom: 40px;
     background-color: rgb(245, 245, 245);
     width: 1200px;
-    height: 600px;
+    height: 650px;
     border: 1px solid grey;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .content{
-    height: 500px;
+    height: 400px;
 }
 
 .content .selectTitle{
