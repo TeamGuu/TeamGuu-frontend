@@ -1,61 +1,61 @@
 export const data = [{
     "name": "명지FC",
-    "score": "35전 20승 15패",
+    "score": "35승 20패 15무",
     "place": "경기",
-    "time": "10AM",
+    "date": "2023-05-22",
     "title": "명지FC와 겨룰 팀을 구합니다"
 }, {
     "name": "서울FC",
-    "score": "28전 20승 8패",
+    "score": "28승 20패 8무",
     "place": "서울",
-    "time": "12PM",
+    "date": "2023-05-22",
     "title": "서울FC와 겨룰 팀을 구합니다"
 }, {
     "name": "경기FC",
-    "score": "5전 1승 4패",
+    "score": "5승 1패 4무",
     "place": "경기",
-    "time": "11AM",
+    "date": "2023-05-22",
     "title": "경기FC와 겨룰 팀을 구합니다"
 }, {
     "name": "인천FC",
-    "score": "12전 8승 4패",
+    "score": "12승 8패 4무",
     "place": "인천",
-    "time": "14PM",
+    "date": "2023-05-22",
     "title": "인천FC와 겨룰 팀을 구합니다"
 }, {
     "name": "목포FC",
-    "score": "29전 19승 10패",
+    "score": "29승 19패 10무",
     "place": "전라",
-    "time": "15PM",
+    "date": "2023-05-22",
     "title": "목포FC와 겨룰 팀을 구합니다"
 }, {
     "name": "강원FC",
-    "score": "54전 32승 22패",
+    "score": "54승 32패 22무",
     "place": "강원",
-    "time": "9AM",
+    "date": "2023-05-22",
     "title": "강원FC와 겨룰 팀을 구합니다"
 }, {
     "name": "용인FC",
-    "score": "9전 7승 2패",
+    "score": "9승 7패 2무",
     "place": "경기",
-    "time": "11AM",
+    "date": "2023-05-22",
     "title": "용인FC와 겨룰 팀을 구합니다"
 }, {
     "name": "부산FC",
-    "score": "2전 2승 0패",
+    "score": "2승 2패 0무",
     "place": "부산",
-    "time": "17PM",
+    "date": "2023-05-22",
     "title": "부산FC와 겨룰 팀을 구합니다"
 }, {
     "name": "제주FC",
-    "score": "16전 4승 12패",
+    "score": "16승 4패 12무",
     "place": "제주",
-    "time": "16PM",
+    "date": "2023-05-22",
     "title": "제주FC와 겨룰 팀을 구합니다"
 }, {
     "name": "충청FC",
-    "score": "20전 9승 11패",
+    "score": "20승 9패 11무",
     "place": "충청",
-    "time": "13PM",
+    "date": "2023-05-22",
     "title": "충청FC와 겨룰 팀을 구합니다"
 }] 
