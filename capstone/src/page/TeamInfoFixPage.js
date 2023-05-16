@@ -2,7 +2,7 @@ import React,{useState, useEffect} from "react";
 import axios from "axios";
 import { useParams,useNavigate } from "react-router-dom";
 //style
-import styles from "./CreateTeamPage.module.css";
+import styles from "./TeamInfoFixPage.module.css";
 
 const TeamInfoFixPage = (props) => {
     
@@ -122,15 +122,6 @@ const TeamInfoFixPage = (props) => {
                         <tr>
                             <td>팀 종목</td>
                             <td className={styles.teamSports}>
-                                {/* <div className={styles.teamSportsInput} onChange={handleteamSports}>
-                                    <select>
-                                        <option>축구</option>
-                                        <option>농구</option>
-                                        <option>야구</option>
-                                        <option>배드민턴</option>
-                                        <option>배구</option>
-                                    </select>
-                                </div>                      */}
                                 <div className={styles.teamSportsInput}>{sports}</div>
                             </td>
                         </tr>
