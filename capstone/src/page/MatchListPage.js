@@ -8,7 +8,9 @@ import styles from "./MatchListPage.module.css";
 const MatchListPage = (props) => {
 
   const [search, setSearch] = useState('');
-  const [MatchInfo, setMatchInfo] = useState({});
+  const [MatchInfo, setMatchInfo] = useState([]); //불러온 매칭 목록 정보를 저장할 변수
+
+
   useEffect(() => {
     axios
       .get("http://www.teamguu.p-e.kr/api/matches/simple", {
@@ -21,13 +23,16 @@ const MatchListPage = (props) => {
         setMatchInfo(response.data.result.content);
         //console.log(response.data.result);
         console.log(response.data.result.content);
-        console.log(response.data.result.content.simpleTeamInfo);
+        
       })
       .catch((error) => {
         console.log(error);
         console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
       });
   }, []);
+
+  // const { 0: { date, id, place, simpleTeamInfo, status, title } } = MatchInfo;
+  // const { id: teamId, name, sports, logoImageUrl, victory } = simpleTeamInfo;
 
 
   return ( 
@@ -123,6 +128,21 @@ const MatchListPage = (props) => {
               ))}
                 
             </tbody>
+            <tbody className={styles.tableBody}>
+  {MatchInfo.filter((item) => {
+    return search.toLowerCase() === ""
+      ? item
+      : item.simpleTeamInfo.name.toLowerCase().includes(search);
+  }).map((item) => (
+    <tr key={item.id}>
+      <td>{item.simpleTeamInfo.name}</td>
+      <td>{item.simpleTeamInfo.victory}승{item.simpleTeamInfo.defeat}패{item.simpleTeamInfo.draw}무</td>
+      <td>{item.place}</td>
+      <td>{item.date}</td>
+      <td>{item.title}</td>
+    </tr>
+  ))}
+</tbody>
         </table>
       </div>
       
