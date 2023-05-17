@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import {Link} from "react-router-dom";
 import axios from "axios";
+
 //style
 import styles from "./Navigation.module.css";
 
@@ -94,7 +95,7 @@ const Navigation = () => {
                         <NavDropdown.Item>
                             <Link to="/page/TeamListPage"
                                 style={{ textDecoration: "none", color:"black" }}>
-                                    <div id={styles.subMenuTxt}>팀 정보</div>
+                                    <div id={styles.subMenuTxt}>팀 목록</div>
                             </Link>
                         </NavDropdown.Item>
                         <NavDropdown.Divider />

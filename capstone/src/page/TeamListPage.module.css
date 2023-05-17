@@ -1,6 +1,47 @@
+.teamListTitle{
+    display: inline-block;
+    font-size: 28px;
+    width: 250px;
+    margin-left: 190px;
+    margin-top: 55px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.teamInfoWrap{
+    background-color: rgb(236, 236, 236);
+    width: 1100px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid gray;
+}
+
+.teamInfoWrap:hover{
+    background-color: rgb(246, 255, 240);
+}
+
+.teamLink{
+    text-decoration: none;
+}
+
+.teamLink:hover{
+    text-decoration: none;
+}
+
+.teamName{
+    font-size: 23px;
+    padding: 10px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
 .teamInfo{
-    background-color: rgb(216, 239, 213);
-    width: 400px;
-    padding: 40px;
     font-size: 18px;
+    padding: 10px;
+    padding-top: 0px;
+    margin-left: 20px;
+}
+
+.teamInfo li{
+    color: rgb(87, 87, 87);
 }

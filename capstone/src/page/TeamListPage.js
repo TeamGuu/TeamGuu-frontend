@@ -37,20 +37,23 @@ const TeamListPage = () => {
 
   return (
     <div>
+      <div className={styles.teamListTitle}>팀 목록</div>
       {teamInfo.map((team) => (
         <div key={team.id}>
-          <Link
-            to={`/teams/${team.id}`}
-            className={styles.teamLink}
-            onClick={(e) => handleClick(e, team)}
-          >
-            <div className={styles.teamInfo}>
-              <li>{team.name}</li>
-              <br />
-              <li>종목: {team.sports}</li>
-              <li>전적: {team.victory}승 {team.draw}무 {team.defeat}패</li>
-            </div>
-          </Link>
+          <div className={styles.teamInfoWrap}>
+            <Link
+              to={`/teams/${team.id}`}
+              className={styles.teamLink}
+              onClick={(e) => handleClick(e, team)}
+            >
+              <div className={styles.teamName}>{team.name}</div>
+              <div className={styles.teamInfo}>
+                <li>{team.sports} &nbsp;| &nbsp;{team.victory}승 {team.draw}무 {team.defeat}패</li>
+              </div>
+              
+              
+            </Link>
+          </div> 
         </div>
       ))}
     </div>
