@@ -44,7 +44,30 @@ const TeamInfoPage = (props) => {
         navigate(`/teams/${myid}/edit`);
       };
     
-   
+    // Define a function to handle the click event of the delete button
+  const handleClickDelete = (e) => {
+    e.preventDefault();
+    console.log(`팀 ${id} 클릭됨`);
+
+    // Delete the team using Axios
+    axios
+      .delete(`http://www.teamguu.p-e.kr/api/teams?teamId=${teamId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      })
+      .then((response) => {
+        //console.log("삭제 성공");
+        console.log(response);
+        alert('팀 삭제 성공');
+        navigate(`/page/TeamListPage`);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
+        alert('팀 삭제 실패');
+      });
+  };
 
     return (
         <div className={styles.contents}>
@@ -77,7 +100,12 @@ const TeamInfoPage = (props) => {
                     </div>
                     
                     
-                    <button className={styles.deleteBtn}>팀 삭제</button>
+                    <button
+                        className={styles.deleteBtn}
+                        onClick={handleClickDelete}
+                    >
+                    팀 삭제
+                    </button>
                     
                 </div>
                 <div className={styles.teammateInfo}>
