@@ -23,6 +23,9 @@ const StadiumInfoPage = (props) => {
             </div>
             <div className={styles.rightWrap}>
                 <div className={styles.rightTitleTxt}>경기장 예약 현황</div>
+                <div className={styles.reserveWrap}>
+                    ㄹㅇ
+                </div>
             </div>
         </div>
     );

@@ -14,7 +14,7 @@
     text-align: center;
     margin-top: 30px;
     margin-bottom: 50px;
-    background-color: rgb(213, 213, 213);
+    background-color: rgb(233, 233, 233);
 }
 
 .stadiumImg img{
@@ -25,7 +25,8 @@
 }
 
 .stadiumInfo{
-    border: 2px solid gray;
+    border: 1px solid gray;
+    background-color: rgb(234, 243, 230);
     width: 450px;
     height: 200px;
     margin-top: 20px;
@@ -35,26 +36,26 @@
     font-size: 23px;
     font-weight: bold;
     padding: 10px;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-top: 10px;
 }
 
 .stadiumPlace{
     font-size: 20px;
     padding: 5px;
-    margin-left: 15px;
+    margin-left: 25px;
 }
 
 .stadiumPhoneNum{
     font-size: 20px;
     padding: 5px;
-    margin-left: 15px;
+    margin-left: 25px;
 }
 
 .stadiumHour{
     font-size: 20px;
     padding: 5px;
-    margin-left: 15px;
+    margin-left: 25px;
     margin-bottom: 10px;
 }
 
@@ -71,6 +72,12 @@
     line-height: 60px;
     text-align: center;
     margin-top: 30px;
-    margin-bottom: 30px;
-    background-color: rgb(213, 213, 213);
+    margin-bottom: 50px;
+    background-color: rgb(233, 233, 233);
+}
+
+.reserveWrap{
+    border: 1px solid gray;
+    width: 80%;
+    height: 500px;
 }

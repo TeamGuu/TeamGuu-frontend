@@ -88,6 +88,6 @@
 }
 
 .tableBody tr:hover{
-    background-color: rgb(240, 246, 236);
+    background-color: rgb(234, 243, 230);
     cursor: pointer;
 }
