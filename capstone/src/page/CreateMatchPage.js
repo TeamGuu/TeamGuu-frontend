@@ -111,7 +111,7 @@ const handleTeamChange = (event) => {
                 <div className={styles.registerBtn } onClick={handleSubmit}>등록</div>
             </div>
             <div className={styles.bottomWrap}>
-                <div className={styles.place}>
+                <div className={styles.team}>
                     <div className={styles.selectTitle}>팀 선택</div>
                     <div className={styles.inputWrap}>
                       <select value={selectedTeamOption} onChange={handleTeamChange}>

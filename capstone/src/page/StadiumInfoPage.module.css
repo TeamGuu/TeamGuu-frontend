@@ -26,7 +26,7 @@
 
 .stadiumInfo{
     border: 1px solid gray;
-    background-color: rgb(234, 243, 230);
+    background-color: rgb(255, 255, 255);
     width: 450px;
     height: 200px;
     margin-top: 20px;
@@ -79,5 +79,57 @@
 .reserveWrap{
     border: 1px solid gray;
     width: 80%;
-    height: 500px;
+    height: 520px;
+}
+
+.selectTitle{
+    display: inline-block;
+    width: 130px;
+    margin-top: 50px;
+    margin-left: 50px;
+    font-size: 22px;
+}
+
+.inputWrap{
+    display: inline-block;
+    font-size: 17px;
+}
+
+.time .inputWrap{
+    height: 150px;
+}
+
+.team select{
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.datePicker{
+    width: 170px;
+    height: 40px;
+    padding-left: 17px;
+}
+
+.time select{
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.nextBtn{
+    width: 250px;
+    height: 60px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    line-height: 60px;
+    background-color: #206f2f;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid grey;
+    border-radius: 40px;
 }
