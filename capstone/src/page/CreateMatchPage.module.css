@@ -60,6 +60,12 @@
     float: left;
 }
 
+.team select{
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+}
 
 .place select{
     width: 100px;
