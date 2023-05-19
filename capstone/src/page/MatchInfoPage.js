@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from "react";
 import axios from "axios";
+import {useParams} from "react-router-dom";
 //style
 import styles from "./MatchInfoPage.module.css";
 
@@ -8,12 +9,15 @@ import team from "./team.png";
 
 const MatchInfoPage = (props) => {
 
-    const [matchInfo, setMatchInfo] = useState({});
-    const [teamInfo, setTeamInfo] = useState({});
+    //서버에서 받아온 데이터 저장
+    const { matchingInfoId } = useParams();
+    
+    const [matchInfo, setMatchInfo] = useState({ teamInfo: {} });
+   
 
     useEffect(() => {
         axios
-          .get("http://www.teamguu.p-e.kr/api/matches?matchingInfoId=1", {
+        .get(`http://www.teamguu.p-e.kr/api/matches?matchingInfoId=${matchingInfoId}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
@@ -21,9 +25,7 @@ const MatchInfoPage = (props) => {
           .then((response) => {
             console.log('조회성공');
             setMatchInfo(response.data.result);
-            setTeamInfo(response.data.result.teamInfo);
-            console.log(response.data.result);
-            console.log(response.data.result.teamInfo);
+            //console.log(response.data.result);
           })
           .catch((error) => {
             console.log(error);
@@ -31,50 +33,60 @@ const MatchInfoPage = (props) => {
           });
     }, []);
 
-    const { date, place, title, content } = matchInfo;
-    const { name, sports, captain, history, defeat, draw, intro, playerInfo, victory,logoImageUrl} = teamInfo;
+    if (!matchInfo) {
+        // 데이터가 로드되기 전에는 로딩 상태를 표시할 수 있습니다.
+        return <div>Loading...</div>;
+      };
 
-    return(
+      const { date, place, title, content, teamInfo } = matchInfo;
+      const {
+        id,
+        name,
+        intro,
+        captain,
+        sports,
+        victory,
+        draw,
+        defeat,
+        history,
+        playerInfo,
+      } = teamInfo;
+   
+    
+      return (
         <>
-            <div className={styles.challengeBtn}>매칭신청하기</div>
-            <div className={styles.matchWrap}>               
-                <div className={styles.topWrap}>
-                    <div className={styles.teamMainInfo}>
-                        <div className={styles.teamImg}>
-                            <img src={team} alt="팀사진" />
-                        </div>
-                        <div className={styles.teamName}>{name}</div>
-                        <div className={styles.teamSports}>축구</div>
-                    </div> 
-                    <div className={styles.teamInfo}>    
-                        <div className={styles.teamIntro}>안녕하세요. 우리는 명지FC입니다. 
-                            저희는 명지대 재학생, 졸업생으로 이뤄져 있고 2013년부터 이어져 온 근본있는 축구팀입니다.
-                            새로운 인재는 언제든 환영이고요. 캡스톤 너무 힘들지만 해보겠습니다.
-                        </div>
-                        <div className={styles.teamBoss}>주장 : 김띵지</div>    
-                        <div className={styles.teamScore}>전적 : 35전 15승 20패</div>
-                        <div className={styles.teamHistory}>약력 : 용인시 대회 준우승</div>
-                        <div className={styles.teammateInfo}>팀원 : 김짱구(ST), 김철수(CAM), 박유리(RM)
-                            , 나훈이(LM), 박진구(CDM), 박퉁퉁(CDM)
-                            , 황비실(LB), 김이슬(LCB), 남도일(RCB)
-                            , 장미(RB), 김띵지(GK)</div>
-                    </div>    
+          <div className={styles.challengeBtn}>매칭신청하기</div>
+          <div className={styles.matchWrap}>
+            <div className={styles.topWrap}>
+              <div className={styles.teamMainInfo}>
+                <div className={styles.teamImg}>
+                  <img src={team} alt="팀사진" />
                 </div>
-                <div className={styles.bottomWrap}>
-                    <div className={styles.date}>날짜 : 2023-05-23</div>
-                    <div className={styles.time}>시간 : 11:00</div>
-                    <div className={styles.place}>장소 : 경기 </div>
-                    <div className={styles.matchNotice}>
-                        <div className={styles.matchTitle}>용인에서 축구 대결할 사람을 구합니다!</div>
-                        <div className={styles.matchContent}>용인시에서 활동하는 명지FC입니다. 5월 23일이고 시간은 
-                            오전 11시가 좋은데 추후 협의 가능합니다. 많은 연락 주세요~
-                        </div>
-                    </div>
+                <div className={styles.teamName}>{name}</div>
+                <div className={styles.teamSports}>{sports}</div>
+              </div>
+              <div className={styles.teamInfo}>
+                <div className={styles.teamIntro}>{intro}</div>
+                <div className={styles.teamBoss}>주장 : {captain}</div>
+                <div className={styles.teamScore}>
+                  전적 : {victory}승 {defeat}패 {draw}무
                 </div>
-                
+                <div className={styles.teamHistory}>약력 : {history}</div>
+                <div className={styles.teammateInfo}>팀원 : {playerInfo}</div>
+              </div>
             </div>
+            <div className={styles.bottomWrap}>
+              <div className={styles.date}>날짜 : {date}</div>
+              <div className={styles.time}>시간 : 10:00</div>
+              <div className={styles.place}>장소 : {place} </div>
+              <div className={styles.matchNotice}>
+                <div className={styles.matchTitle}>{title}</div>
+                <div className={styles.matchContent}>{content}</div>
+              </div>
+            </div>
+          </div>
         </>
-    );
+      );
 }
 
 export default MatchInfoPage;

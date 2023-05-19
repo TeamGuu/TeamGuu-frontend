@@ -4,11 +4,14 @@ import TextField from "@mui/material/TextField";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import { ko } from 'date-fns/esm/locale';
-
+import { Link, useNavigate } from "react-router-dom";
 //styles
 import styles from "./MatchListPage.module.css";
+import TeamListPage from "./TeamListPage.js";
 
 const MatchListPage = (props) => {
+
+  const navigate = useNavigate();
 
   const [search, setSearch] = useState('');
   const [MatchInfo, setMatchInfo] = useState([]); //불러온 매칭 목록 정보를 저장할 변수
@@ -37,6 +40,15 @@ const MatchListPage = (props) => {
   // const { 0: { date, id, place, simpleTeamInfo, status, title } } = MatchInfo;
   // const { id: teamId, name, sports, logoImageUrl, victory } = simpleTeamInfo;
 
+
+  const handleClick = (e, item) => {
+    e.preventDefault(); // 기본 동작 차단
+
+    console.log(`매칭 ${item.id} 클릭됨`);
+
+    // TeamInfoPage로 이동
+    navigate(`/matches/${item.id}`);
+  };
 
   return ( 
     <>
@@ -85,7 +97,7 @@ const MatchListPage = (props) => {
         </div>
       </div>
       <hr/>
-      <div className={styles.TableWrap}>
+      <div  className={styles.TableWrap}>
       <table className={styles.matchListTable}>
             <thead className={styles.tableHead}>
               <tr>
@@ -111,22 +123,35 @@ const MatchListPage = (props) => {
                 </tr>
               ))}
                 
+
+    
             </tbody>
+
             <tbody className={styles.tableBody}>
-            {MatchInfo.filter((item) => {
-              return search.toLowerCase() === ""
-                ? item
-                : item.simpleTeamInfo.name.toLowerCase().includes(search);
-            }).map((item) => (
-              <tr key={item.id}>
-                <td>{item.simpleTeamInfo.name}</td>
-                <td>{item.simpleTeamInfo.victory}승{item.simpleTeamInfo.defeat}패{item.simpleTeamInfo.draw}무</td>
-                <td>{item.place}</td>
-                <td>{item.date}</td>
-                <td>{item.title}</td>
-              </tr>
-            ))}
-          </tbody>
+                {MatchInfo.filter((item) => {
+                  return search.toLowerCase() === ""
+                    ? item
+                    : item.simpleTeamInfo.name.toLowerCase().includes(search);
+                }).map((item) => (
+                  <tr key={item.id}>
+                    <td>
+                      
+                        {item.simpleTeamInfo.name}
+                      
+                    </td>
+                    <td>{item.simpleTeamInfo.victory}승{item.simpleTeamInfo.defeat}패{item.simpleTeamInfo.draw}무</td>
+                    <td>{item.place}</td>
+                    <td>{item.date}</td>
+                    <td>
+                    <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      {item.title}
+                     </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+
+
         </table>
       </div>
       
