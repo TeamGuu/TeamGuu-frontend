@@ -4,7 +4,7 @@ import axios from "axios";
 //style
 import styles from "./ImageUpload.module.css";
 
-class ImageUpload extends Component {
+class TeamImageUpload extends Component {
   state = {
     selectedFile: null,
   };
@@ -19,6 +19,8 @@ class ImageUpload extends Component {
 
   // 이미지 업로드 기능
   fileUploadHandler = (e) => {
+    const { teamId } = this.props;
+    console.log("teamId:", teamId);
     e.preventDefault();
     
     const { selectedFile } = this.state;
@@ -30,7 +32,7 @@ class ImageUpload extends Component {
         console.log("파일 선택됨");
     }
   
-    if (!this.isValidImageFile(selectedFile)) {
+    if (!this.isValidImageFile(selectedFile)) { 
       console.log("유효하지 않은 이미지 파일입니다.");
       return;
     }else{
@@ -38,12 +40,12 @@ class ImageUpload extends Component {
     }
   
     const formData = new FormData();
-    formData.append("profileImage", selectedFile); 
+    formData.append("logoImage", selectedFile);
   
     axios
-      .post("http://www.teamguu.p-e.kr/api/members/profile-image-new", formData, {
+      .post(`http://www.teamguu.p-e.kr/api/teams/logo-image-new?teamId=${teamId}`, formData, {
         headers: {
-          "Content-Type": "multipart/form-data", 
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       })
@@ -77,4 +79,4 @@ class ImageUpload extends Component {
   }
 }
 
-export default ImageUpload;
+export default TeamImageUpload;  //TeamImageUpload.js파일 생성해야함
