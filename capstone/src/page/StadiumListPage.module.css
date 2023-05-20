@@ -50,34 +50,3 @@
     height: 500px;
     margin-top: 200px;
 }
-
-.stadiumList{
-    border: 1px solid grey; 
-    width: 1000px;
- }
- 
- .tableBody tr td:first-child{
-    padding: 10px;
-     width: 180px;
-     height: 120px; 
-     text-align: center;
- }
- 
- .tableBody tr td{
-     padding: 20px;
-     border: 1px solid grey;
- }
-
- .stadiumName{
-    font-size: 20px;
-    height: 15px;
-    font-weight: bold;
- }
- 
- .tableBody tr:hover{
-     background-color: rgb(245, 245, 245);
-     cursor: pointer;
- }
-
- 
- 

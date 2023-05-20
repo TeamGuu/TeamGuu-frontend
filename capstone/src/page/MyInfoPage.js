@@ -7,13 +7,11 @@ import styles from "./MyInfoPage.module.css";
 import myImg from "./myImg.png";
 import ImageUpload from "../components/ImageUpload";
 
-
 const MyInfoPage = (props) => {
 
     const [memberInfo, setMemberInfo] = useState({ name: "", birth: "" ,username:""}); // 멤버 정보를 저장할 상태 변수
     const [newname, setnewname] = useState(""); //수정시 이름
     const [newphone, setnewPhone] = useState("");//수정시 핸드폰번호
-   
     
     useEffect(() => {
         axios
@@ -36,7 +34,7 @@ const MyInfoPage = (props) => {
 
 
 
-      const { name, phone, username , profileImageUrl } = memberInfo;
+      const { name, phone, username } = memberInfo;
 
       //수정시
       useEffect(() => {
@@ -108,17 +106,15 @@ const MyInfoPage = (props) => {
         });
     };
 
- 
-
 
     return(
         <div className={styles.myInfoWrap}>
             <div className={styles.leftWrap}>
                 <div className={styles.titleTxt}>회원 정보</div>
                 <div className={styles.myImg}>
-                    <img src={`https://teamguu.s3.ap-northeast-2.amazonaws.com/${profileImageUrl}`} alt="회원사진" />
+                    <img src={myImg} alt="회원사진" />
                     <div className={styles.imgUploadBtn}>
-                        <ImageUpload />
+                      <ImageUpload />
                     </div>
                 </div>
                 <div className={styles.myProfile}>

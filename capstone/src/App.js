@@ -33,7 +33,8 @@ const App = (props) => {
         <Route path='/page/FindPWPage' element={<FindPWPage/>}/>
         <Route path='/page/CreateMatchPage' element={<CreateMatchPage/>}/>
         
-        
+        <Route path='/page/StadiumListPage' element={<StadiumListPage/>}/>
+        <Route path='/page/StadiumInfoPage' element={<StadiumInfoPage/>}/>
         <Route path='/page/MyInfoPage' element={<MyInfoPage/>}/>
         
         
@@ -43,10 +44,7 @@ const App = (props) => {
         <Route path="/teams/:teamId/edit" element={<TeamInfoFixPage />} />
         
         <Route exact path='/page/MatchListPage' element={<MatchListPage/>}/>
-        <Route path='/matches/:matchId' element={<MatchInfoPage/>}/>
-
-        <Route exact path='/page/StadiumListPage' element={<StadiumListPage/>}/>
-        <Route path='/page/:stadiumId' element={<StadiumInfoPage/>}/>
+        <Route path='/matches/:matchingInfoId' element={<MatchInfoPage/>}/>
 
       </Routes>
     </BrowserRouter>

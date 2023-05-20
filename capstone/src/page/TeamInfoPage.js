@@ -35,7 +35,7 @@ const TeamInfoPage = (props) => {
          });
      }, [teamId]);
     
-    const { id, name, intro, captain, sports, victory, draw, defeat, history, playerInfo , logoImageUrl} = teamInfo;
+    const { id, name, intro, captain, sports, victory, draw, defeat, history, playerInfo } = teamInfo;
 
     const handleClick = (e, myid) => {
         e.preventDefault();
@@ -73,7 +73,7 @@ const TeamInfoPage = (props) => {
         <div className={styles.contents}>
             <div className={styles.teamWrap}>
                 <div className={styles.teamImg}>
-                    <img src={`https://teamguu.s3.ap-northeast-2.amazonaws.com/${logoImageUrl}`} alt="팀사진" />
+                    <img src={team} alt="팀사진" />
                 </div>
                 <div className={styles.teamInfo}>
                     <li>{name}</li>
