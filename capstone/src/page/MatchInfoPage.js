@@ -17,7 +17,7 @@ const MatchInfoPage = (props) => {
 
     useEffect(() => {
         axios
-        .get(`http://www.teamguu.p-e.kr/api/matches?matchingInfoId=${matchingInfoId}`, {
+        .get(`http://www.teamguu.p-e.kr/api/matches?matchId=${matchingInfoId}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
