@@ -40,6 +40,10 @@ const MatchListPage = (props) => {
   // const { 0: { date, id, place, simpleTeamInfo, status, title } } = MatchInfo;
   // const { id: teamId, name, sports, logoImageUrl, victory } = simpleTeamInfo;
 
+  const handleDateChange = (date) => {
+    setStartDate(date);
+    console.log(startDate.toISOString().split("T")[0]); // 선택한 날짜 출력
+  };
 
   const handleClick = (e, item) => {
     e.preventDefault(); // 기본 동작 차단
@@ -80,7 +84,7 @@ const MatchListPage = (props) => {
                 className={styles.datePicker}
                 dateFormat="yyyy년 MM월 dd일"
                 selected={startDate}
-                // onChange={handleDateChange}
+                onChange={handleDateChange}
                 minDate={new Date()}
                 locale={ko}
               />
