@@ -1,20 +1,30 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import TextField from "@mui/material/TextField";
+import {Link} from "react-router-dom";
+import {data} from "./StadiumListData.js" //테스트용 더미데이터
 
 //style
 import styles from "./StadiumListPage.module.css";
 
-//components
-import StadiumListTable from "../components/table/StadiumListTable";
+//image
+import stadium from "./stadium.png";
 
 const StadiumListPage = (props) => {
+    const [search, setSearch] = useState('');
+
     return(
         <>
             <div className={styles.topWrap}>
                 <div className={styles.searchBar}>
-                    <form>
-                        <input type='text' maxLength='20' className={styles.searchInput} name='search' placeholder='경기장 이름을 입력해주세요.'/>
-                        <input type='submit' value='검색' className={styles.searchSubmit}/>
-                    </form>
+                    <div className={styles.search}>
+                        <TextField
+                        id="outlined-basic"
+                        onChange={(e)=>setSearch(e.target.value)}
+                        variant="outlined"
+                        fullWidth
+                        label="경기장 이름을 입력하세요."
+                        />
+                    </div>
                 </div>
                 <ul className={styles.placeNav}>
                     <li>전체</li>
@@ -29,7 +39,20 @@ const StadiumListPage = (props) => {
                 </ul>
             </div>
             <div className={styles.bottomWrap}>
-                <StadiumListTable />
+                <table className={styles.stadiumList}>
+                    <tbody className={styles.tableBody}>
+                        {data.filter((item)=>{
+                            return search.toLowerCase() === '' 
+                            ? item 
+                            : item.name.toLowerCase().includes(search);
+                        }).map((item) => (
+                            <tr key={item.name}>
+                                <td>{item.image}</td>
+                                <td><div className={styles.stadiumName}>{item.name}</div><br/>위치: {item.place}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </>
         
