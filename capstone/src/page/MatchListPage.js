@@ -149,7 +149,7 @@ const MatchListPage = (props) => {
                     <td>
                     <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
                       {item.title}
-                     </Link>
+                    </Link>
                     </td>
                   </tr>
                 ))}
