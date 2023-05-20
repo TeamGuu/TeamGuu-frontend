@@ -25,7 +25,7 @@ const TeamInfoPage = (props) => {
            },
          })
          .then((response) => {
-           console.log("조회성공");
+           console.log("조회성공"); //5-20 머지
            setTeamInfo(response.data.result);
            console.log(response.data.result);
          })
