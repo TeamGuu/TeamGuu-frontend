@@ -82,7 +82,7 @@
 
 .tableBody tr td{
     padding: 15px;
-    border-bottom: 1px solid rgb(224, 224, 224);
+    border-bottom: 1px solid grey;
     text-align: center;
     font-size: 17px;
 }
