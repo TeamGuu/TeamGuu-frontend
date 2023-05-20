@@ -23,7 +23,7 @@ const StadiumInfoPage = (props) => {
 
     useEffect(() => {
         axios
-          .get("http://www.teamguu.p-e.kr/api/teams/simple", {
+          .get("http://www.teamguu.p-e.kr/api/teams/simple", { //${stadiumId}
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },

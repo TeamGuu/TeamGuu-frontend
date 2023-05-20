@@ -10,14 +10,14 @@ import team from "./team.png";
 const MatchInfoPage = (props) => {
 
     //서버에서 받아온 데이터 저장
-    const { matchingInfoId } = useParams();
+    const { matchId } = useParams(); //선택한 글의 id를 가져옴
     
     const [matchInfo, setMatchInfo] = useState({ teamInfo: {} });
    
 
     useEffect(() => {
         axios
-        .get(`http://www.teamguu.p-e.kr/api/matches?matchId=${matchingInfoId}`, {
+        .get(`http://www.teamguu.p-e.kr/api/matches?matchId=${matchId}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
