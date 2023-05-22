@@ -19,7 +19,7 @@ const MatchListPage = (props) => {
 
   //페이지네이션 변수
   const [currentPage, setCurrentPage] = useState(1);
-  const [size, setSize] = useState(3);
+  const [size, setSize] = useState(10);
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
