@@ -91,3 +91,34 @@
     background-color: rgb(234, 243, 230);
     cursor: pointer;
 }
+
+.pagination{
+    height: 120px;
+    text-align: center;
+    padding-top: 40px;
+ }
+
+.pagination button{
+    width: 30px;
+    height: 30px;
+    border: none;
+    font-size: 20px;
+    background-color: white;
+}
+
+button:disabled{
+    color: rgb(192, 192, 192);
+}
+
+.active{
+    color: rgb(65, 163, 66);
+    font-weight: bold;
+}
+
+.pagination button:first-child{
+    margin-right: 20px;
+}
+
+.pagination button:last-child{
+    margin-left: 20px;
+}
