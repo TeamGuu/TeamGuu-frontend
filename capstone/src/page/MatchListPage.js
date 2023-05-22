@@ -17,9 +17,14 @@ const MatchListPage = (props) => {
   const [MatchInfo, setMatchInfo] = useState([]); //불러온 매칭 목록 정보를 저장할 변수
   const [startDate, setStartDate] = useState(new Date());
 
+  //페이지네이션 변수
+  const [currentPage, setCurrentPage] = useState(1);
+  const [size, setSize] = useState(3);
+  const [totalPages, setTotalPages] = useState(0);
+
   useEffect(() => {
     axios
-      .get("http://www.teamguu.p-e.kr/api/matches/simple", {
+      .get(`http://www.teamguu.p-e.kr/api/matches/simple?page=${currentPage - 1}&size=${size}&sort=id,desc`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -27,6 +32,7 @@ const MatchListPage = (props) => {
       .then((response) => {
         console.log("매칭목록 ? 조회성공");
         setMatchInfo(response.data.result.content);
+        setTotalPages(response.data.result.totalPages);
         //console.log(response.data.result);
         console.log(response.data.result.content);
         
@@ -35,10 +41,14 @@ const MatchListPage = (props) => {
         console.log(error);
         console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
       });
-  }, []);
+  }, [currentPage]);
 
   // const { 0: { date, id, place, simpleTeamInfo, status, title } } = MatchInfo;
   // const { id: teamId, name, sports, logoImageUrl, victory } = simpleTeamInfo;
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   const handleDateChange = (date) => {
     setStartDate(date);
@@ -157,6 +167,29 @@ const MatchListPage = (props) => {
 
 
         </table>
+        <div className={styles.pagination}>
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            &lt;
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <button
+              key={page}
+              onClick={() => handlePageChange(page)}
+              className={page === currentPage ? styles.active : ""}
+            >
+              {page}
+            </button>
+          ))}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            &gt;
+          </button>
+        </div>
       </div>
       
             
