@@ -204,8 +204,8 @@ const StadiumInfoPage = (props) => {
                                 </select>
                             </div>
                         </div>
-                        <div className={styles.nextBtn} onClick={handleSubmit}>
-                            다음 →
+                        <div className={styles.reserveBtn} onClick={handleSubmit}>
+                            예약하기
                         </div>
                     </div>
                 </div>
