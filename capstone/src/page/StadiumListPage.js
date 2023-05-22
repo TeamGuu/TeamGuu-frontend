@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./StadiumListPage.module.css";
-import stadium from "./stadium.png";
+// import stadium from "./stadium.png";
 
 const StadiumListPage = (props) => {
   const navigate = useNavigate();
