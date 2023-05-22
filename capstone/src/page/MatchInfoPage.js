@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from "react";
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 //style
 import styles from "./MatchInfoPage.module.css";
 
@@ -14,6 +14,8 @@ const MatchInfoPage = (props) => {
     
     const [matchInfo, setMatchInfo] = useState({ teamInfo: {} });
    
+    //매칭 삭제시 화면전환
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios
@@ -52,10 +54,36 @@ const MatchInfoPage = (props) => {
         playerInfo,
       } = teamInfo;
    
-    
+         // Define a function to handle the click event of the delete button
+  const handleClickDelete = (e) => {
+    e.preventDefault();
+    console.log(`팀 ${id} 클릭됨`);
+
+    // Delete the team using Axios
+    axios
+      .delete(`http://www.teamguu.p-e.kr/api/matches?matchId=${matchId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      })
+      .then((response) => {
+        //console.log("삭제 성공");
+        console.log(response);
+        alert('팀 삭제 성공');
+        navigate(`/page/MatchListPage`);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
+        alert('팀 삭제 실패');
+      });
+  };
+
+      
       return (
-        <>
+        <> 
           <div className={styles.challengeBtn}>매칭신청하기</div>
+          <div className={styles.challengeBtn} onClick={handleClickDelete}>매칭삭제</div>
           <div className={styles.matchWrap}>
             <div className={styles.topWrap}>
               <div className={styles.teamMainInfo}>

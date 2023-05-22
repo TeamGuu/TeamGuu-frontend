@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { ko } from 'date-fns/esm/locale';
 import axios from 'axios';
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 
 //style
 import styles from "./StadiumInfoPage.module.css";
@@ -12,8 +12,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import stadium from "./stadium.png";
 
 const StadiumInfoPage = (props) => {
-     //서버에서 받아온 데이터 저장
-     const { stadiumId } = useParams(); //선택한 글의 id를 가져옴
+
+    const navigate = useNavigate(); 
+    //서버에서 받아온 데이터 저장
+    const { stadiumId } = useParams(); //선택한 글의 id를 가져옴
     
     const [startDate, setStartDate] = useState(new Date());
 
@@ -30,10 +32,10 @@ const StadiumInfoPage = (props) => {
 
     useEffect(() => {
       console.log(`선택된 경기장의 아이디: ${stadiumId}`);
-    }, [stadiumId]);
-    useEffect(() => {
-        console.log(`선택된 팀의 아이디: ${teamId}`);
-      }, [teamId]);
+      console.log(`선택된 팀의 아이디: ${teamId}`);
+      console.log(`선택된 시간: ${selectedTime}`);
+    }, [stadiumId, teamId, selectedTime]);
+    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -86,7 +88,38 @@ const StadiumInfoPage = (props) => {
         return <div>Loading...</div>;
       };  
 
+
+      //예약 버튼 누를 때 작용
+      const handleSubmit = (e) => {
+ 
+        // 이후 서버로 제출하는 로직 작성   
+        e.preventDefault();
     
+            
+    
+        const requestBody = {
+            
+            date: selectedTime
+            
+          };
+    
+        axios.post(`http://www.teamguu.p-e.kr/api/reservations?teamId=${teamId}&stadiumId=${stadiumId}`, requestBody, { 
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          })
+        .then((response) => {
+            console.log(response);
+            alert('예약이 완료되었습니다.');
+            // 경기장 정보화면으로 이동
+           navigate(`/page/StadiumListPage`);
+          })
+          .catch((error) => {
+            console.error(error);
+            alert('예약에 실패했습니다.');
+            
+          }); 
+      };
 
     //날짜 선택시 핸들작용 코드
     const handleDateChange = (date) => {
@@ -106,10 +139,12 @@ const StadiumInfoPage = (props) => {
 
     //시간 선택 시 핸들작용 코드
     const handleTimeChange = (event) => {
-        const selectedValue = event.target.value; // 선택한 값 가져오기
-        setSelectedTime(selectedValue); // 상태 변수에 저장
-        
-      };
+      const selectedValue = event.target.value; // 선택한 시간 값 가져오기
+      const formattedDate = `${startDate.toISOString().split("T")[0]}-${selectedValue}`; // 날짜와 시간 조합
+      setSelectedTime(formattedDate); // 상태 변수에 저장
+    };
+    
+    
 
     return(
         <div>
@@ -169,7 +204,7 @@ const StadiumInfoPage = (props) => {
                                 </select>
                             </div>
                         </div>
-                        <div className={styles.nextBtn}>
+                        <div className={styles.nextBtn} onClick={handleSubmit}>
                             다음 →
                         </div>
                     </div>
