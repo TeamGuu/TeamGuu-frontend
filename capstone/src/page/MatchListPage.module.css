@@ -81,7 +81,7 @@
 }
 
 .tableBody tr td{
-    padding: 15px;
+    height: 55px;
     border-bottom: 1px solid grey;
     text-align: center;
     font-size: 17px;

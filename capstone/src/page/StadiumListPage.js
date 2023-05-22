@@ -95,9 +95,11 @@ const StadiumListPage = (props) => {
                    </Link> 
                   </td>
                   <td>
+                  <Link to={`/stadiums/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <div className={styles.stadiumName}>{item.name}</div>
                     <br />
-                    위치: {item.location}
+                    {item.location}
+                  </Link>
                   </td>
                 </tr>
               ))}

@@ -146,17 +146,29 @@ const MatchListPage = (props) => {
                 }).map((item) => (
                   <tr key={item.id}>
                     <td>
-                      
-                        {item.simpleTeamInfo.name}
-                      
+                      <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                          {item.simpleTeamInfo.name}
+                      </Link>
                     </td>
-                    <td>{item.simpleTeamInfo.victory}승{item.simpleTeamInfo.defeat}패{item.simpleTeamInfo.draw}무</td>
-                    <td>{item.place}</td>
-                    <td>{item.date}</td>
                     <td>
-                    <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
-                      {item.title}
-                    </Link>
+                      <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {item.simpleTeamInfo.victory}승{item.simpleTeamInfo.defeat}패{item.simpleTeamInfo.draw}무
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {item.place}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {item.date}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {item.title}
+                      </Link>
                     </td>
                   </tr>
                 ))}
