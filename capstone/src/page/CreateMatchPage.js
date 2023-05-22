@@ -13,7 +13,7 @@ const CreateMatchPage = (props) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
-    const [teamInfo, setTeamInfo] = useState([]); // 팀 ID 저장용 상태 변수
+    const [teamInfo, setTeamInfo] = useState([]); // 팀 정보 상태 변수
     const [teamId, setTeamId] = useState(0); //선택된 팀의 id를 저장할 변수
   
     useEffect(() => {

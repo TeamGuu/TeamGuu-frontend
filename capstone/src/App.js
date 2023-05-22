@@ -46,7 +46,7 @@ const App = (props) => {
         <Route path='/matches/:matchId' element={<MatchInfoPage/>}/>
 
         <Route exact path='/page/StadiumListPage' element={<StadiumListPage/>}/>
-        <Route path='/page/:stadiumId' element={<StadiumInfoPage/>}/> 
+        <Route path='/stadiums/:stadiumId' element={<StadiumInfoPage/>}/> 
 
       </Routes>
     </BrowserRouter>
