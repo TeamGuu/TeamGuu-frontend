@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {data} from "./MatchListData.js"
+// import {data} from "./MatchListData.js"
 import TextField from "@mui/material/TextField";
 import axios from "axios";
 import DatePicker from "react-datepicker";
@@ -122,7 +122,7 @@ const MatchListPage = (props) => {
                 <th>제목</th>
               </tr>
             </thead>
-            <tbody className={styles.tableBody}>
+            {/* <tbody className={styles.tableBody}>
               {data.filter((item)=>{
                 return search.toLowerCase() === '' 
                   ? item 
@@ -136,10 +136,7 @@ const MatchListPage = (props) => {
                     <td>{item.title}</td>
                 </tr>
               ))}
-                
-
-    
-            </tbody>
+            </tbody> */}
 
             <tbody className={styles.tableBody}>
                 {MatchInfo.filter((item) => {
