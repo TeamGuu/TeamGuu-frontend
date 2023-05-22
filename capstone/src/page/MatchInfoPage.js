@@ -83,7 +83,7 @@ const MatchInfoPage = (props) => {
       return (
         <> 
           <div className={styles.challengeBtn}>매칭신청하기</div>
-          <div className={styles.challengeBtn} onClick={handleClickDelete}>매칭삭제</div>
+          <div className={styles.deleteBtn} onClick={handleClickDelete}>매칭삭제</div>
           <div className={styles.matchWrap}>
             <div className={styles.topWrap}>
               <div className={styles.teamMainInfo}>
