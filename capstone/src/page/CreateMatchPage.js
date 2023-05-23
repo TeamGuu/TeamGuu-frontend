@@ -2,11 +2,13 @@ import React, { useState,useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { ko } from 'date-fns/esm/locale';
 import axios from 'axios';
+import {  useNavigate } from "react-router-dom";
 //style
 import styles from "./CreateMatchPage.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CreateMatchPage = (props) => {
+    const navigate = useNavigate();
     const [selectedTeamOption, setSelectedTeamOption] = useState('');
     const [selectedOption, setSelectedOption] = useState('전체');
     const [startDate, setStartDate] = useState(new Date());
@@ -63,6 +65,7 @@ const CreateMatchPage = (props) => {
         console.log(response);
         alert('매칭 공고 등록이 완료되었습니다.');
         console.log(`보낼때의 팀 id: ${teamId}`);
+        navigate('/page/MatchListPage');
       })
       .catch((error) => {
         console.error(error);

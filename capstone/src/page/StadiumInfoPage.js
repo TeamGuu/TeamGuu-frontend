@@ -29,13 +29,17 @@ const StadiumInfoPage = (props) => {
     //시간 관련 저장 변수
     const [selectedTime, setSelectedTime] = useState('');
 
-
+    
+    
     useEffect(() => {
       console.log(`선택된 경기장의 아이디: ${stadiumId}`);
       console.log(`선택된 팀의 아이디: ${teamId}`);
       console.log(`선택된 시간: ${selectedTime}`);
     }, [stadiumId, teamId, selectedTime]);
     
+    //예약된 정보 불러오기
+    
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -73,7 +77,8 @@ const StadiumInfoPage = (props) => {
       
         fetchData();
       }, [stadiumId]);
-      
+    
+    
 
     const {closeTime, openTime, phone, simpleStadiumInfo} = stadiumInfo;
     const {
@@ -150,6 +155,7 @@ const StadiumInfoPage = (props) => {
         <div>
             <div className={styles.leftWrap}>
                 <div className={styles.leftTitleTxt}>경기장 상세 정보</div>
+                
                 <div className={styles.stadiumImg}>
                     <img src={`https://teamguu.s3.ap-northeast-2.amazonaws.com/${imageUrl}`} alt="경기장사진" />
                 </div>
@@ -190,7 +196,7 @@ const StadiumInfoPage = (props) => {
                             </div>
                         <div className={styles.time}>
                             <div className={styles.selectTitle}>
-                                예약 시간
+                                예약 시간 
                             </div>
                             <div className={styles.inputWrap} onChange={handleTimeChange}>
                                 <select>
