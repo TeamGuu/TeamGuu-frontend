@@ -1,6 +1,6 @@
 //회원가입 페이지
 import React from "react";
-import {Link, useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 import { useState } from "react";
 import axios from 'axios';
@@ -11,6 +11,7 @@ import styles from "./JoinPage.module.css";
 //이거그냥 갖다쓰는게 나을수도.. 직접 해보긴했는데 코드가 안먹음
 const JoinPage=(props)=>{ 
 
+    const navigate = useNavigate();
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [eachPassword,setEachPassword] = useState('');
@@ -147,7 +148,7 @@ const JoinPage=(props)=>{
     const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
     //회원가입 완료 후 페이지 이동 5/9 미구현
-    const navigate = useNavigate();
+    
 
     const checkSignUp = (e) => {
         e.preventDefault();
@@ -162,11 +163,11 @@ const JoinPage=(props)=>{
             birth: birth
           };
 
-        axios.post('http://43.201.242.0:8080/api/auth/sign-up', requestBody)
+        axios.post('http://www.teamguu.p-e.kr/api/auth/sign-up', requestBody)
         .then((response) => {
             console.log(response);
             alert('회원가입이 완료되었습니다.');
-            navigate("./Page/LoginPage");
+            navigate('/');
           })
           .catch((error) => {
             console.error(error);

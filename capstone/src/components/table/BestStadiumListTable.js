@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
-
+import axios from "axios";
 //style
 import styles from "./BestStadiumListTable.module.css";
 
@@ -8,14 +8,39 @@ import styles from "./BestStadiumListTable.module.css";
 import stadium from "./stadium.png";
 
 const BestStadiumListTable = () => {
-    return(
-        <table className={styles.bestStadiumList}>
+
+    const [stadiumInfo, setStadiumInfo] = useState([]);
+
+    useEffect(() => {
+        axios
+          .get(
+            `http://www.teamguu.p-e.kr/api/stadiums/simple?page=1&size=4&sort=id,desc`,
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+            }
+          )
+          .then((response) => {
+            console.log("조회 성공");
+            setStadiumInfo(response.data.result.content);
+            
+            console.log(response.data.result.content);
+          })
+          .catch((error) => {
+            console.log(error);
+            console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
+          });
+      }, []);
+
+      return (
+        <table className={styles.newMatchList}>
             <thead className={styles.tableHead}>
               <tr>
-                <th colSpan={2}>
-                    <div className={styles.tableTxt}>인기 경기장 순위</div>
+                <th colSpan={3}>
+                    <div className={styles.tableTxt}>최근 매칭 신청</div>
                     <button className={styles.plusBtn}>
-                        <Link to="/page/StadiumListPage" style={{textDecoration: "none", color:"black"}}>
+                        <Link to="/page/MatchListPage" style={{textDecoration: "none", color:"black"}}>
                             + 더보기
                         </Link>
                     </button>
@@ -23,22 +48,21 @@ const BestStadiumListTable = () => {
               </tr>
             </thead>
             <tbody className={styles.tableBody}>
-                <tr>
-                    <td><img src={stadium} alt="경기장사진" /></td>
-                    <td><strong>캄프누</strong><br/><br/>위치 : 스페인 카탈리냐주 바르셀로나<br/>전화번호 : 02-337-8699</td>
+            {stadiumInfo.map((item) => (
+                <tr key={item.id}>
+                  <td>
+                  <img
+                      src={`https://teamguu.s3.ap-northeast-2.amazonaws.com/${item.imageUrl}`}
+                      alt="경기장 이미지"
+                    />
+                  </td>
+                  <td>
+                  <div className={styles.stadiumName}>{item.name}</div>
+                    <br />
+                    {item.location}
+                  </td>
                 </tr>
-                <tr>
-                    <td><img src={stadium} alt="경기장사진" /></td>
-                    <td><strong>올드 트래포드</strong><br/><br/>위치 : 영국 그레이터맨체스터 트래포드<br/>전화번호 : 02-933-2727</td>
-                </tr>
-                <tr>
-                    <td><img src={stadium} alt="경기장사진" /></td>
-                    <td><strong>안필드</strong><br/><br/>위치 : 영국 리버풀<br/>전화번호 : 02-123-4567</td>
-                </tr>
-                <tr>
-                    <td><img src={stadium} alt="경기장사진" /></td>
-                    <td><strong>진영오빠집</strong><br/><br/>위치 : 힐하우스 a동<br/>전화번호 : 010-1234-5678</td>
-                </tr>
+              ))}
             </tbody>
         </table>
     );
