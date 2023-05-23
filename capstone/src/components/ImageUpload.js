@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 //style
 import styles from "./ImageUpload.module.css";
@@ -48,7 +49,7 @@ class ImageUpload extends Component {
         },
       })
       .then((response) => {
-        console.log("이미지 업로드 성공");
+        alert("이미지 업로드 성공");
         console.log(response.data);
         // 업로드된 이미지 URL을 받아와서 필요한 처리를 수행하거나 상태를 업데이트합니다.
         // 예시: this.props.handleImageUpload(response.data.imageUrl);
