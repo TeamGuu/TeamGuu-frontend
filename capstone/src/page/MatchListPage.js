@@ -14,6 +14,7 @@ const MatchListPage = (props) => {
   const navigate = useNavigate();
 
   const [search, setSearch] = useState('');
+  const [selectedPlace, setSelectedPlace] = useState([]);
   const [MatchInfo, setMatchInfo] = useState([]); //불러온 매칭 목록 정보를 저장할 변수
   const [startDate, setStartDate] = useState(new Date());
 
@@ -64,6 +65,11 @@ const MatchListPage = (props) => {
     navigate(`/matches/${item.id}`);
   };
 
+  const handleSelectChange = (e) => {
+    console.log(e.target.value);
+    setSelectedPlace(e.target.value);
+  };
+
   return ( 
     <>
       <div className={styles.searchBar}>
@@ -72,16 +78,16 @@ const MatchListPage = (props) => {
               지역
             </div>
             <div className={styles.hopelocalSelect}>
-              <select>
-                <option>전체</option>
-                <option>서울</option>
-                <option>인천</option>
-                <option>경기</option>
-                <option>강원</option>
-                <option>충청</option>
-                <option>경상</option>
-                <option>전라</option>
-                <option>제주</option>
+              <select onChange={handleSelectChange}>
+              <option value="전체">전체</option>
+              <option value="서울">서울</option>
+              <option value="인천">인천</option>
+              <option value="경기">경기</option>
+              <option value="강원">강원</option>
+              <option value="충청">충청</option>
+              <option value="경상">경상</option>
+              <option value="전라">전라</option>
+              <option value="제주">제주</option>
               </select>
             </div>
         </div>
@@ -122,21 +128,6 @@ const MatchListPage = (props) => {
                 <th>제목</th>
               </tr>
             </thead>
-            {/* <tbody className={styles.tableBody}>
-              {data.filter((item)=>{
-                return search.toLowerCase() === '' 
-                  ? item 
-                  : item.name.toLowerCase().includes(search);
-              }).map((item) => (
-                <tr key={item.name}>
-                    <td>{item.name}</td>
-                    <td>{item.score}</td>
-                    <td>{item.place}</td>
-                    <td>{item.date}</td>
-                    <td>{item.title}</td>
-                </tr>
-              ))}
-            </tbody> */}
 
             <tbody className={styles.tableBody}>
                 {MatchInfo.filter((item) => {
@@ -148,6 +139,37 @@ const MatchListPage = (props) => {
                     <td>
                       <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
                           {item.simpleTeamInfo.name}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {item.simpleTeamInfo.victory}승{item.simpleTeamInfo.defeat}패{item.simpleTeamInfo.draw}무
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {item.place}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {item.date}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {item.title}
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+                {MatchInfo.filter((item) => {
+                  return item.place === selectedPlace
+                }).map((item) => (
+                  <tr key={item.id}>
+                    <td>
+                      <Link to={`/matches/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {item.simpleTeamInfo.name}
                       </Link>
                     </td>
                     <td>
