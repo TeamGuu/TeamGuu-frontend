@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 //style
 import styles from "./CreateTeamPage.module.css";
@@ -8,7 +9,7 @@ import styles from "./CreateTeamPage.module.css";
 import team from "./team.png";
 
 const CreateTeamPage = (props) => {
-
+    const navigate = useNavigate();
     const [teamName, setTeamName] = useState("");
     const [teamSports, setTeamSports] = useState("축구");
     const [teamProfile, setTeamProfile] = useState("");
@@ -55,10 +56,10 @@ const CreateTeamPage = (props) => {
                 },
             })
             .then((response) => {
-                console.log("저장 성공");
+                alert("저장 성공");
                 console.log(response);
                 // 성공 처리 로직 작성
-                
+                navigate('/page/teamListPage');
             })
             .catch((error) => {
                 console.log(error);
