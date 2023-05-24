@@ -14,12 +14,17 @@ const MatchListPage = (props) => {
   const [search, setSearch] = useState("");
   const [selectedPlace, setSelectedPlace] = useState("전체");
   const [MatchInfo, setMatchInfo] = useState([]); //불러온 매칭 목록 정보를 저장할 변수
-  const [startDate, setStartDate] = useState(new Date());
+
+   const [startDate, setStartDate] = useState(new Date()); //기존코드
+ //const [startDate, setStartDate] = useState(null);
 
   //페이지네이션 변수
   const [currentPage, setCurrentPage] = useState(1);
   const [size, setSize] = useState(10);
   const [totalPages, setTotalPages] = useState(0);
+
+  //날짜 검색
+  const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
     axios
@@ -30,6 +35,9 @@ const MatchListPage = (props) => {
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          params: {
+            date: selectedDate ? selectedDate.toISOString().split("T")[0] : null,
           },
         }
       )
@@ -43,7 +51,7 @@ const MatchListPage = (props) => {
         console.log(error);
         console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
       });
-  }, [currentPage]);
+  }, [currentPage, selectedDate]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -51,7 +59,8 @@ const MatchListPage = (props) => {
 
   const handleDateChange = (date) => {
     setStartDate(date);
-    console.log(startDate.toISOString().split("T")[0]); // 선택한 날짜 출력
+    setSelectedDate(date);
+    console.log(date.toISOString().split("T")[0]); // 선택한 날짜 출력
   };
 
   const handleClick = (e, item) => {
@@ -94,6 +103,7 @@ const MatchListPage = (props) => {
               onChange={handleDateChange}
               minDate={new Date()}
               locale={ko}
+              
             />
           </div>
         </div>
@@ -126,7 +136,9 @@ const MatchListPage = (props) => {
                   item.simpleTeamInfo.name
                     .toLowerCase()
                     .includes(search.toLowerCase())) &&
-                (selectedPlace === "전체" || item.place === selectedPlace)
+                (selectedPlace === "전체" || item.place === selectedPlace)&&
+                (!selectedDate || new Date(item.date).toISOString().split("T")[0] === selectedDate.toISOString().split("T")[0])
+          
               );
             }).map((item) => (
               <tr key={item.id}>

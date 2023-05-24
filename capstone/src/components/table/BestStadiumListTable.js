@@ -38,7 +38,7 @@ const BestStadiumListTable = () => {
             <thead className={styles.tableHead}>
               <tr>
                 <th colSpan={3}>
-                    <div className={styles.tableTxt}>최근 매칭 신청</div>
+                    <div className={styles.tableTxt}>최근 경기장 정보 </div>
                     <button className={styles.plusBtn}>
                         <Link to="/page/MatchListPage" style={{textDecoration: "none", color:"black"}}>
                             + 더보기
