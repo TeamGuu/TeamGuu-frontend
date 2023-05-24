@@ -19,7 +19,7 @@ const MatchInfoPage = (props) => {
 
     useEffect(() => {
         axios
-        .get(`http://www.teamguu.p-e.kr/api/matches?matchId=${matchId}`, {
+        .get(`https://www.teamguu.o-r.kr/api/matches?matchId=${matchId}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
@@ -61,7 +61,7 @@ const MatchInfoPage = (props) => {
 
     // Delete the team using Axios
     axios
-      .delete(`http://www.teamguu.p-e.kr/api/matches?matchId=${matchId}`, {
+      .delete(`https://www.teamguu.o-r.kr/api/matches?matchId=${matchId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },

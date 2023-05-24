@@ -16,7 +16,7 @@ const StadiumListPage = (props) => {
   useEffect(() => {
     axios
       .get(
-        `http://www.teamguu.p-e.kr/api/stadiums/simple?page=${currentPage - 1}&size=${size}&sort=id,desc`,
+        `https://www.teamguu.o-r.kr/api/stadiums/simple?page=${currentPage - 1}&size=${size}&sort=id,desc`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

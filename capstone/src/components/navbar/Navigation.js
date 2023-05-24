@@ -19,7 +19,7 @@ const Navigation = () => {
         localStorage.removeItem('accessToken');
         setIsAuthenticated(false); // 로그아웃 상태로 변경
         // 로그아웃 요청을 보낼 때는 토큰을 전송하지 않아야 함
-        axios.post("http://43.201.242.0:8080/api/auth/logout")
+        axios.post("https://www.teamguu.o-r.kr/api/auth/logout")
             .then((response) => {
                 console.log(response);
             })
@@ -32,7 +32,7 @@ const Navigation = () => {
         // 엑세스 토큰이 로컬 스토리지에 존재하는지 확인
         const accessToken = localStorage.getItem('accessToken');
         if (accessToken) {
-            axios.get("http://www.teamguu.p-e.kr/api", {
+            axios.get("https://www.teamguu.o-r.kr/api", {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },

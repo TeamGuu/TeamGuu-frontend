@@ -29,7 +29,7 @@ const MatchListPage = (props) => {
   useEffect(() => {
     axios
       .get(
-        `http://www.teamguu.p-e.kr/api/matches/simple?page=${
+        `https://www.teamguu.o-r.kr/api/matches/simple?page=${
           currentPage - 1
         }&size=${size}&sort=id,desc`,
         {

@@ -42,7 +42,7 @@ class ImageUpload extends Component {
     formData.append("profileImage", selectedFile); 
   
     axios
-      .post("http://www.teamguu.p-e.kr/api/members/profile-image-new", formData, {
+      .post("https://www.teamguu.o-r.kr/api/members/profile-image-new", formData, {
         headers: {
           "Content-Type": "multipart/form-data", 
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

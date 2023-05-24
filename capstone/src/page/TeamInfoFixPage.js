@@ -22,7 +22,7 @@ const TeamInfoFixPage = (props) => {
 
     useEffect(() => {
         axios
-          .get(`http://www.teamguu.p-e.kr/api/teams?teamId=${teamId}`, {
+          .get(`https://www.teamguu.o-r.kr/api/teams?teamId=${teamId}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
@@ -80,7 +80,7 @@ const TeamInfoFixPage = (props) => {
           };
 
         axios
-            .patch(`http://www.teamguu.p-e.kr/api/teams?teamId=${teamId}`, updatedInfo, {
+            .patch(`https://www.teamguu.o-r.kr/api/teams?teamId=${teamId}`, updatedInfo, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                 },

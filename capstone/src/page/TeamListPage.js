@@ -11,7 +11,7 @@ const TeamListPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://www.teamguu.p-e.kr/api/teams/simple", {
+      .get("https://www.teamguu.o-r.kr/api/teams/simple", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },

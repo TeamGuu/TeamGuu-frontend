@@ -25,7 +25,7 @@ const CreateMatchPage = (props) => {
 
     useEffect(() => {
       axios
-        .get("http://www.teamguu.p-e.kr/api/teams/simple", {
+        .get("https://www.teamguu.o-r.kr/api/teams/simple", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
@@ -56,7 +56,7 @@ const CreateMatchPage = (props) => {
         content: content
       };
 
-    axios.post(`http://www.teamguu.p-e.kr/api/matches?teamId=${teamId}`, requestBody, {
+    axios.post(`https://www.teamguu.o-r.kr/api/matches?teamId=${teamId}`, requestBody, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },

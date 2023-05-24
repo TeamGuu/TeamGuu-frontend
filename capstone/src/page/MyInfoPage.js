@@ -17,7 +17,7 @@ const MyInfoPage = (props) => {
     
     useEffect(() => {
         axios
-          .get(`http://www.teamguu.p-e.kr/api/members`, {
+          .get(`https://www.teamguu.o-r.kr/api/members`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
@@ -88,7 +88,7 @@ const MyInfoPage = (props) => {
       };
     
       axios
-        .patch(`http://www.teamguu.p-e.kr/api/members`, updatedInfo, {
+        .patch(`https://www.teamguu.o-r.kr/api/members`, updatedInfo, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
