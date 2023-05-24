@@ -29,7 +29,36 @@ const StadiumInfoPage = (props) => {
     //시간 관련 저장 변수
     const [selectedTime, setSelectedTime] = useState('');
 
-    
+    // 예약 정보 저장용 상태 변수
+   const [ReservationInfo, setReservationInfo] = useState([]);
+
+   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const reservationResponse = await axios.get(
+          `http://www.teamguu.p-e.kr/api/reservations?stadiumId=${stadiumId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
+
+        const reservationData = reservationResponse.data.result;
+
+        // 데이터 처리 로직을 수행합니다.
+        setReservationInfo(reservationData);
+        console.log(reservationData);
+      } catch (error) {
+        console.log(error);
+        console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const {date, team } = ReservationInfo;
     
     useEffect(() => {
       console.log(`선택된 경기장의 아이디: ${stadiumId}`);
@@ -37,7 +66,7 @@ const StadiumInfoPage = (props) => {
       console.log(`선택된 시간: ${selectedTime}`);
     }, [stadiumId, teamId, selectedTime]);
     
-    //예약된 정보 불러오기
+    
     
 
 
@@ -172,8 +201,8 @@ const StadiumInfoPage = (props) => {
                         <div className={styles.team}>
                             <div className={styles.selectTitle}>팀 선택</div>
                             <div className={styles.inputWrap}>
-                            <select value={selectedTeamOption} onChange={handleTeamChange}>
-                                <option value="">전체</option>
+                            <select value={selectedTeamOption}  onChange={handleTeamChange}>
+                                <option value="" >전체</option>
                                 {teamInfo.map((team) => (
                                 <option key={team.id} value={team.name}>{team.name}</option>
                                 ))}
@@ -210,6 +239,17 @@ const StadiumInfoPage = (props) => {
                                 </select>
                             </div>
                         </div>
+                        <div>
+                          예약 정보:
+                          {ReservationInfo.map((reservation) => (
+                            <div key={reservation.id}>
+                              팀 - {reservation.team}<br />
+                              예약 날짜: {reservation.date}<br />
+                              <br /> {/* 개행 */}
+                            </div>
+                          ))}
+                        </div>
+
                         <div className={styles.reserveBtn} onClick={handleSubmit}>
                             예약하기
                         </div>
