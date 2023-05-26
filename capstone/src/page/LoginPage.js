@@ -63,7 +63,7 @@ function LoginPage(props){
             password: password
         }
 
-        axios.post('http://www.teamguu.p-e.kr/api/auth/sign-in', userData)
+        axios.post('https://www.teamguu.o-r.kr/api/auth/sign-in', userData)
         .then((res)=>{ //성공하면 res에 토큰을 받을 수 있다. 토큰을 받으면 로그인에 성공했다는 뜻 -> 토큰을 전역변수로 저장하고 서버에 요청할 때마다 헤더에 넣어서 준다.
            localStorage.setItem('accessToken',res.data.result.accessToken); //.token이 기본이지만 api명세서에 accesstoken라고 나와있으므로 이름 바꿔주었음
             alert('로그인 성공');

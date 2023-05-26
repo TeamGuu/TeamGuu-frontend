@@ -74,7 +74,7 @@ const StadiumInfoPage = (props) => {
         const fetchData = async () => {
           try {
             const stadiumResponse = await axios.get(
-              `http://www.teamguu.p-e.kr/api/stadiums?stadiumId=${stadiumId}`,
+              `https://www.teamguu.o-r.kr/api/stadiums?stadiumId=${stadiumId}`,
               {
                 headers: {
                   Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -82,7 +82,7 @@ const StadiumInfoPage = (props) => {
               }
             );
             const teamResponse = await axios.get(
-              "http://www.teamguu.p-e.kr/api/teams/simple",
+              "https://www.teamguu.o-r.kr/api/teams/simple",
               {
                 headers: {
                   Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -137,7 +137,7 @@ const StadiumInfoPage = (props) => {
             
           };
     
-        axios.post(`http://www.teamguu.p-e.kr/api/reservations?teamId=${teamId}&stadiumId=${stadiumId}`, requestBody, { 
+        axios.post(`https://www.teamguu.o-r.kr/api/reservations?teamId=${teamId}&stadiumId=${stadiumId}`, requestBody, { 
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },

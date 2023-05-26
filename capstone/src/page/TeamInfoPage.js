@@ -19,7 +19,7 @@ const TeamInfoPage = (props) => {
    
      useEffect(() => {
        axios
-         .get(`http://www.teamguu.p-e.kr/api/teams?teamId=${teamId}`, {
+         .get(`https://www.teamguu.o-r.kr/api/teams?teamId=${teamId}`, {
            headers: {
              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
            },
@@ -51,7 +51,7 @@ const TeamInfoPage = (props) => {
 
     // Delete the team using Axios
     axios
-      .delete(`http://www.teamguu.p-e.kr/api/teams?teamId=${teamId}`, {
+      .delete(`https://www.teamguu.o-r.kr/api/teams?teamId=${teamId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },

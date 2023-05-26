@@ -43,7 +43,7 @@ class TeamImageUpload extends Component {
     formData.append("logoImage", selectedFile);
   
     axios
-      .post(`http://www.teamguu.p-e.kr/api/teams/logo-image-new?teamId=${teamId}`, formData, {
+      .post(`https://www.teamguu.o-r.kr/api/teams/logo-image-new?teamId=${teamId}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

@@ -12,7 +12,7 @@ const NewMatchListTable = () => {
 
   useEffect(() => {
     axios
-      .get(`http://www.teamguu.p-e.kr/api/matches/simple`, {
+      .get(`https://www.teamguu.o-r.kr/api/matches/simple`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },

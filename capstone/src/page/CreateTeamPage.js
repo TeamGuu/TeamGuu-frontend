@@ -50,7 +50,7 @@ const CreateTeamPage = (props) => {
         };
 
         axios
-            .post("http://www.teamguu.p-e.kr/api/teams", data, {
+            .post("https://www.teamguu.o-r.kr/api/teams", data, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                 },
