@@ -37,13 +37,15 @@ const JoinPage=(props)=>{
     // 1월부터 12월까지의 월을 생성
     const monthOptions = [];
     for (let i = 1; i <= 12; i++) {
-        monthOptions.push(<option value={i}>{i}</option>);
+        const monthValue = i < 10 ? `0${i}` : i;
+        monthOptions.push(<option value={monthValue}>{monthValue}</option>);
     }
 
     // 1일부터 31일까지의 일을 생성
     const dayOptions = [];
     for (let i = 1; i <= 31; i++) {
-        dayOptions.push(<option value={i}>{i}</option>);
+        const dayValue = i < 10 ? `0${i}` : i;
+        dayOptions.push(<option value={dayValue}>{dayValue}</option>);
     }
     
 
@@ -61,18 +63,18 @@ const JoinPage=(props)=>{
         }
     }
 
-    const handlePassword = (e) =>{//올바른 비밀번호 형식으로 패스워드를 입력할 경우 경고문이 사라짐
+   
+    const handlePassword = (e) => {//올바른 비밀번호 형식으로 패스워드를 입력할 경우 경고문이 사라짐
         setPassword(e.target.value);
-        const regex=
-        /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\- _=+]).{8,20}$/;
-        if(regex.test(password)){
-            setPwValid(true);
-          //  handleChange(e.target);
-        }else{
-            setPwValid(false);
+        const regex = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\()\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\()\- _=+]).{8,20}$/;
+        
+        if (regex.test(password)) {
+          setPwValid(true);
+        } else {
+          setPwValid(false);
         }
-
-    }
+      };
+      
 
     const handleEachPassword =(e)=>{//기존 비밀번호와 확인 비밀번호가 같으면 경고문이 사라짐
         setEachPassword(e.target.value);
@@ -121,29 +123,43 @@ const JoinPage=(props)=>{
 
 
 
-    const isAllValid = ()=>{
-        // const {
-        //     email,
-        //     password,
-        //     eachPassword,
-        //     name,
-        //     phoneNumber,
-        //     birthday           
-        //   } = userInput;
-          return(
-            email &&
-            password &&
-            eachPassword &&
-            name &&
-            phoneNumber &&
-            //birthday && 
-            emailnValid &&
-            pwValid &&
-            eachValid &&
-            phoneNumberValid
-          );
-    };
-    
+    // const isAllValid = ()=>{
+    //     // const {
+    //     //     email,
+    //     //     password,
+    //     //     eachPassword,
+    //     //     name,
+    //     //     phoneNumber,
+    //     //     birthday           
+    //     //   } = userInput;
+    //       return(
+    //         email &&
+    //         password &&
+    //         eachPassword &&
+    //         name &&
+    //         phoneNumber &&
+    //         //birthday && 
+    //         emailnValid &&
+    //         pwValid &&
+    //         eachValid &&
+    //         phoneNumberValid
+    //       );
+    // };
+    const isAllValid = () => {
+        return (
+          email &&
+          password &&
+          eachPassword &&
+          name &&
+          phoneNumber &&
+          birth &&
+          emailnValid &&
+          pwValid &&
+          eachValid &&
+          phoneNumberValid
+        );
+      };
+      
 
     const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
@@ -152,7 +168,7 @@ const JoinPage=(props)=>{
 
     const checkSignUp = (e) => {
         e.preventDefault();
-
+        console.log(birth);
         
 
         const requestBody = {
