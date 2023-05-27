@@ -101,7 +101,7 @@ const MatchListPage = (props) => {
               dateFormat="yyyy년 MM월 dd일"
               selected={startDate}
               onChange={handleDateChange}
-              minDate={new Date()}
+              // minDate={new Date()}
               locale={ko}
               
             />

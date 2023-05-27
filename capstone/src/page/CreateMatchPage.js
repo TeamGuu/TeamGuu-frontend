@@ -110,7 +110,7 @@ const handleTeamChange = (event) => {
     return(
         <div>
             <div className={styles.topWrap}>
-                <div className={styles.pageTitle}>매칭 공고 올리기</div>
+                <div className={styles.pageTitle}>매칭 공고 제작</div>
                 <div className={styles.registerBtn } onClick={handleSubmit}>등록</div>
             </div>
             <div className={styles.bottomWrap}>
