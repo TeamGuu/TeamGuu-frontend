@@ -18,7 +18,7 @@ a{
 }
 
 .tableHead{
-    background-color: #d5f2c7;
+    background-color: rgb(234, 243, 230);
     height: 55px;
     border-bottom: 1px solid grey;
 }
@@ -39,6 +39,7 @@ a{
     height: 33px;
     border: 1px solid grey;
     border-radius: 3px;
+    background-color: white;
 }
 
 .tableBody img{
@@ -57,7 +58,7 @@ a{
 }
 
 .tableBody tr:hover{
-    background-color: rgb(240, 246, 236);
+    background-color: rgb(240, 240, 240);
     cursor: pointer;
 }
 
