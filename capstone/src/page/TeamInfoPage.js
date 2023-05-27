@@ -5,11 +5,6 @@ import axios from "axios";
 //style
 import styles from "./TeamInfoPage.module.css";
 
-//image
-import team from "./team.png";
-
-
-
 const TeamInfoPage = (props) => {
 
      //서버에서 받아온 데이터 저장
