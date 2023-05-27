@@ -114,7 +114,7 @@ const MyInfoPage = (props) => {
     return(
         <div className={styles.myInfoWrap}>
             <div className={styles.leftWrap}>
-                <div className={styles.titleTxt}>회원 정보</div>
+                <div className={styles.titleTxt}>&nbsp;&nbsp;회원 정보</div>
                 <div className={styles.myImg}>
                     <img src={`https://teamguu.s3.ap-northeast-2.amazonaws.com/${profileImageUrl}`} alt="회원사진" />
                     <div className={styles.imgUploadBtn}>
