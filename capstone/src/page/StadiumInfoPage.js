@@ -36,7 +36,7 @@ const StadiumInfoPage = (props) => {
     const fetchData = async () => {
       try {
         const reservationResponse = await axios.get(
-          `http://www.teamguu.p-e.kr/api/reservations?stadiumId=${stadiumId}`,
+          `https://www.teamguu.o-r.kr/api/reservations?stadiumId=${stadiumId}`,//https://www.teamguu.o-r.kr/api/stadiums?stadiumId=${stadiumId}
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -240,15 +240,20 @@ const StadiumInfoPage = (props) => {
                             </div>
                         </div>
                         <div>
-                          예약 정보:
-                          {ReservationInfo.map((reservation) => (
-                            <div key={reservation.id}>
-                              팀 - {reservation.team}<br />
-                              예약 날짜: {reservation.date}<br />
-                              <br /> {/* 개행 */}
-                            </div>
-                          ))}
+                          <details>
+                            <summary>예약 정보</summary>
+                            {ReservationInfo.map((reservation) => (
+                              <div key={reservation.id} onClick={() => {
+                                alert(reservation.team.concat(" ", reservation.date));
+                              }}>
+                                팀 - {reservation.team}<br />
+                                예약 날짜: {reservation.date}<br />
+                                <br /> {/* 개행 */}
+                              </div>
+                            ))}
+                          </details>
                         </div>
+
 
                         <div className={styles.reserveBtn} onClick={handleSubmit}>
                             예약하기

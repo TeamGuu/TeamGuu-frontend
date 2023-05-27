@@ -49,6 +49,42 @@ const StadiumListPage = (props) => {
     navigate(`/stadiums/${item.id}`);
   };
 
+  const handlePlaceClick = (page) => {
+    let selectedPage = 1; // Default to the first page
+  
+    switch (page) {
+      case 8: // 서울
+        selectedPage = 8;
+        break;
+      case 7: // 인천
+        selectedPage = 7;
+        break;
+      case 6: // 경기
+        selectedPage = 6;
+        break;
+      case 5: // 강원
+        selectedPage = 5;
+        break;
+      case 4: // 충청
+        selectedPage = 4;
+        break;
+      case 3: // 경상
+        selectedPage = 3;
+        break;
+      case 2: // 전라
+        selectedPage = 2;
+        break;
+      case 1: // 제주
+        selectedPage = 1;
+        break;
+      default:
+        selectedPage = 1;
+        break;
+    }
+  
+    setCurrentPage(selectedPage);
+  };
+  
   return (
     <>
       <div className={styles.topWrap}>
@@ -64,16 +100,17 @@ const StadiumListPage = (props) => {
           </div>
         </div>
         <ul className={styles.placeNav}>
-          <li>전체</li>
-          <li>서울</li>
-          <li>인천</li>
-          <li>경기</li>
-          <li>강원</li>
-          <li>충청</li>
-          <li>경상</li>
-          <li>전라</li>
-          <li>제주</li>
+          <li onClick={() => handlePlaceClick(1)}>전체</li>
+          <li onClick={() => handlePlaceClick(8)}>서울</li>
+          <li onClick={() => handlePlaceClick(7)}>인천</li>
+          <li onClick={() => handlePlaceClick(6)}>경기</li>
+          <li onClick={() => handlePlaceClick(5)}>강원</li>
+          <li onClick={() => handlePlaceClick(4)}>충청</li>
+          <li onClick={() => handlePlaceClick(3)}>경상</li>
+          <li onClick={() => handlePlaceClick(2)}>전라</li>
+          <li onClick={() => handlePlaceClick(1)}>제주</li>
         </ul>
+
       </div>
       <div className={styles.bottomWrap}>
         <table className={styles.stadiumList}>
