@@ -53,49 +53,54 @@
 
 .stadiumList{
     width: 1000px;
- }
- 
+}
+
 .tableBody img{
     width: 270px;
 }
 
- .tableBody tr td:first-child{
+.tableBody tr td:first-child{
     padding: 10px;
     width: 180px;
     height: 120px; 
     text-align: center;
- }
- 
- .tableBody tr td{
+}
+
+.tableBody tr td:last-child{
+    font-size: 17px;
+}
+
+.tableBody tr td{
     padding: 20px;
     padding-left: 30px;
     border: 1px solid rgb(173, 173, 173);
- }
+}
 
- .stadiumName{
+.stadiumName{
     font-size: 23px;
     height: 15px;
-    font-weight: bold;
- }
- 
- .tableBody tr:hover{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.tableBody tr:hover{
     background-color: rgb(245, 245, 245);
     cursor: pointer;
- }
+}
 
- .pagination{
+.pagination{
     height: 120px;
     text-align: center;
     padding-top: 40px;
- }
+}
 
- .pagination button{
+.pagination button{
     width: 30px;
     height: 30px;
     border: none;
     font-size: 20px;
     background-color: white;
- }
+}
 
 button:disabled{
     color: rgb(192, 192, 192);
@@ -106,12 +111,12 @@ button:disabled{
     font-weight: bold;
 }
 
- .pagination button:first-child{
+.pagination button:first-child{
     margin-right: 20px;
- }
+}
 
- .pagination button:last-child{
+.pagination button:last-child{
     margin-left: 20px;
- }
+}
 
  

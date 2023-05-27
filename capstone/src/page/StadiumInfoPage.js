@@ -8,9 +8,6 @@ import {useParams, useNavigate} from "react-router-dom";
 import styles from "./StadiumInfoPage.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-//image
-import stadium from "./stadium.png";
-
 const StadiumInfoPage = (props) => {
 
     const navigate = useNavigate(); 
@@ -229,7 +226,7 @@ const StadiumInfoPage = (props) => {
                             </div>
                             <div className={styles.inputWrap} onChange={handleTimeChange}>
                                 <select>
-                                    <option>----</option>
+                                    <option>-- : --</option>
                                     <option>10:00</option>
                                     <option>12:00</option>
                                     <option>14:00</option>
@@ -243,10 +240,11 @@ const StadiumInfoPage = (props) => {
                           <details>
                             <summary>예약 정보</summary>
                             {ReservationInfo.map((reservation) => (
-                              <div key={reservation.id} onClick={() => {
+                              <div className={styles.reserveInfo}
+                                key={reservation.id} onClick={() => {
                                 alert(reservation.team.concat(" ", reservation.date));
                               }}>
-                                팀 - {reservation.team}<br />
+                                팀명 : {reservation.team}<br />
                                 예약 날짜: {reservation.date}<br />
                                 <br /> {/* 개행 */}
                               </div>
@@ -256,7 +254,7 @@ const StadiumInfoPage = (props) => {
 
 
                         <div className={styles.reserveBtn} onClick={handleSubmit}>
-                            예약하기
+                            예약 하기
                         </div>
                     </div>
                 </div>

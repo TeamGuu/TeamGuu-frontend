@@ -1,19 +1,19 @@
 .leftWrap{
     float: left;
     width: 50%;
-    height: 700px;
-    border-right: 1px solid gray;
+    /* height: 700px; */
+    /* border: 1px solid gray; */
 }
 
 .leftTitleTxt{
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 600;
     width: 80%;
     height: 60px;
     line-height: 60px;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 40px;
     background-color: rgb(233, 233, 233);
 }
 
@@ -28,8 +28,8 @@
     border: 1px solid gray;
     background-color: rgb(255, 255, 255);
     width: 450px;
-    /* height: 200px; */
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .stadiumName{
@@ -66,21 +66,21 @@
 }
 
 .rightTitleTxt{
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 600;
     width: 80%;
     height: 60px;
     line-height: 60px;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 40px;
     background-color: rgb(233, 233, 233);
 }
 
 .reserveWrap{
     border: 1px solid gray;
     width: 80%;
-    height: 520px;
+    margin-bottom: 50px;
 }
 
 .selectTitle{
@@ -97,7 +97,7 @@
 }
 
 .time .inputWrap{
-    height: 150px;
+    height: 140px;
 }
 
 .team select{
@@ -120,18 +120,45 @@
     padding-left: 10px;
 }
 
+summary{
+    width: 250px;
+    height: 60px;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 60px;
+    background-color: rgb(106, 106, 106);
+    color: white;
+    font-size: 23px;
+    font-weight: 600;
+    /* border: 1px solid rgb(161, 161, 161); */
+    border-radius: 40px;
+}
+
+.reserveInfo{
+    font-size: 20px;
+    width: 450px;
+    height: 80px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 70px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    background-color: rgb(246, 246, 246);
+}
+
 .reserveBtn{
     width: 250px;
     height: 60px;
-    margin-top: 40px;
+    margin-top: 10px;
     margin-bottom: 40px;
     text-align: center;
     line-height: 60px;
-    background-color: #206f2f;
+    background-color: rgb(12, 128, 26);
     color: white;
-    font-size: 25px;
-    font-weight: bold;
-    border: 1px solid grey;
+    font-size: 23px;
+    font-weight: 600;
+    /* border: 1px solid rgb(161, 161, 161); */
     border-radius: 40px;
 }
 
