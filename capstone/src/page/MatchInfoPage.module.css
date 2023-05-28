@@ -1,14 +1,15 @@
 .challengeBtn{
     display: inline-block;
-    font-size: 23px;
+    font-size: 21px;
     margin-left: 900px;
     width: 190px;
     height: 55px;
     border: 1px solid gray;
+    border-radius: 20px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 55px;
-    background-color: rgb(255, 179, 0);
+    background-color: rgb(255, 229, 97);
     cursor: pointer;
     margin-top: 30px;
     margin-right: 30px;
@@ -16,12 +17,13 @@
 
 .deleteBtn{
     display: inline-block;
-    font-size: 23px;
+    font-size: 21px;
     width: 190px;
     height: 55px;
     border: 1px solid gray;
+    border-radius: 20px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 55px;
     background-color: rgb(255, 255, 255);
     cursor: pointer;
@@ -33,7 +35,7 @@
 .matchWrap{
     background-color: rgb(239, 239, 239);
     width: 1200px;
-    height: 800px;
+    height: 750px;
     margin-top: 30px;
     margin-bottom: 40px;
 }
@@ -50,23 +52,25 @@
 }
 
 .teamImg img{
-    width: 250px;
-    height: 250px;
+    width: 270px;
+    height: 200px;
     margin-left: 75px;
-    margin-top: 30px;
+    margin-top: 60px;
     border: 1px solid gray;
 }
 
 .teamName{
-    font-size: 35px;
+    font-size: 32px;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-left: 27px;
     text-align: center;
 }
 
 .teamSports{
     font-size: 25px;
     text-align: center;
+    margin-left: 27px;
 }
 
 .teamInfo{
@@ -78,25 +82,29 @@
     margin-bottom: 42px;
 }
 
+.teamInfo b{
+    font-size: 19px;
+}
+
 .teamIntro{
-    font-size: 25px;
+    font-size: 23px;
 }
 
 .teamBoss{
-    font-size: 20px;
+    font-size: 19px;
     margin-top: 20px; 
 }
 
 .teamScore{
-    font-size: 20px; 
+    font-size: 19px; 
 }
 
 .teamHistory{
-    font-size: 20px; 
+    font-size: 19px; 
 }
 
 .teammateInfo{
-    font-size: 20px; 
+    font-size: 19px; 
 }
 
 .bottomWrap{
@@ -109,41 +117,36 @@
 
 .date{
     font-size: 23px;
-    padding-top: 20px;
-    margin-left: 40px;
-}
-
-.time{
-    font-size: 23px;
-    padding-top: 10px;
-    margin-left: 40px;
+    padding-top: 40px;
+    margin-left: 50px;
 }
 
 .place{
     font-size: 23px;
     padding-top: 10px;
-    margin-left: 40px;
+    margin-left: 50px;
     margin-bottom: 20px;
 }
 
 .matchNotice{
-    border: 1px solid gray;
-    margin-left: 35px;
+    /* border: 1px solid gray; */
+    margin-left: 10px;
     padding-bottom: 10px;
 }
 
 .matchTitle{
-    font-size: 29px;
+    font-size: 28px;
     padding-top: 20px;
     margin-left: 40px;
     margin-right: 40px;
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .matchContent{
-    font-size: 23px;
+    font-size: 22px;
     padding-top: 10px;
     margin-left: 40px;
     margin-right: 40px;
     padding-bottom: 10px;
+    font-weight: 500;
 }

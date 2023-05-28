@@ -53,6 +53,7 @@ class TeamImageUpload extends Component {
       })
       .then((response) => {
         console.log("이미지 업로드 성공");
+        alert("이미지 업로드 성공");
         window.location.reload();
         console.log(response.data);
         // 업로드된 이미지 URL을 받아와서 필요한 처리를 수행하거나 상태를 업데이트합니다.
@@ -60,6 +61,8 @@ class TeamImageUpload extends Component {
       })
       .catch((error) => {
         console.log("이미지 업로드 실패");
+        alert("이미지 업로드 실패");
+        window.location.reload();
         console.log(error);
         // 실패 처리 로직을 추가합니다.
       });

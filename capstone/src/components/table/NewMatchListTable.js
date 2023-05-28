@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 //style
 import styles from "./NewMatchListTable.module.css";
 
@@ -8,7 +8,16 @@ import styles from "./NewMatchListTable.module.css";
 import team from "./team.png";
 
 const NewMatchListTable = () => {
+  const navigate = useNavigate();
+
   const [matchInfo, setMatchInfo] = useState([]);
+
+  const handleClick = (e, item) => {
+    e.preventDefault(); // 기본 동작 차단
+    console.log(`매칭 ${item.id} 클릭됨`);
+    // TeamInfoPage로 이동
+    navigate(`/matches/${item.id}`);
+  };
 
   useEffect(() => {
     axios
@@ -28,7 +37,7 @@ const NewMatchListTable = () => {
       });
   }, []);
 
-  const limitedMatchInfo = matchInfo.slice(0, 5); // 최대 5개의 요소만 사용
+  const limitedMatchInfo = matchInfo.slice(0, 4); // 최대 4개의 요소만 사용
 
   return (
     <table className={styles.newMatchList}>
@@ -48,28 +57,46 @@ const NewMatchListTable = () => {
         </tr>
       </thead>
       <tbody className={styles.tableBody}>
-        {limitedMatchInfo.map((match, index) => (
-          <tr key={index}>
+        {limitedMatchInfo.map((index) => (
+          <tr key={index.id}>
             <td>
+              <Link
+                to={`/matches/${index.id}`}
+                onClick={(e) => handleClick(e, index)}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
               <img
-                src={`https://teamguu.s3.ap-northeast-2.amazonaws.com/${match.simpleTeamInfo.logoImageUrl}`}
+                src={`https://teamguu.s3.ap-northeast-2.amazonaws.com/${index.simpleTeamInfo.logoImageUrl}`}
                 alt="팀사진"
               />
+              </Link>
             </td>
             <td>
-              <b>{match.simpleTeamInfo.name}</b>
+              <Link
+                to={`/matches/${index.id}`}
+                onClick={(e) => handleClick(e, index)}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+              <b>{index.simpleTeamInfo.name}</b>
               <br />
-              {match.simpleTeamInfo.victory}전 {match.simpleTeamInfo.defeat}
-              승 {match.simpleTeamInfo.draw}패
+              {index.simpleTeamInfo.victory}전 {index.simpleTeamInfo.defeat}
+              승 {index.simpleTeamInfo.draw}패
               <br />
-              {match.simpleTeamInfo.sports}
+              {index.simpleTeamInfo.sports}
+              </Link>
             </td>
             <td>
-              장소: {match.place}
+              <Link
+                to={`/matches/${index.id}`}
+                onClick={(e) => handleClick(e, index)}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+              장소 : {index.place}
               <br />
-              시간: {match.date}
+              날짜 : {index.date}
               <br />
-              {match.title}
+              {index.title}
+              </Link>
             </td>
           </tr>
         ))}

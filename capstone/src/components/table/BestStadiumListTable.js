@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 //style
 import styles from "./BestStadiumListTable.module.css";
@@ -8,6 +8,7 @@ import styles from "./BestStadiumListTable.module.css";
 import stadium from "./stadium.png";
 
 const BestStadiumListTable = () => {
+    const navigate = useNavigate();
 
     const [stadiumInfo, setStadiumInfo] = useState([]);
 
@@ -33,6 +34,15 @@ const BestStadiumListTable = () => {
           });
       }, []);
 
+      const handleClick = (e, item) => {
+        e.preventDefault(); // 기본 동작 차단
+    
+        console.log(`매칭 ${item.id} 클릭됨`);
+    
+        // TeamInfoPage로 이동
+        navigate(`/stadiums/${item.id}`);
+      };
+
       return (
         <table className={styles.newMatchList}>
             <thead className={styles.tableHead}>
@@ -51,15 +61,19 @@ const BestStadiumListTable = () => {
             {stadiumInfo.map((item) => (
                 <tr key={item.id}>
                   <td>
-                  <img
-                      src={`https://teamguu.s3.ap-northeast-2.amazonaws.com/${item.imageUrl}`}
-                      alt="경기장 이미지"
-                    />
+                    <Link to={`/stadiums/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <img
+                        src={`https://teamguu.s3.ap-northeast-2.amazonaws.com/${item.imageUrl}`}
+                        alt="경기장 이미지"
+                      />
+                    </Link>
                   </td>
                   <td>
-                  <div className={styles.stadiumName}>{item.name}</div>
+                    <Link to={`/stadiums/${item.id}`} onClick={(e) => handleClick(e, item)} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <div className={styles.stadiumName}>{item.name}</div>
                     <br />
                     {item.location}
+                    </Link>
                   </td>
                 </tr>
               ))}

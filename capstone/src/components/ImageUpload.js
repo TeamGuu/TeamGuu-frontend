@@ -58,7 +58,9 @@ class ImageUpload extends Component {
         // 예시: this.props.handleImageUpload(response.data.imageUrl);
       })
       .catch((error) => {
+        alert("이미지 업로드 실패");
         console.log("이미지 업로드 실패");
+        window.location.reload();
         console.log(error);
         // 실패 처리 로직을 추가합니다.
       });

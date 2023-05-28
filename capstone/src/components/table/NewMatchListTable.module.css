@@ -43,7 +43,7 @@ a{
 }
 
 .tableBody img{
-    width: 120px;
+    width: 130px;
     height: 110px; 
 }
 
@@ -55,6 +55,10 @@ a{
 .tableBody tr td{
     padding: 13px;
     border: 1px solid grey;
+}
+
+.tableBody tr td:nth-child(2){
+    width: 160px;
 }
 
 .tableBody tr:hover{

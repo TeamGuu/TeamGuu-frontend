@@ -119,17 +119,16 @@ const MatchInfoPage = (props) => {
               </div>
               <div className={styles.teamInfo}>
                 <div className={styles.teamIntro}>{intro}</div>
-                <div className={styles.teamBoss}>주장 : {captain}</div>
+                <div className={styles.teamBoss}><b>주장 : </b>{captain}</div>
                 <div className={styles.teamScore}>
-                  전적 : {victory}승 {defeat}패 {draw}무
+                  <b>전적 : </b>{victory}승 {defeat}패 {draw}무
                 </div>
-                <div className={styles.teamHistory}>약력 : {history}</div>
-                <div className={styles.teammateInfo}>팀원 : {playerInfo}</div>
+                <div className={styles.teamHistory}><b>약력 : </b>{history}</div>
+                <div className={styles.teammateInfo}><b>팀원 : </b>{playerInfo}</div>
               </div>
             </div>
             <div className={styles.bottomWrap}>
               <div className={styles.date}>날짜 : {date}</div>
-              <div className={styles.time}>시간 : 10:00</div>
               <div className={styles.place}>장소 : {place} </div>
               <div className={styles.matchNotice}>
                 <div className={styles.matchTitle}>{title}</div>
