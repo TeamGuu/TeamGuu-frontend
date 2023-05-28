@@ -11,6 +11,8 @@ import styles from "./JoinPage.module.css";
 //이거그냥 갖다쓰는게 나을수도.. 직접 해보긴했는데 코드가 안먹음
 const JoinPage=(props)=>{ 
 
+    
+
     const navigate = useNavigate();
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
@@ -163,7 +165,6 @@ const JoinPage=(props)=>{
 
     const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
-    //회원가입 완료 후 페이지 이동 5/9 미구현
     
 
     const checkSignUp = (e) => {
@@ -181,7 +182,10 @@ const JoinPage=(props)=>{
 
         axios.post('https://www.teamguu.o-r.kr/api/auth/sign-up', requestBody)
         .then((response) => {
+
+            
             console.log(response);
+            console.log(response.data.result);
             alert('회원가입이 완료되었습니다.');
             navigate('/');
           })

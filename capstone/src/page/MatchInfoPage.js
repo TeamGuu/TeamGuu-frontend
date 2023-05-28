@@ -17,6 +17,9 @@ const MatchInfoPage = (props) => {
     //매칭 삭제시 화면전환
     const navigate = useNavigate();
 
+    const [receiverId, setReceiverId] = useState(''); 
+    const [senderId, setSenderId] = useState('');
+
     useEffect(() => {
         axios
         .get(`https://www.teamguu.o-r.kr/api/matches?matchId=${matchId}`, {
@@ -79,10 +82,31 @@ const MatchInfoPage = (props) => {
       });
   };
 
+  //대결신청클릭 시 핸들러
+  const handleMatch = (e) => {
+    e.preventDefault();
+
+    axios
+        .get(`https://www.teamguu.o-r.kr/api/matches/chat?matchId=${matchId}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          })
+          .then((response) => {
+            console.log('매칭 신청 성공');
+            console.log(response.data.result);
+            setReceiverId(response.data.result.receiverId); //receiverId저장  receiverId로 사용하면된다.
+            setSenderId(response.data.result.senderId);//SenderId저장  senderId로 사용하면된다.
+          })
+          .catch((error) => {
+            console.log(error);
+            console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
+          });
+  }
       
       return (
         <> 
-          <div className={styles.challengeBtn}>매칭신청하기</div>
+          <div className={styles.challengeBtn} onClick={handleMatch}>매칭신청하기</div>
           <div className={styles.deleteBtn} onClick={handleClickDelete}>매칭삭제</div>
           <div className={styles.matchWrap}>
             <div className={styles.topWrap}>
