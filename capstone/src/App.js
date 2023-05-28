@@ -21,6 +21,8 @@ import TeamInfoPage from './page/TeamInfoPage';
 import CreateTeamPage from './page/CreateTeamPage';
 import TeamInfoFixPage from './page/TeamInfoFixPage';
 import TeamListPage from './page/TeamListPage';
+import ChatPage from './page/ChatPage/ChatPage';
+
 const App = (props) => {
   return (
     <BrowserRouter>
@@ -47,6 +49,8 @@ const App = (props) => {
 
         <Route exact path='/page/StadiumListPage' element={<StadiumListPage/>}/>
         <Route path='/stadiums/:stadiumId' element={<StadiumInfoPage/>}/> 
+
+        <Route path='/ChatPage' element={<ChatPage/>}/>
 
       </Routes>
     </BrowserRouter>

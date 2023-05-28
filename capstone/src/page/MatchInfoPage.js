@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from "react";
 import axios from "axios";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 //style
 import styles from "./MatchInfoPage.module.css";
 
@@ -106,7 +106,13 @@ const MatchInfoPage = (props) => {
       
       return (
         <> 
-          <div className={styles.challengeBtn} onClick={handleMatch}>매칭신청하기</div>
+          
+            <div className={styles.challengeBtn} onClick={handleMatch}>
+            {/* <Link to="/ChatPage" style={{textDecoration:"none", color:"black"}}> */}
+              매칭신청하기
+            {/* </Link>    */}
+              </div>
+             
           <div className={styles.deleteBtn} onClick={handleClickDelete}>매칭삭제</div>
           <div className={styles.matchWrap}>
             <div className={styles.topWrap}>
