@@ -14,6 +14,7 @@ const JoinPage=(props)=>{
     
 
     const navigate = useNavigate();
+    const [id, setId] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [eachPassword,setEachPassword] = useState('');
@@ -186,7 +187,12 @@ const JoinPage=(props)=>{
             
             console.log(response);
             console.log(response.data.result);
+            setId(response.data.result.id);
             alert('회원가입이 완료되었습니다.');
+
+
+
+            
             navigate('/');
           })
           .catch((error) => {
