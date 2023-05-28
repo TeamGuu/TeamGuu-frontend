@@ -33,6 +33,8 @@ class ImageUpload extends Component {
   
     if (!this.isValidImageFile(selectedFile)) {
       console.log("유효하지 않은 이미지 파일입니다.");
+      alert("유효하지 않은 이미지 파일입니다.");
+      window.location.reload();
       return;
     }else{
         console.log("유효한 이미지 파일");
@@ -50,6 +52,7 @@ class ImageUpload extends Component {
       })
       .then((response) => {
         alert("이미지 업로드 성공");
+        window.location.reload();
         console.log(response.data);
         // 업로드된 이미지 URL을 받아와서 필요한 처리를 수행하거나 상태를 업데이트합니다.
         // 예시: this.props.handleImageUpload(response.data.imageUrl);
