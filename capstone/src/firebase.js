@@ -3,6 +3,7 @@ import "firebase/compat/auth";
 import "firebase/compat/database";
 import "firebase/compat/storage";
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth"; // 코드 추가
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -17,7 +18,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
 // const analytics = getAnalytics(app);
 
-export default firebase;
+export {auth};
