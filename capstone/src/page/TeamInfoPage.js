@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../style/TeamInfoPage.css";
 import {Link, useParams, useNavigate} from "react-router-dom";
 import axios from "axios";
+import TeamImageUpload from "../components/TeamImageUpload";
 //style
 import styles from "./TeamInfoPage.module.css";
 
@@ -54,7 +55,7 @@ const TeamInfoPage = (props) => {
       .then((response) => {
         //console.log("삭제 성공");
         console.log(response);
-        alert('팀 삭제 성공');
+        alert('팀이 삭제되었습니다.');
         navigate(`/page/TeamListPage`);
       })
       .catch((error) => {
@@ -69,15 +70,19 @@ const TeamInfoPage = (props) => {
             <div className={styles.teamWrap}>
                 <div className={styles.teamImg}>
                     <img src={`https://teamguu.s3.ap-northeast-2.amazonaws.com/${logoImageUrl}`} alt="팀사진" />
+                    <div className={styles.imgUploadBtn}>
+                        <TeamImageUpload  teamId={teamId} />
+                    </div>
                 </div>
                 <div className={styles.teamInfo}>
                     <li>{name}</li>
-                    <li>{intro}</li>
                     <br/>
-                    <li>주장: {captain}</li>
-                    <li>종목: {sports}</li>
+                    <li>{intro}</li>
+                    
+                    {/* <li>주장: {captain}</li> */}
+                    {/* <li>종목: {sports}</li>
                     <li>전적: {victory}승 {draw}무 {defeat}패</li>
-                    <li>약력: {history}</li>                        
+                    <li>약력: {history}</li>                         */}
                 </div>
             </div>
             <div className={styles.teammateWrap}>
@@ -104,11 +109,15 @@ const TeamInfoPage = (props) => {
                     
                 </div>
                 <div className={styles.teammateInfo}>
-                    <div className={styles.teammateTxt}>구성 팀원</div>
-                    <hr></hr>
+                    <div className={styles.teammateTxt}>팀 정보</div>
+                    <hr/>
                     <div className={styles.teammateList}>
                         <ul>
-                            <li>{playerInfo}</li>
+                            <li>종목: {sports}</li>
+                            <li>전적: {victory}승 {draw}무 {defeat}패</li>
+                            <li>약력: {history}</li> 
+                            <li>주장 : {captain}</li>
+                            <li>팀원 : {playerInfo}</li>
                         </ul>
                     </div>
                 </div>

@@ -7,29 +7,34 @@
 .teamWrap{
     float: left;
     width: 600px;
-    margin-left: 30px;
+    margin-left: 60px;
     padding-bottom: 40px;
 }
 
 .teamImg{
-    margin-top: 30px;
+    margin-top: 73px;
     width: 400px;
-    height: 380px;
+    height: 350px;
 }
 
 .teamImg img{
     border: 1px solid grey;
     margin-left: 25px;
-    padding: 20px;
     width: 350px;
-    height: 350px;
+    height: 280px;
+}
+
+.imgUploadBtn{
+    margin-top: 10px;
+    margin-left: 70px;
 }
 
 .teamInfo{
-    background-color: rgb(216, 239, 213);
+    background-color: rgb(230, 240, 229);
     width: 400px;
     padding: 40px;
     font-size: 18px;
+    border: 1px solid grey;
 }
 
 .teamInfo li:first-child{
@@ -44,7 +49,7 @@
 
 .fixBtn{
     float: left;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: 230px;
     width: 120px;
     height: 40px;
@@ -64,7 +69,7 @@
 
 .deleteBtn{
     float: right;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-right: 130px;
     width: 100px;
     height: 40px;
@@ -80,6 +85,7 @@
     float: right;
     width: 600px;
     height: 500px;
+    border: 1px solid gray;
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
     margin-top: 20px;
@@ -87,9 +93,8 @@
 }
 
 .teammateTxt{
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 90px;
-    padding: 10px;
     margin-left: 30px;
     margin-top: 20px;
 }

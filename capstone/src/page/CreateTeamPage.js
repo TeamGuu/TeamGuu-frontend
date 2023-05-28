@@ -56,7 +56,7 @@ const CreateTeamPage = (props) => {
                 },
             })
             .then((response) => {
-                alert("저장 성공");
+                alert("팀이 성공적으로 저장되었습니다!");
                 console.log(response);
                 // 성공 처리 로직 작성
                 navigate('/page/teamListPage');

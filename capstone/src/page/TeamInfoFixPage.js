@@ -4,8 +4,6 @@ import { useParams,useNavigate } from "react-router-dom";
 //style
 import styles from "./TeamInfoFixPage.module.css";
 
-//이미지
-import TeamImageUpload from "../components/TeamImageUpload";
 const TeamInfoFixPage = (props) => {
     
     const { teamId } = useParams();
@@ -111,9 +109,9 @@ const TeamInfoFixPage = (props) => {
                 <div className={styles.saveBtn} onClick={handleSave}>저장</div>
                 
             </div>
-            <div className={styles.imgUploadBtn}>
+            {/* <div className={styles.imgUploadBtn}>
                         <TeamImageUpload  teamId={teamId} />
-                    </div>
+                </div> */}
             <div className={styles.bottomWrap}>
                 <table className={styles.myInfo}>
                     <tbody className={styles.tableBody}>
