@@ -16,22 +16,22 @@ function Message({ message, user }) {
 
     return (
         <div style={{ marginBottom: '10px', display:'flex' }}>
-            <img
+            {/* <img
                 style={{ borderRadius: '10px' }}
                 width={48}
                 height={48}
                 className="mr-3"
                 src={message.user.image}
                 alt={message.user.name}
-            />
-            <div style={{
+            /> */}
+            <div style={{marginLeft:"20px", padding:"10px",
                 backgroundColor: isMessageMine(message, user) && "#ECECEC"
             }}>
-                <h6>{message.user.name}{" "}
-                    <span style={{ fontSize: '10px', color: 'gray' }}>
+                <h5>{message.user.name}{" "}
+                    <span style={{ fontSize: '11px', color: 'gray' }}>
                         {timeFromNow(message.timestamp)}
                     </span>
-                </h6>
+                </h5>
                 {isImage(message) ?
                     <img style={{ maxWidth: '300px' }} alt="이미지" src={message.image} />
                     :
