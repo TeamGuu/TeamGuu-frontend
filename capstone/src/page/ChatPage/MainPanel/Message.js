@@ -26,7 +26,7 @@ function Message({ message, user }) {
             /> */}
             <div style={{marginLeft:"20px", padding:"10px",
                 backgroundColor: isMessageMine(message, user) && "#ECECEC",
-                border: "1px solid gray"
+                border: "1px solid #BDBDBD"
             }}>
                 <h5>{message.user.name}{" "}
                     <span style={{ fontSize: '11px', color: 'gray' }}>
