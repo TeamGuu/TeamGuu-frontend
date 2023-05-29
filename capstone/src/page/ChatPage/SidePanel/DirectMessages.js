@@ -76,7 +76,8 @@ export class DirectMessages extends Component {
                     // backgroundColor: user.uid === this.state.activeChatRoom
                     //     && "#ffffff95",
                     height:"35px",
-                    lineHeight:"35px"
+                    lineHeight:"35px",
+                    marginLeft:"20px"
                 }}
                 onClick={() => this.changeChatRoom(user)}>
                 # {user.name}
