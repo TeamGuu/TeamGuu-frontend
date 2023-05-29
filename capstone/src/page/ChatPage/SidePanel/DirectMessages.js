@@ -1,4 +1,4 @@
-import React, { useEffect, Component } from 'react'
+import React, { Component } from 'react'
 import { FaRegSmile } from 'react-icons/fa';
 import firebase from '../../../firebase';
 import { connect } from 'react-redux';
@@ -17,12 +17,14 @@ export class DirectMessages extends Component {
 
     componentDidMount() {
         if (this.props.user) {
+            console.log("여기까진 오냐?");
             this.addUsersListeners(this.props.user.uid)
         }
     }
 
     addUsersListeners = (currentUserId) => {
         const { usersRef } = this.state;
+
         let usersArray = [];
 
         onChildAdded(usersRef,  DataSnapshot => {
