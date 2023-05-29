@@ -4,6 +4,8 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import { ko } from "date-fns/esm/locale";
 import { Link, useNavigate } from "react-router-dom";
+import {moment} from "moment";
+
 //styles
 import styles from "./MatchListPage.module.css";
 import TeamListPage from "./TeamListPage.js";
@@ -58,9 +60,15 @@ const MatchListPage = (props) => {
   };
 
   const handleDateChange = (date) => {
-    setStartDate(date);
-    setSelectedDate(date);
+    let offset = date.getTimezoneOffset() * 60000; //ms단위라 60000곱해줌
+    let dateOffset = new Date(date.getTime() - offset);
+
+    setStartDate(dateOffset);
+    setSelectedDate(dateOffset);
+
     console.log(date.toISOString().split("T")[0]); // 선택한 날짜 출력
+    
+    console.log("외않되?",dateOffset.toISOString()); //정상으로 나옴
   };
 
   const handleClick = (e, item) => {

@@ -142,8 +142,8 @@ const StadiumInfoPage = (props) => {
         .then((response) => {
             console.log(response);
             alert('예약이 완료되었습니다.');
-            // 경기장 정보화면으로 이동
-           navigate(`/page/StadiumListPage`);
+
+            window.location.reload();
           })
           .catch((error) => {
             console.error(error);
@@ -154,8 +154,10 @@ const StadiumInfoPage = (props) => {
 
     //날짜 선택시 핸들작용 코드
     const handleDateChange = (date) => {
-        setStartDate(date);
-        console.log(startDate.toISOString().split("T")[0]); 
+      let offset = date.getTimezoneOffset() * 60000; //ms단위라 60000곱해줌
+      let dateOffset = new Date(date.getTime() - offset);
+      setStartDate(dateOffset);
+      console.log(startDate.toISOString().split("T")[0]); 
     };
 
     //팀 선택 시 핸들작용 코드

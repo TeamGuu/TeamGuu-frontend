@@ -83,9 +83,11 @@ const CreateMatchPage = (props) => {
 }
 
 const handleDateChange = (date) => {
-    setStartDate(date);
-    console.log(startDate.toISOString().split("T")[0]); // 선택한 날짜 출력
-  };
+  let offset = date.getTimezoneOffset() * 60000; //ms단위라 60000곱해줌
+  let dateOffset = new Date(date.getTime() - offset);
+  setStartDate(dateOffset);
+  console.log(startDate.toISOString().split("T")[0]); // 선택한 날짜 출력
+};
 
 const handleTitleChange = (e) => {
    setTitle(e.target.value);
