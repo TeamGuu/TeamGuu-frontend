@@ -25,7 +25,8 @@ function Message({ message, user }) {
                 alt={message.user.name}
             /> */}
             <div style={{marginLeft:"20px", padding:"10px",
-                backgroundColor: isMessageMine(message, user) && "#ECECEC"
+                backgroundColor: isMessageMine(message, user) && "#ECECEC",
+                border: "1px solid gray"
             }}>
                 <h5>{message.user.name}{" "}
                     <span style={{ fontSize: '11px', color: 'gray' }}>
