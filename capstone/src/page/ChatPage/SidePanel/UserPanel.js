@@ -1,44 +1,25 @@
 import React from 'react'
 import { IoIosChatboxes } from 'react-icons/io';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Image from 'react-bootstrap/Image';
-import { useSelector } from 'react-redux';
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 function UserPanel() {
-    const user = useSelector(state => state.user.currentUser)
-    // console.log("얄루selector",user);
-
-    // const handleLogout = () => {
-    //     const auth = getAuth();
-    //     signOut(auth).then(() => {
-    //         // Sign-out successful.
-    //     }).catch((error) => {
-    //         // An error happened.
-    //     });
-    // }
+    const auth = getAuth();
+    const user = auth.currentUser; //현재 로그인 한 회원 정보
 
     return (
         <div>
             {/* Logo */}
-            <h3 style={{marginBottom:'30px'}}>
+            <h3 style={{marginBottom:'30px', marginLeft:"20px"}}>
                 <IoIosChatboxes />{" "} 채팅
             </h3>
 
-            <div style={{ display: 'flex', marginBottom: '30px' }}>
-                {/* <Dropdown>
-                    <Dropdown.Toggle
-                        style={{ background: 'transparent', border: '0px', color: 'black', }}
-                        id="dropdown-basic">
-                        {user && user.displayName}
-                    </Dropdown.Toggle> */}
-
-                    {/* <Dropdown.Menu>
-                        <Dropdown.Item onClick={handleLogout}>
-                            로그아웃
-                        </Dropdown.Item>
-                    </Dropdown.Menu> */}
-                {/* </Dropdown> */}
+            <div style={{ float: 'left', width:"220px", marginBottom: '30px', marginLeft: "40px" }}>
+                <div
+                    style={{ background: 'transparent', border: '0px', 
+                        color: 'black', fontSize:"20px", fontWeight:"bold" }}
+                    id="dropdown-basic">
+                    {user && user.displayName}
+                </div>
             </div>
         </div>
     )

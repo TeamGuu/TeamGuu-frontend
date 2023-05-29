@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {Link,  useNavigate} from "react-router-dom";
 import axios from 'axios';
 //style
@@ -11,6 +11,7 @@ import styles from "./LoginPage.module.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { auth } from "../firebase";
+import { getAuth } from "firebase/auth";
 
 
 // const User={
@@ -31,16 +32,23 @@ function LoginPage(props){
 
    // const [notAllow,setNotAllow] = useState(false);
 
+    
 
    //firebase
+
+    const auth = getAuth();
+    const user = auth.currentUser;
 
    const login = async () => {
     try {
         const curUserInfo = await signInWithEmailAndPassword(auth, email, password);
-        console.log(curUserInfo);
-
-        // console.log("uid",createdUser.user.uid);
-
+        console.log("curUserInfo",curUserInfo);
+        // console.log("uid",curUserInfo.user.uid);
+        if(user){
+            console.log("로그인중");
+        }else{
+            console.log("로그인중아님");
+        }
     } catch (error) {
         console.log(error.message);
     }
@@ -68,15 +76,6 @@ function LoginPage(props){
         }
 
     }
-    // //버튼 활성화 여부, 이메일과 비밀번호가 형식에 맞게 입력된다면 버튼이 활성화된다.
-    // useEffect(()=>{
-    //     if(emailnValid && pwValid){
-    //         setNotAllow(false);
-    //         return;
-    //     }
-    //     setNotAllow(true);
-    // }, [emailnValid,pwValid]);
-
 
     const onClickConfirmButton = (e) => {
 
