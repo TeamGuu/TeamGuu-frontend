@@ -16,11 +16,13 @@ export class DirectMessages extends Component {
     }
 
     componentDidMount() {
-        if (this.props.user) {
-            console.log("여기까진 오냐?");
-            this.addUsersListeners(this.props.user.uid)
+        const { user } = this.props;
+        if (user) {
+          console.log("여기까진 오냐?");
+          this.addUsersListeners(user.uid);
         }
     }
+      
 
     addUsersListeners = (currentUserId) => {
         const { usersRef } = this.state;
@@ -34,7 +36,7 @@ export class DirectMessages extends Component {
                 user["uid"] = DataSnapshot.key;
                 // user["status"] = "offline";
                 usersArray.push(user)
-                console.log("usersArray",usersArray);
+                console.log("usersArray",usersArray); //여기는 정상적으로 나온다.
                 this.setState({ users: usersArray })
             }
         })
@@ -54,15 +56,16 @@ export class DirectMessages extends Component {
             id: chatRoomId,
             name: user.name
         }
-
+    
         this.props.dispatch(setCurrentChatRoom(chatRoomData));
         this.props.dispatch(setPrivateChatRoom(true));
         this.setActiveChatRoom(user.uid);
     }
+    
 
-    // setActiveChatRoom = (userId) => {
-    //     this.setState({ activeChatRoom: userId })
-    // }
+    setActiveChatRoom = (userId) => {
+        this.setState({ activeChatRoom: userId })
+    }
 
 
     renderDirectMessages = users =>
