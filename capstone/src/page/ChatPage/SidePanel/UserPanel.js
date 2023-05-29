@@ -4,9 +4,7 @@ import { getAuth } from "firebase/auth";
 
 function UserPanel() {
     const auth = getAuth();
-    const user = auth.currentUser;
-
-    console.log("얄루selector",user);
+    const user = auth.currentUser; //현재 로그인 한 회원 정보
 
     return (
         <div>
@@ -15,7 +13,7 @@ function UserPanel() {
                 <IoIosChatboxes />{" "} 채팅
             </h3>
 
-            <div style={{ float: 'left', width:"250px", marginBottom: '30px', marginLeft: "40px" }}>
+            <div style={{ float: 'left', width:"220px", marginBottom: '30px', marginLeft: "40px" }}>
                 <div
                     style={{ background: 'transparent', border: '0px', 
                         color: 'black', fontSize:"20px", fontWeight:"bold" }}
