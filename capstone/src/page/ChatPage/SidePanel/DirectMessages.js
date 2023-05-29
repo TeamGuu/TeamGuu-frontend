@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect, Component } from 'react'
 import { FaRegSmile } from 'react-icons/fa';
 import firebase from '../../../firebase';
 import { connect } from 'react-redux';
@@ -12,7 +12,7 @@ export class DirectMessages extends Component {
     state = {
         usersRef: ref(getDatabase(), "users"),
         users: [],
-        activeChatRoom: ""
+        // activeChatRoom: ""
     }
 
     componentDidMount() {
@@ -26,11 +26,13 @@ export class DirectMessages extends Component {
         let usersArray = [];
 
         onChildAdded(usersRef,  DataSnapshot => {
-            if (currentUserId !== DataSnapshot.key) {
+            if (currentUserId !== DataSnapshot.key) { //내이름 빼고
+                // console.log('DataSnapshot.val()',DataSnapshot.val());
                 let user = DataSnapshot.val();
                 user["uid"] = DataSnapshot.key;
-                user["status"] = "offline";
+                // user["status"] = "offline";
                 usersArray.push(user)
+                console.log("usersArray",usersArray);
                 this.setState({ users: usersArray })
             }
         })
@@ -56,9 +58,9 @@ export class DirectMessages extends Component {
         this.setActiveChatRoom(user.uid);
     }
 
-    setActiveChatRoom = (userId) => {
-        this.setState({ activeChatRoom: userId })
-    }
+    // setActiveChatRoom = (userId) => {
+    //     this.setState({ activeChatRoom: userId })
+    // }
 
 
     renderDirectMessages = users =>
@@ -66,8 +68,8 @@ export class DirectMessages extends Component {
         users.map(user => (
             <li key={user.uid}
                 style={{
-                    backgroundColor: user.uid === this.state.activeChatRoom
-                        && "#ffffff95",
+                    // backgroundColor: user.uid === this.state.activeChatRoom
+                    //     && "#ffffff95",
                     height:"35px",
                     lineHeight:"35px"
                 }}
@@ -80,7 +82,7 @@ export class DirectMessages extends Component {
         const { users } = this.state;
         return (
             <div>
-                <span style={{ display: 'flex', alignItems: 'center' }}>
+                <span style={{ alignItems: 'center', marginLeft:"20px" }}>
                     <FaRegSmile style={{ marginRight: 3 }} />  DIRECT MESSAGES({users.length})
                 </span>
 

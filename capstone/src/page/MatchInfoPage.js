@@ -72,13 +72,13 @@ const MatchInfoPage = (props) => {
       .then((response) => {
         //console.log("삭제 성공");
         console.log(response);
-        alert('팀 삭제 성공');
+        alert('매칭공고 삭제 성공');
         navigate(`/page/MatchListPage`);
       })
       .catch((error) => {
         console.log(error);
         console.log(`엑세스토큰: ${localStorage.getItem("accessToken")}`);
-        alert('팀 삭제 실패');
+        alert('매칭공고 삭제 실패');
       });
   };
 
@@ -113,7 +113,7 @@ const MatchInfoPage = (props) => {
             </Link>   
           </div>
              
-          <div className={styles.deleteBtn} onClick={handleClickDelete}>매칭삭제</div>
+          <div className={styles.deleteBtn} onClick={handleClickDelete}>매칭공고삭제</div>
           <div className={styles.matchWrap}>
             <div className={styles.topWrap}>
               <div className={styles.teamMainInfo}>

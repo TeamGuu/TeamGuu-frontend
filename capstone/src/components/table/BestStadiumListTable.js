@@ -50,7 +50,7 @@ const BestStadiumListTable = () => {
                 <th colSpan={3}>
                     <div className={styles.tableTxt}>전국 경기장 정보</div>
                     <button className={styles.plusBtn}>
-                        <Link to="/page/MatchListPage" style={{textDecoration: "none", color:"black"}}>
+                        <Link to="/page/StadiumListPage" style={{textDecoration: "none", color:"black"}}>
                             + 더보기
                         </Link>
                     </button>
