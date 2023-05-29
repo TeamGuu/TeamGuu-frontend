@@ -80,7 +80,7 @@ export class DirectMessages extends Component {
         const { users } = this.state;
         return (
             <div>
-                <span style={{ display: 'flex', alignItems: 'center' }}>
+                <span style={{ alignItems: 'center', marginLeft:"20px" }}>
                     <FaRegSmile style={{ marginRight: 3 }} />  DIRECT MESSAGES({users.length})
                 </span>
 
