@@ -7,9 +7,7 @@ import axios from 'axios';
 //firebase
 // import firebase from "../firebase";
 import { getDatabase, ref, set } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useForm } from 'react-hook-form';
-// import md5 from 'md5';
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 import { auth } from "../firebase";
 
@@ -39,9 +37,6 @@ const JoinPage= () => {
 
 
     //firebase
-    // const { register, handleSubmit } = useForm();
-    // const [registerEmail, setRegisterEmail] = useState(null);
-    // const [registerPassword, setRegisterPassword] = useState("");
 
     const register = async () => {
         try {
@@ -57,6 +52,8 @@ const JoinPage= () => {
                 name: createdUser.user.displayName,
                 id: createdUser.user.email,
             })
+
+            // console.log("uid",createdUser.user.uid);
 
         } catch (error) {
             console.log(error.message);
@@ -220,7 +217,7 @@ const JoinPage= () => {
             setId(response.data.result.id);
             alert('회원가입이 완료되었습니다.');
             
-            // navigate('/page/LoginPage');
+            navigate('/page/LoginPage');
           })
           .catch((error) => {
             console.error(error);

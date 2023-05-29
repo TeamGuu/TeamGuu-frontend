@@ -4,6 +4,15 @@ import axios from 'axios';
 //style
 import styles from "./LoginPage.module.css";
 
+
+//firebase
+// import firebase from "../firebase";
+// import { getDatabase, ref, set } from "firebase/database";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
+import { auth } from "../firebase";
+
+
 // const User={
 //     eamil: 'test@example.com',
 //     password: 'test2323@@@',
@@ -21,6 +30,21 @@ function LoginPage(props){
     const [pwValid,setPwValid] = useState(false);
 
    // const [notAllow,setNotAllow] = useState(false);
+
+
+   //firebase
+
+   const login = async () => {
+    try {
+        const curUserInfo = await signInWithEmailAndPassword(auth, email, password);
+        console.log(curUserInfo);
+
+        // console.log("uid",createdUser.user.uid);
+
+    } catch (error) {
+        console.log(error.message);
+    }
+};
 
     const handleEmail=(e)=>{ //올바른 이메일 주소 형식으로 텍스트 입력할경우 경고문이 사라짐
         setEmail(e.target.value);
@@ -56,7 +80,7 @@ function LoginPage(props){
 
     const onClickConfirmButton = (e) => {
 
-        e.preventDefault();
+        // e.preventDefault();
         
         const userData ={
             username: email,
@@ -122,7 +146,12 @@ function LoginPage(props){
             </div>
 {/* disabled={notAllow} */}
             <div className={styles.confirmWrap}>
-                <button type="submit" onClick={onClickConfirmButton}  className={styles.confirmButton}>로그인</button> 
+                <button type="submit" onClick={()=>{
+                    onClickConfirmButton();
+                    login();
+                }}  className={styles.confirmButton}>
+                    로그인
+                </button> 
             </div>
 
             <div className={styles.bottomBtn}>
