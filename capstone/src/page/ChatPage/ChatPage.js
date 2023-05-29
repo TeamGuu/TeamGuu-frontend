@@ -8,9 +8,9 @@ function ChatPage() {
     const auth = getAuth();
     const user = auth.currentUser;
     if(user){
-        console.log("user",user);
+        console.log("현재 user 정보 가져오기 성공",user);
     }else{
-        console.log("갈!");
+        console.log("현재 user 정보 가져오기 실패");
     }
     
     // const currentUser = useSelector(state => state.user.currentUser)
