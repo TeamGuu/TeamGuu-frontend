@@ -107,11 +107,11 @@ const MatchInfoPage = (props) => {
       return (
         <> 
           
-            <div className={styles.challengeBtn} onClick={handleMatch}>
-            {/* <Link to="/ChatPage" style={{textDecoration:"none", color:"black"}}> */}
+          <div className={styles.challengeBtn} onClick={handleMatch}>
+            <Link to="/ChatPage" style={{textDecoration:"none", color:"black"}}>
               매칭신청하기
-            {/* </Link>    */}
-              </div>
+            </Link>   
+          </div>
              
           <div className={styles.deleteBtn} onClick={handleClickDelete}>매칭삭제</div>
           <div className={styles.matchWrap}>

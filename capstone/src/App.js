@@ -25,7 +25,8 @@ import ChatPage from './page/ChatPage/ChatPage';
 
 const App = (props) => {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
+    <>
       <Navigation />
       <Routes>
         <Route exact path='/' element={<MainPage/>} />
@@ -53,7 +54,8 @@ const App = (props) => {
         <Route path='/ChatPage' element={<ChatPage/>}/>
 
       </Routes>
-    </BrowserRouter>
+    </>
+    // </BrowserRouter>
   );
 }
 
