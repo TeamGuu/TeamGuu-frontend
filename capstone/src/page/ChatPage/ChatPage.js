@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useLocation } from "react-router-dom";
 import SidePanel from './SidePanel/SidePanel';
 import MainPanel from './MainPanel/MainPanel';
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,6 +9,13 @@ import { setCurrentChatRoom } from '../../redux/actions/chatRoom_action';
 import { setUser } from '../../redux/actions/user_action';
 
 function ChatPage() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+
+  // receiverUserEmail과 senderUserEmail 값 가져오기
+  const receiverUserEmail = queryParams.get("receiverUserEmail");
+  const senderUserEmail = queryParams.get("senderUserEmail");
+
   const dispatch = useDispatch();
   const auth = getAuth();
   const user = auth.currentUser;
@@ -33,6 +41,8 @@ function ChatPage() {
           const chatRoomData = {
             id: newChatRoomId,
             name: 'My Chat Room',
+            receiverUserEmail,
+            senderUserEmail,
           };
 
           set(newChatRoomRef, chatRoomData)
@@ -50,7 +60,7 @@ function ChatPage() {
     };
 
     fetchChatRoom();
-  }, [user, currentChatRoom, dispatch]);
+  }, [user, currentChatRoom, dispatch, receiverUserEmail, senderUserEmail]);
 
   console.log('currentUser:', currentUser);
   console.log('currentChatRoom:', currentChatRoom);
