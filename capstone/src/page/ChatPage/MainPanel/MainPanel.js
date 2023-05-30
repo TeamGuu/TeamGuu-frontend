@@ -119,11 +119,12 @@ export class MainPanel extends Component {
 
     handleSearchChange = event => {
         this.setState({
-          searchTerm: event.target.value,
-          searchLoading: true
-        }, this.handleSearchMessages)
-      }
-
+            searchTerm: event.target.value,
+            searchLoading: true
+        },
+            () => this.handleSearchMessages()
+        )
+    }
     addMessagesListeners = (chatRoomId) => {
 
         let messagesArray = [];
@@ -159,23 +160,19 @@ export class MainPanel extends Component {
 
     renderMessages = (messages) =>
     messages.length > 0 &&
-    messages.map((message) => (
-      <Message
-        key={message.timestamp}
-        message={message}
-        user={this.props.user}
-      />
-    ));
+        messages.map(message => (
+            <Message
+                key={message.timestamp}
+                message={message}
+                user={this.props.user}
+            />
+        ))
 
-        renderTypingUsers = (typingUsers) => {
-            return (
-                typingUsers.length > 0 &&
-                typingUsers.map(user => (
-                  <span key={user.id}>
-                    {user.name}님이 채팅을 입력하고 있습니다...
-                  </span>
-                ))
-              );
+    renderTypingUsers = (typingUsers) => {
+        return (typingUsers.length > 0 &&
+            typingUsers.map(user => (
+                <span>{user.name.userUid}님이 채팅을 입력하고 있습니다...</span>
+            )))
     }
 
     renderMessageSkeleton = (loading) =>
@@ -190,7 +187,7 @@ export class MainPanel extends Component {
         render() {
             const { messages, searchTerm, searchResults, typingUsers, messagesLoading } = this.state;
             return (
-              <div style={{ padding: '2rem 2rem 0 2rem' }}>
+                <div style={{ padding: '2rem 2rem 0 2rem' }}>
                 <MessageHeader handleSearchChange={this.handleSearchChange} />
                 <div style={{
                   width: '100%',
@@ -202,9 +199,14 @@ export class MainPanel extends Component {
                   overflowY: 'auto'
                 }}>
                   {this.renderMessageSkeleton(messagesLoading)}
-                  {searchTerm ? this.renderMessages(searchResults) : this.renderMessages(messages)}
-                  {this.renderTypingUsers(typingUsers)}
-                  <div ref={node => (this.messageEndRef = node)} />
+                    {searchTerm ?
+                        this.renderMessages(searchResults)
+                        :
+                        this.renderMessages(messages)
+                    }
+
+                    {this.renderTypingUsers(typingUsers)}
+                    <div ref={node => (this.messageEndRef = node)} />
                 </div>
                 <MessageForm />
               </div>
